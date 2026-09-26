@@ -58,6 +58,13 @@ remote apps require HTTPS).
 > Note: http/LAN installs work in Stremio desktop and Android; `web.stremio.com`
 > and TV apps need an HTTPS URL — that's what Option A gives you.
 
+### Moving the catalog up your home screen
+
+Stremio orders home rows by addon installation order — nothing in the addon
+protocol controls position. To move this catalog up without reinstalling
+everything, use the community [Stremio Addon Manager](https://stremio-addon-manager.pages.dev/):
+log in, drag the addon where you want it, click *Sync to Stremio*.
+
 ## How "watched" is determined
 
 Two complementary sources, unioned:
