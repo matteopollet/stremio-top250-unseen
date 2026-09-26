@@ -14,10 +14,11 @@ const BUNDLED_DATA = new URL("../../data/", import.meta.url);
 const cache = new FileCache(`${DATA_DIR}/cache.json`);
 const store = new FileCache(`${DATA_DIR}/store.json`);
 
-const [snapshot, aliases, configureJs] = await Promise.all([
+const [snapshot, aliases, configureJs, favicon] = await Promise.all([
   readFile(new URL("top250.snapshot.json", BUNDLED_DATA), "utf8").then(JSON.parse),
   readFile(new URL("aliases.json", BUNDLED_DATA), "utf8").then((t) => JSON.parse(t).aliases as Record<string, string>),
-  readFile(new URL("../../public/configure.js", import.meta.url), "utf8").catch(() => null),
+  readFile(new URL("../../public/configure.js", import.meta.url)).catch(() => null),
+  readFile(new URL("../../public/favicon.svg", import.meta.url)).catch(() => null),
 ]);
 
 const deps: AddonDeps = {
@@ -34,13 +35,17 @@ const server = createServer(async (req, res) => {
   try {
     const url = new URL(req.url ?? "/", `http://${req.headers.host ?? "localhost"}`);
 
-    // static asset for the configure page
+    // static assets for the configure page
     if (url.pathname === "/configure.js") {
       if (!configureJs) {
         res.writeHead(404).end("run `npm run build:configure` first");
         return;
       }
       res.writeHead(200, { "Content-Type": "text/javascript" }).end(configureJs);
+      return;
+    }
+    if (url.pathname === "/favicon.svg" && favicon) {
+      res.writeHead(200, { "Content-Type": "image/svg+xml", "Cache-Control": "public, max-age=86400" }).end(favicon);
       return;
     }
 

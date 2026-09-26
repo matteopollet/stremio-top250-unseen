@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#0D0D10"/>
+  <!-- rail baseline ticks -->
+  <g stroke="#E9E5D8" stroke-width="2" stroke-linecap="square">
+    <!-- struck: collapsed -->
+    <line x1="11" y1="40" x2="11" y2="46" opacity="0.25"/>
+    <line x1="19" y1="40" x2="19" y2="46" opacity="0.25"/>
+    <!-- live -->
+    <line x1="27" y1="14" x2="27" y2="46" opacity="0.55"/>
+    <line x1="43" y1="14" x2="43" y2="46" opacity="0.55"/>
+    <line x1="51" y1="14" x2="51" y2="46" opacity="0.55"/>
+    <!-- struck by hand: tall but slashed -->
+    <line x1="35" y1="14" x2="35" y2="46" opacity="0.3"/>
+  </g>
+  <line x1="31.5" y1="33" x2="38.5" y2="27" stroke="#E9E5D8" stroke-width="2" opacity="0.8"/>
+  <!-- next film: H-alpha double line -->
+  <line x1="57" y1="9" x2="57" y2="46" stroke="#FF3B30" stroke-width="2"/>
+  <line x1="60" y1="9" x2="60" y2="46" stroke="#FF3B30" stroke-width="2" opacity="0.85"/>
+  <line x1="6" y1="50" x2="58" y2="50" stroke="#E9E5D8" stroke-width="1.5" opacity="0.3"/>
+</svg>
