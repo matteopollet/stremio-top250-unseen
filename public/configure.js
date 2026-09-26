@@ -17,6 +17,13 @@
   }
   var IMDB_ID = /^tt\d{4,10}$/;
   var STRING_FIELDS = ["letterboxdUsername", "tmdbApiKey", "storageKey", "catalogName"];
+  var STRING_FIELD_MAX = {
+    letterboxdUsername: 100,
+    tmdbApiKey: 300,
+    // TMDB v4 read tokens are ~200-char JWTs
+    storageKey: 100,
+    catalogName: 100
+  };
   function decodeConfig(raw) {
     try {
       const obj = JSON.parse(b64urlDecode(raw));
@@ -26,7 +33,7 @@
       for (const k of STRING_FIELDS) {
         const v = o[k];
         if (v === void 0) continue;
-        if (typeof v !== "string") return null;
+        if (typeof v !== "string" || v.length === 0 || v.length > STRING_FIELD_MAX[k]) return null;
         cfg[k] = v;
       }
       if (o.overrides !== void 0) {

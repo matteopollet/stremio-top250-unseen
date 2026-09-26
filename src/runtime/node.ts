@@ -6,6 +6,8 @@ import { configurePageHtml } from "../http/configure-html.js";
 import { FileCache } from "./file-cache.js";
 
 const PORT = Number(process.env.PORT ?? 7146);
+// well above the app-level 256KB limit — this is the read-side backstop only
+const MAX_REQUEST_BYTES = 1_000_000;
 // DATA_DIR = writable state (cache + exclusions). Bundled reference data
 // (top250 snapshot, aliases) is always read from the repo, relative to this file.
 const DATA_DIR = process.env.DATA_DIR ?? "data/local";
@@ -51,13 +53,34 @@ const server = createServer(async (req, res) => {
 
     let body: string | null = null;
     if (req.method === "POST") {
+      // cap while reading — buffering an unbounded body before the app's own
+      // 256KB check would let a huge POST exhaust memory on this host
       const chunks: Buffer[] = [];
-      for await (const c of req) chunks.push(c as Buffer);
+      let size = 0;
+      let oversized = false;
+      for await (const c of req) {
+        size += (c as Buffer).length;
+        if (size > MAX_REQUEST_BYTES) {
+          oversized = true;
+          break;
+        }
+        chunks.push(c as Buffer);
+      }
+      if (oversized) {
+        res
+          .writeHead(413, {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            Connection: "close",
+          })
+          .end(JSON.stringify({ err: "payload too large" }), () => req.destroy());
+        return;
+      }
       body = Buffer.concat(chunks).toString("utf8");
     }
 
     const out = await handleRequest(req.method ?? "GET", url.pathname, body, deps);
-    res.writeHead(out.status, out.headers).end(out.body);
+    res.writeHead(out.status, out.headers).end(req.method === "HEAD" ? undefined : out.body);
   } catch (e) {
     res.writeHead(500, { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" })
       .end(JSON.stringify({ err: (e as Error).message }));

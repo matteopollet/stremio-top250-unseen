@@ -9,23 +9,30 @@ interface FileEntry {
 
 /** JSON-file-backed cache for the Node runtime. One file per namespace. */
 export class FileCache implements Cache {
-  private loaded = false;
   private store = new Map<string, FileEntry>();
   private dirty = false;
   private flushing: Promise<void> | null = null;
+  private loading: Promise<void> | null = null;
 
   constructor(private filePath: string) {}
 
-  private async load(): Promise<void> {
-    if (this.loaded) return;
-    this.loaded = true;
-    try {
-      const raw = await readFile(this.filePath, "utf8");
-      const parsed = JSON.parse(raw) as Record<string, FileEntry>;
-      for (const [k, v] of Object.entries(parsed)) this.store.set(k, v);
-    } catch {
-      // missing or corrupt cache file: start empty
+  // memoized: concurrent first calls share one read, and a set() racing the
+  // initial load is never clobbered by the (older) file contents
+  private load(): Promise<void> {
+    if (!this.loading) {
+      this.loading = (async () => {
+        try {
+          const raw = await readFile(this.filePath, "utf8");
+          const parsed = JSON.parse(raw) as Record<string, FileEntry>;
+          for (const [k, v] of Object.entries(parsed)) {
+            if (!this.store.has(k)) this.store.set(k, v);
+          }
+        } catch {
+          // missing or corrupt cache file: start empty
+        }
+      })();
     }
+    return this.loading;
   }
 
   async get<T>(key: string): Promise<T | undefined> {

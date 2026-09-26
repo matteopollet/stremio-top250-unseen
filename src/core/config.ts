@@ -43,6 +43,15 @@ export function encodeConfig(cfg: AddonConfig): string {
 const IMDB_ID = /^tt\d{4,10}$/;
 const STRING_FIELDS = ["letterboxdUsername", "tmdbApiKey", "storageKey", "catalogName"] as const;
 
+// String fields land in KV keys (`watched:rss:{username}`, `watched:csv:{key}`)
+// whose limit is 512 bytes — an unbounded value could crash a request.
+const STRING_FIELD_MAX: Record<(typeof STRING_FIELDS)[number], number> = {
+  letterboxdUsername: 100,
+  tmdbApiKey: 300, // TMDB v4 read tokens are ~200-char JWTs
+  storageKey: 100,
+  catalogName: 100,
+};
+
 /**
  * Decodes and validates a URL config. Unknown keys are dropped; known keys
  * with the wrong type reject the whole config (a malformed cfg must fall back
@@ -57,7 +66,7 @@ export function decodeConfig(raw: string): AddonConfig | null {
     for (const k of STRING_FIELDS) {
       const v = o[k];
       if (v === undefined) continue;
-      if (typeof v !== "string") return null;
+      if (typeof v !== "string" || v.length === 0 || v.length > STRING_FIELD_MAX[k]) return null;
       cfg[k] = v;
     }
     if (o.overrides !== undefined) {

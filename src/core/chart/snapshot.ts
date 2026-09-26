@@ -12,23 +12,34 @@ export interface SnapshotFile {
  * the chart source fully replaceable.
  */
 export class SnapshotProvider implements ChartProvider {
-  readonly name;
+  private usedBundledFallback = false;
 
   constructor(
     private snapshot: SnapshotFile | null,
     private url: string | null = null,
     // never a bare `fetch` reference — detached fetch throws "Illegal invocation" on Workers
     private fetchImpl: typeof fetch = (...args) => fetch(...args),
-  ) {
-    this.name = url ? `snapshot:${url}` : "snapshot:bundled";
+  ) {}
+
+  /** "snapshot:{url}" normally, "snapshot:bundled" when the URL failed */
+  get name() {
+    return this.url && !this.usedBundledFallback ? `snapshot:${this.url}` : "snapshot:bundled";
   }
 
   async getChart(): Promise<RankedFilm[]> {
     let snap = this.snapshot;
     if (this.url) {
-      const res = await this.fetchImpl(this.url, { signal: AbortSignal.timeout(10_000) });
-      if (!res.ok) throw new Error(`snapshot fetch: HTTP ${res.status}`);
-      snap = (await res.json()) as SnapshotFile;
+      try {
+        const res = await this.fetchImpl(this.url, { signal: AbortSignal.timeout(10_000) });
+        if (!res.ok) throw new Error(`snapshot fetch: HTTP ${res.status}`);
+        snap = (await res.json()) as SnapshotFile;
+        this.usedBundledFallback = false;
+      } catch (e) {
+        // the bundled snapshot is a strictly better answer than an outage —
+        // only propagate when nothing is bundled at all
+        if (!snap?.films?.length) throw e;
+        this.usedBundledFallback = true;
+      }
     }
     if (!snap?.films?.length) throw new Error("snapshot: empty or missing");
     return snap.films;

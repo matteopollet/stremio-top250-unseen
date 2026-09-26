@@ -63,7 +63,7 @@ export class IdResolver {
       headers: {
         "Content-Type": "application/sparql-query",
         Accept: "application/sparql-results+json",
-        "User-Agent": "stremio-top250-unseen (https://github.com/)",
+        "User-Agent": "stremio-top250-unseen (https://github.com/matteopollet/stremio-top250-unseen)",
       },
       body: query,
       signal: AbortSignal.timeout(10_000),

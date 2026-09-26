@@ -28,7 +28,11 @@ export interface RssFilmItem {
 
 function tag(block: string, name: string): string | null {
   const m = block.match(new RegExp(`<${name}[^>]*>([\\s\\S]*?)</${name}>`));
-  return m ? m[1]!.trim() : null;
+  if (!m) return null;
+  const inner = m[1]!.trim();
+  // tolerate CDATA-wrapped values — the raw marker must not leak into titles
+  const cdata = inner.match(/^<!\[CDATA\[([\s\S]*?)\]\]>$/);
+  return (cdata ? cdata[1]! : inner).trim();
 }
 
 /** Parses the watch/diary/review items out of a Letterboxd RSS feed. */
