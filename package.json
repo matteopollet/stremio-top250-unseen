@@ -4,6 +4,7 @@
   "description": "Stremio addon: IMDb Top 250 minus the movies you have already seen (Letterboxd)",
   "license": "MIT",
   "author": "Mattéo Pollet",
+  "repository": { "type": "git", "url": "git+https://github.com/matteopollet/stremio-top250-unseen.git" },
   "keywords": ["stremio", "stremio-addon", "imdb", "top250", "letterboxd", "movies", "catalog"],
   "type": "module",
   "engines": {

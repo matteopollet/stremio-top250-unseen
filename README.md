@@ -1,10 +1,16 @@
 # Top 250 Unseen
 
+[![CI](https://github.com/matteopollet/stremio-top250-unseen/actions/workflows/ci.yml/badge.svg)](https://github.com/matteopollet/stremio-top250-unseen/actions/workflows/ci.yml)
+
 A Stremio addon that adds one catalog to your home screen:
 
 > **IMDb Top 250 — À voir** = the current IMDb Top 250, *minus the films you have already seen* (according to Letterboxd), in IMDb rank order.
 
+![The catalog in Stremio](docs/screenshots/stremio-catalog.png)
+
 Open Stremio → the first film in the row is the highest-ranked film you haven't watched yet. Click it, watch it, log it on Letterboxd (or tick it in `/configure`), and it disappears from the catalog.
+
+![The configure page — each hairline is one of the 250 films; struck films collapse](docs/screenshots/configure-rail.png)
 
 ```
 IMDb Top 250  ──┐
