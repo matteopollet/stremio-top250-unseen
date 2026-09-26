@@ -76,4 +76,26 @@ describe("LetterboxdRssProvider", () => {
     expect(ids2.has("tt0111161")).toBe(true);
     expect(store.map.get("watched:rss:testuser")).toEqual(["tt0111161"]);
   });
+
+  it("keeps serving accumulated ids when the feed is unreachable", async () => {
+    const store = new MapStore();
+    const resolver = new IdResolver(new MemoryCache(), {
+      fetchImpl: (async () => ({
+        ok: true, status: 200,
+        json: async () => ({ results: { bindings: [{ tmdb: { value: "278" }, imdb: { value: "tt0111161" } }] } }),
+      })) as never,
+    });
+
+    // prime the accumulated set with a healthy feed
+    const ok = new LetterboxdRssProvider("testuser", new MemoryCache(), store, resolver,
+      (async () => ({ ok: true, text: async () => fixture })) as never);
+    await ok.getWatchedIds();
+
+    // feed down: fresh cache forces a fetch, which fails — accumulated ids survive
+    const failing = new LetterboxdRssProvider("testuser", new MemoryCache(), store, resolver,
+      (async () => { throw new Error("letterboxd rss: HTTP 500"); }) as never);
+    const ids = await failing.getWatchedIds();
+    expect(ids.has("tt0111161")).toBe(true);
+    expect(failing.lastError).toBe("letterboxd rss: HTTP 500");
+  });
 });

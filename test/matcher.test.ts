@@ -12,6 +12,7 @@ const CHART: RankedFilm[] = [
   { rank: 15, imdbId: "tt0080684", title: "Star Wars: Episode V - The Empire Strikes Back", originalTitle: "Star Wars: Episode V - The Empire Strikes Back", year: 1980, posterUrl: null, imdbRating: 8.7 },
   { rank: 24, imdbId: "tt0047478", title: "Seven Samurai", originalTitle: "Shichinin no samurai", year: 1954, posterUrl: null, imdbRating: 8.6 },
   { rank: 60, imdbId: "tt15239678", title: "Dune: Part Two", originalTitle: "Dune: Part Two", year: 2024, posterUrl: null, imdbRating: 8.5 },
+  { rank: 130, imdbId: "tt0086250", title: "Scarface", originalTitle: "Scarface", year: 1983, posterUrl: null, imdbRating: 8.3 },
   { rank: 90, imdbId: "tt0087843", title: "Once Upon a Time in America", originalTitle: "C'era una volta in America", year: 1984, posterUrl: null, imdbRating: 8.3 },
   { rank: 164, imdbId: "tt0055630", title: "Yojimbo", originalTitle: "Yôjinbô", year: 1961, posterUrl: null, imdbRating: 8.2 },
   { rank: 221, imdbId: "tt0046438", title: "Tokyo Story", originalTitle: "Tôkyô monogatari", year: 1953, posterUrl: null, imdbRating: 8.2 },
@@ -58,6 +59,19 @@ describe("matchWatched — confident exclusions", () => {
     expect(r.excludedIds.has("tt0111161")).toBe(true);
     expect(r.matched[0]!.how).toBe("alias");
   });
+
+  it("alias wildcard 'title|*' applies regardless of the entry year", () => {
+    const r = matchWatched([entry("Whatever Title", null)], CHART, {
+      aliases: { "whatever title|*": "tt0111161" },
+    });
+    expect(r.excludedIds.has("tt0111161")).toBe(true);
+    expect(r.matched[0]!.how).toBe("alias");
+  });
+
+  it("containment match tolerates the ±1y boundary", () => {
+    const r = matchWatched([entry("The Empire Strikes Back", 1981)], CHART);
+    expect(r.excludedIds.has("tt0080684")).toBe(true);
+  });
 });
 
 describe("matchWatched — doubt means keep", () => {
@@ -91,5 +105,18 @@ describe("matchWatched — doubt means keep", () => {
     expect(r.excludedIds.size).toBe(0);
     // "her" inside "the godfather" must not even surface as a 98% candidate
     expect(r.ambiguous.flatMap((a) => a.candidates).map((c) => c.imdbId)).not.toContain("tt0068646");
+  });
+
+  it("an entry without a year never excludes — even on an exact title", () => {
+    const r = matchWatched([entry("The Godfather", null)], CHART);
+    expect(r.excludedIds.size).toBe(0);
+    // but it IS surfaced for review — it plausibly is the chart film
+    expect(r.ambiguous[0]?.candidates.map((c) => c.imdbId)).toContain("tt0068646");
+  });
+
+  it("a remake's year mismatch stays ambiguous, never excluded (Scarface 1932 vs 1983)", () => {
+    const r = matchWatched([entry("Scarface", 1932)], CHART);
+    expect(r.excludedIds.size).toBe(0);
+    expect(r.ambiguous[0]?.candidates.map((c) => c.imdbId)).toContain("tt0086250");
   });
 });
