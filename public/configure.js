@@ -218,6 +218,7 @@
   // src/configure-page/main.ts
   var $ = (id) => document.getElementById(id);
   var state = null;
+  var filmById = /* @__PURE__ */ new Map();
   function urlCfgSegment() {
     const seg = location.pathname.split("/").filter(Boolean)[0];
     return seg && seg !== "configure" ? decodeURIComponent(seg) : null;
@@ -227,32 +228,213 @@
   if (urlCfg) {
     if (urlCfg.letterboxdUsername) $("username").value = urlCfg.letterboxdUsername;
     if (urlCfg.tmdbApiKey) $("tmdbKey").value = urlCfg.tmdbApiKey;
-    $("reconfig").style.display = "block";
+    $("reconfig").hidden = false;
   }
+  var REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function esc(s) {
+    return s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  }
+  function showNotice(msg) {
+    const n = $("notice");
+    n.textContent = msg;
+    n.hidden = false;
+    n.scrollIntoView({ block: "nearest" });
+  }
+  function hideNotice() {
+    $("notice").hidden = true;
+  }
+  function setOpen(plate, open) {
+    plate.classList.toggle("open", open);
+    const body = plate.querySelector(".plate-body");
+    if (body) body.hidden = !open;
+    plate.querySelector(".plate-head")?.setAttribute("aria-expanded", String(open));
+  }
+  for (const head of Array.from(document.querySelectorAll(".plate-head"))) {
+    head.addEventListener("click", () => {
+      const plate = head.closest(".plate");
+      setOpen(plate, !plate.classList.contains("open"));
+    });
+  }
+  var TICK_MARKS = [1, 50, 100, 150, 200, 250];
+  var railView = $("railView");
+  var railTrack = $("railTrack");
+  var scanEl = $("scan");
+  var lineById = /* @__PURE__ */ new Map();
+  var lineCount = 250;
+  function buildRail(n) {
+    let html = '<div class="scan" id="scan"></div>';
+    for (let i = 0; i < n; i++) {
+      html += `<i class="ln" style="left:${((i + 0.5) / n * 100).toFixed(3)}%"></i>`;
+    }
+    for (const t of TICK_MARKS) {
+      if (t > n) continue;
+      const p = ((t - 0.5) / n * 100).toFixed(3);
+      const cls = t === 1 ? " first" : t === n ? " last" : "";
+      html += `<i class="tk" style="left:${p}%"></i><span class="tl${cls}" style="left:${p}%">${t}</span>`;
+    }
+    railTrack.innerHTML = html;
+    scanEl = $("scan");
+  }
+  buildRail(lineCount);
+  var ambChecked = /* @__PURE__ */ new Set();
+  var manualChecked = /* @__PURE__ */ new Set();
+  var contestedIds = /* @__PURE__ */ new Set();
+  var nextId = null;
+  function excludedNow() {
+    const s = new Set(state?.csvExcluded ?? []);
+    for (const id of ambChecked) s.add(id);
+    for (const id of manualChecked) s.add(id);
+    return s;
+  }
+  function paintLine(id) {
+    const el = lineById.get(id);
+    if (!el) return;
+    el.classList.remove("out", "contested", "manual", "next");
+    if (excludedNow().has(id)) {
+      el.classList.add("out");
+      if (manualChecked.has(id)) el.classList.add("manual");
+    } else if (contestedIds.has(id)) {
+      el.classList.add("contested");
+    }
+    if (id === nextId) el.classList.add("next");
+  }
+  function repaintAll() {
+    for (const id of lineById.keys()) paintLine(id);
+  }
+  function updateCounts() {
+    const ex = excludedNow().size;
+    const live = lineCount - ex;
+    const unruled = state?.report?.ambiguous.filter(
+      (a) => !a.candidates.some((c) => ambChecked.has(c.imdbId))
+    ).length ?? 0;
+    $("ctLive").textContent = String(live);
+    $("ctStruck").textContent = String(ex);
+    $("ctContest").textContent = String(unruled);
+    $("railStatus").textContent = `${ex} of ${lineCount} struck, ${unruled} contested, ${live} remain.`;
+    $("tally").innerHTML = `<b>${ex}</b> of ${lineCount} struck \xB7 <b>${live}</b> remain`;
+  }
+  async function runScan() {
+    if (REDUCED) {
+      repaintAll();
+      return;
+    }
+    const w = railTrack.scrollWidth;
+    scanEl.style.transition = "none";
+    scanEl.style.transform = "translateX(0)";
+    scanEl.classList.add("on");
+    void scanEl.offsetWidth;
+    scanEl.style.transition = "transform 1.15s cubic-bezier(.16,.84,.24,1)";
+    scanEl.style.transform = `translateX(${w}px)`;
+    const n = state?.films.length ?? lineCount;
+    for (const id of excludedNow()) {
+      const f = state?.films.find((x) => x.imdbId === id);
+      if (!f) continue;
+      const el = lineById.get(id);
+      if (el) el.style.transitionDelay = `${(f.rank - 1) / n * 900}ms`;
+    }
+    repaintAll();
+    await new Promise((r) => setTimeout(r, 1350));
+    scanEl.classList.remove("on");
+    for (const el of lineById.values()) el.style.transitionDelay = "";
+  }
+  var chartPromise = null;
+  function getChart() {
+    if (!chartPromise) {
+      chartPromise = fetch("/chart.json").then((r) => {
+        if (!r.ok) throw new Error(`chart fetch failed (${r.status})`);
+        return r.json();
+      });
+      chartPromise.catch(() => {
+        chartPromise = null;
+      });
+    }
+    return chartPromise;
+  }
+  var storedAtLoad = null;
+  getChart().then((chart) => {
+    lineCount = chart.films.length;
+    for (const f of chart.films) filmById.set(f.imdbId, f);
+    buildRail(lineCount);
+    chart.films.forEach((f, i) => {
+      const el = railTrack.querySelectorAll(".ln")[f.rank - 1] ?? railTrack.querySelectorAll(".ln")[i];
+      if (el) lineById.set(f.imdbId, el);
+    });
+    updateCounts();
+    if (urlSegment) {
+      fetch(`/${encodeURIComponent(urlSegment)}/exclusions`).then((r) => r.ok ? r.json() : null).then((stored) => {
+        if (!stored) return;
+        storedAtLoad = stored;
+        state = { cfg: urlCfg ?? { storageKey: "" }, films: chart.films, report: null, csvExcluded: new Set(stored.excludedImdbIds) };
+        for (const id of stored.manualExclusions) manualChecked.add(id);
+        repaintAll();
+        updateCounts();
+        const total = stored.excludedImdbIds.length + stored.manualExclusions.length;
+        $("reconfig").innerHTML = `This addon is already configured \u2014 <strong>${total} films currently struck.</strong> Update the strike list and confirm to keep the same install URL.`;
+      }).catch(() => void 0);
+    }
+  }).catch(() => void 0);
   async function readFiles(input) {
     const out = [];
     for (const f of Array.from(input.files ?? [])) out.push(await f.text());
     return out;
   }
-  function esc(s) {
-    return s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  var csvInput = $("csvFiles");
+  var drop = $("drop");
+  csvInput.addEventListener("change", renderFileStubs);
+  drop.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    drop.classList.add("over");
+  });
+  drop.addEventListener("dragleave", () => drop.classList.remove("over"));
+  drop.addEventListener("drop", (e) => {
+    e.preventDefault();
+    drop.classList.remove("over");
+    if (e.dataTransfer?.files?.length) {
+      csvInput.files = e.dataTransfer.files;
+      renderFileStubs();
+    }
+  });
+  async function renderFileStubs() {
+    const files = Array.from(csvInput.files ?? []);
+    const box = $("fileStubs");
+    if (!files.length) {
+      box.innerHTML = "";
+      $("importResidue").textContent = "";
+      return;
+    }
+    const texts = await readFiles(csvInput);
+    const stubs = files.map((f, i) => {
+      const n = parseLetterboxdCsv(texts[i] ?? "").length;
+      return n > 0 ? `<span class="fstub">${esc(f.name)}<span class="n">${n} entries</span></span>` : `<span class="fstub bad">${esc(f.name)}<span class="n">unrecognized</span></span>`;
+    });
+    box.innerHTML = stubs.join("");
+    const total = parseLetterboxdExports(texts).length;
+    $("importResidue").textContent = `${files.length} file${files.length > 1 ? "s" : ""} \xB7 ${total} entries`;
   }
+  var REASON_LABELS = {
+    "title-similar-but-year-mismatch": "same title \u2014 different year",
+    "title-contained-but-year-mismatch": "title fits \u2014 different year",
+    "weak-title-similarity": "similar title only"
+  };
   $("go").addEventListener("click", async () => {
     const btn = $("go");
+    const stage = $("stage");
     btn.disabled = true;
+    hideNotice();
+    stage.textContent = "Fetching chart\u2026";
     try {
-      const chartRes = await fetch("/chart.json");
-      if (!chartRes.ok) throw new Error(`chart fetch failed (${chartRes.status})`);
-      const chart = await chartRes.json();
-      let stored = { excludedImdbIds: [], manualExclusions: [] };
-      if (urlSegment) {
+      const chart = await getChart();
+      stage.textContent = "Reading exports\u2026";
+      let stored = storedAtLoad ?? { excludedImdbIds: [], manualExclusions: [] };
+      if (urlSegment && !storedAtLoad) {
         const res = await fetch(`/${encodeURIComponent(urlSegment)}/exclusions`);
         if (res.ok) stored = await res.json();
       }
-      const texts = await readFiles($("csvFiles"));
+      const texts = await readFiles(csvInput);
       let report = null;
       let csvExcluded = new Set(stored.excludedImdbIds);
       if (texts.length) {
+        stage.textContent = "Matching\u2026";
         const entries = parseLetterboxdExports(texts);
         report = matchWatched(entries, chart.films, { aliases: chart.aliases ?? {} });
         csvExcluded = new Set(report.excludedIds);
@@ -262,50 +444,116 @@
       const tmdbKey = $("tmdbKey").value.trim();
       if (username) cfg.letterboxdUsername = username;
       if (tmdbKey) cfg.tmdbApiKey = tmdbKey;
+      ambChecked.clear();
+      manualChecked.clear();
+      contestedIds.clear();
+      nextId = null;
+      for (const id of stored.manualExclusions) manualChecked.add(id);
+      for (const a of report?.ambiguous ?? []) for (const c of a.candidates) contestedIds.add(c.imdbId);
       state = { cfg, films: chart.films, report, csvExcluded };
+      if (texts.length) {
+        await runScan();
+      } else {
+        repaintAll();
+      }
       renderReport(report, stored);
-      renderSeenList(new Set(stored.manualExclusions));
-      $("results").style.display = "block";
+      renderSeenList(manualChecked);
+      updateCounts();
+      const r = report;
+      $("matchResidue").textContent = texts.length ? `${r.matched.length} struck \xB7 ${r.ambiguous.length} contested` : "kept stored set";
+      $("optionsResidue").textContent = username ? `@${username}` : "";
+      setOpen($("plateImport"), false);
+      setOpen($("plateOptions"), false);
+      setOpen($("plateMatch"), false);
+      const review = $("results");
+      review.hidden = false;
+      setOpen(review, true);
+      stage.textContent = "";
+      review.scrollIntoView({ block: "start", behavior: REDUCED ? "auto" : "smooth" });
     } catch (e) {
-      alert(e.message);
+      stage.textContent = "";
+      showNotice(`${e.message} \u2014 check the server and run again.`);
     } finally {
       btn.disabled = false;
     }
   });
   function renderReport(report, stored) {
     if (!report) {
-      $("summary").innerHTML = `No CSV files selected \u2014 keeping the <strong>${stored.excludedImdbIds.length} previously excluded</strong> films.`;
+      const kept = stored.excludedImdbIds.length;
+      $("summary").innerHTML = kept ? `No CSV files selected \u2014 keeping the <strong>${kept} previously struck</strong> films.` : `No CSV files selected \u2014 the rail is unchanged.`;
+      $("countline").innerHTML = "";
       $("ambiguous").innerHTML = "";
+      $("reviewResidue").textContent = `${kept} struck`;
       return;
     }
-    $("summary").innerHTML = `<strong>${report.matched.length} entries matched a Top 250 film</strong> and will be hidden.`;
+    $("summary").textContent = `${report.matched.length} of your entries are Top 250 films \u2014 their lines collapsed.`;
+    const live = lineCount - excludedNow().size;
+    $("countline").innerHTML = `<span class="c"><b>${report.matched.length}</b><span class="k">struck</span></span><span class="c contest"><b>${report.ambiguous.length}</b><span class="k">contested</span></span><span class="c"><b>${report.ignoredCount}</b><span class="k">not on the chart</span></span><span class="c"><b>${live}</b><span class="k">remain</span></span>`;
+    $("reviewResidue").textContent = `${excludedNow().size} struck`;
     const box = $("ambiguous");
     if (!report.ambiguous.length) {
-      box.innerHTML = `<p class="muted">No ambiguous entries.</p>`;
+      box.innerHTML = "";
       return;
     }
-    const rows = report.ambiguous.map((a, i) => {
-      const cands = a.candidates.map((c) => `<label style="font-weight:400"><input type="checkbox" data-amb data-imdb="${c.imdbId}"> ${esc(c.title)} <span class="muted">(${(c.score * 100).toFixed(0)}%)</span></label>`).join(" ");
-      return `<tr><td>${esc(a.entry.name)}${a.entry.year ? ` (${a.entry.year})` : ""}<br><span class="muted">${a.reason}</span></td><td>${cands}</td></tr>`;
+    const rows = report.ambiguous.map((a) => {
+      const cands = a.candidates.map((c) => {
+        const yr = filmById.get(c.imdbId)?.year;
+        return `<label class="cand" title="match confidence ${(c.score * 100).toFixed(0)}%"><input type="checkbox" class="sr x" data-amb data-imdb="${c.imdbId}"><span class="mk"></span><span class="ct">${esc(c.title)}</span>${yr ? `<span class="cy">${yr}</span>` : ""}</label>`;
+      }).join("");
+      return `<div class="ctrow"><div class="entry"><span class="n">${esc(a.entry.name)}<span class="y">${a.entry.year ? ` ${a.entry.year}` : ""}</span></span><span class="rs">${REASON_LABELS[a.reason] ?? a.reason}</span></div><div class="cands">${cands}</div></div>`;
     }).join("");
-    box.innerHTML = `<p class="muted">These look like Top 250 films but didn't match confidently \u2014 tick any that should count as seen:</p><table>${rows}</table>`;
+    box.innerHTML = `<h3 class="subhead">Needs your ruling<span class="dim">\u2014 strike each film that counts as seen</span></h3>` + rows;
   }
   function renderSeenList(manual) {
     if (!state) return;
     const visible = state.films.filter((f) => !state.csvExcluded.has(f.imdbId));
     $("seenList").innerHTML = visible.map(
-      (f) => `<label class="seenRow"><input type="checkbox" data-manual="${f.imdbId}"${manual.has(f.imdbId) ? " checked" : ""}><span class="r">#${f.rank}</span>${esc(f.title)}${f.year ? ` (${f.year})` : ""}</label>`
+      (f) => `<label class="seenrow${manual.has(f.imdbId) ? " struck" : ""}" data-line="${f.imdbId}"><input type="checkbox" class="sr" data-manual="${f.imdbId}"${manual.has(f.imdbId) ? " checked" : ""}><span class="mk"></span><span class="rk">#${f.rank}</span><span><span class="tt">${esc(f.title)}</span><span class="yr">${f.year ? ` ${f.year}` : ""}</span></span></label>`
     ).join("");
   }
   $("seenFilter").addEventListener("input", () => {
     const q = $("seenFilter").value.trim().toLowerCase();
-    for (const row of Array.from(document.querySelectorAll("#seenList .seenRow"))) {
+    for (const row of Array.from(document.querySelectorAll("#seenList .seenrow"))) {
       row.style.display = !q || row.textContent.toLowerCase().includes(q) ? "" : "none";
     }
+  });
+  document.addEventListener("change", (e) => {
+    const el = e.target;
+    const amb = el.dataset?.amb !== void 0;
+    const man = el.dataset?.manual !== void 0;
+    if (!amb && !man) return;
+    const id = el.dataset.imdb || el.dataset.manual;
+    if (amb) {
+      if (el.checked) ambChecked.add(id);
+      else ambChecked.delete(id);
+    }
+    if (man) {
+      if (el.checked) manualChecked.add(id);
+      else manualChecked.delete(id);
+      el.closest(".seenrow")?.classList.toggle("struck", el.checked);
+    }
+    paintLine(id);
+    updateCounts();
+    $("reviewResidue").textContent = `${excludedNow().size} struck`;
+  });
+  document.addEventListener("mouseover", (e) => {
+    const row = e.target.closest?.(".seenrow");
+    const id = row?.dataset.line;
+    for (const el of Array.from(document.querySelectorAll(".ln.focus"))) el.classList.remove("focus");
+    if (id) lineById.get(id)?.classList.add("focus");
+  });
+  document.addEventListener("focusin", (e) => {
+    const row = e.target.closest?.(".seenrow");
+    if (row?.dataset.line) lineById.get(row.dataset.line)?.classList.add("focus");
+  });
+  document.addEventListener("focusout", () => {
+    for (const el of Array.from(document.querySelectorAll(".ln.focus"))) el.classList.remove("focus");
   });
   $("confirm").addEventListener("click", async () => {
     if (!state) return;
     const { cfg, report, csvExcluded } = state;
+    const stage2 = $("stage2");
+    hideNotice();
     const extraIds = Array.from(document.querySelectorAll("input[data-amb]:checked")).map(
       (el) => el.dataset.imdb
     );
@@ -313,6 +561,7 @@
       (el) => el.dataset.manual
     );
     const excludedImdbIds = [.../* @__PURE__ */ new Set([...csvExcluded, ...extraIds])];
+    stage2.textContent = "Saving\u2026";
     const res = await fetch(`/exclusions`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -328,8 +577,9 @@
         }))
       })
     });
+    stage2.textContent = "";
     if (!res.ok) {
-      alert(`failed to save exclusions (${res.status})`);
+      showNotice(`Failed to save exclusions (${res.status}) \u2014 nothing was written. Confirm again to retry.`);
       return;
     }
     const encoded = encodeConfig(cfg);
@@ -337,6 +587,43 @@
     $("manifestUrl").textContent = manifestUrl;
     $("stremioLink").href = `stremio://${location.host}${location.pathname.replace(/\/configure.*$/, "")}/${encoded}/manifest.json`;
     $("configureLink").href = `${location.origin}/${encoded}/configure`;
-    $("install").style.display = "block";
+    const excluded = excludedNow();
+    const next = state.films.find((f) => !excluded.has(f.imdbId)) ?? null;
+    nextId = next?.imdbId ?? null;
+    repaintAll();
+    updateCounts();
+    const remain = lineCount - excluded.size;
+    $("survive").innerHTML = `Your catalog is ready \u2014 <b>${remain} film${remain === 1 ? "" : "s"}</b> remain on the rail.`;
+    const nl = $("nextline");
+    if (next) {
+      nl.hidden = false;
+      $("nlR").textContent = `#${next.rank}`;
+      $("nlT").textContent = next.title;
+      $("nlY").textContent = next.year ? `${next.year}` : "";
+    } else {
+      nl.hidden = true;
+    }
+    $("installResidue").textContent = `${remain} remain`;
+    $("reviewResidue").textContent = `${excluded.size} struck`;
+    const install = $("install");
+    install.hidden = false;
+    setOpen(install, true);
+    install.scrollIntoView({ block: "start", behavior: REDUCED ? "auto" : "smooth" });
+    const nextEl = nextId ? lineById.get(nextId) : null;
+    if (nextEl) {
+      railView.scrollTo({ left: nextEl.offsetLeft - railView.clientWidth / 2, behavior: REDUCED ? "auto" : "smooth" });
+    }
+  });
+  $("copyBtn").addEventListener("click", async () => {
+    const btn = $("copyBtn");
+    try {
+      await navigator.clipboard.writeText($("manifestUrl").textContent ?? "");
+      btn.textContent = "Copied";
+    } catch {
+      btn.textContent = "Select & copy";
+    }
+    setTimeout(() => {
+      btn.textContent = "Copy";
+    }, 1600);
   });
 })();
