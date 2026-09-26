@@ -1,0 +1,30 @@
+{
+  "name": "stremio-top250-unseen",
+  "version": "0.1.0",
+  "description": "Stremio addon: IMDb Top 250 minus the movies you have already seen (Letterboxd)",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && npm run build:configure",
+    "build:configure": "esbuild src/configure-page/main.ts --bundle --format=iife --outfile=public/configure.js",
+    "dev": "tsx src/runtime/node.ts",
+    "start": "node dist/runtime/node.js",
+    "import-watched": "tsx src/cli/import-watched.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "deploy:worker": "npm run build:configure && wrangler deploy"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260925.1",
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.25.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0",
+    "wrangler": "^4.0.0"
+  }
+}
