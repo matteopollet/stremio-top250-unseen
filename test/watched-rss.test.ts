@@ -17,6 +17,14 @@ describe("parseLetterboxdRss", () => {
   it("returns [] on garbage", () => {
     expect(parseLetterboxdRss("not xml")).toEqual([]);
   });
+
+  it("strips CDATA wrappers around namespaced fields", () => {
+    const xml = `<rss xmlns:letterboxd="https://letterboxd.com" xmlns:tmdb="https://themoviedb.org"><channel>
+      <item><guid isPermaLink="false">letterboxd-watch-1</guid>
+      <letterboxd:filmTitle><![CDATA[The Shawshank Redemption]]></letterboxd:filmTitle>
+      <tmdb:movieId>278</tmdb:movieId></item></channel></rss>`;
+    expect(parseLetterboxdRss(xml)[0]!.title).toBe("The Shawshank Redemption");
+  });
 });
 
 class MapStore implements KeyValueStore {

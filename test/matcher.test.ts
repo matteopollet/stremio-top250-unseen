@@ -16,6 +16,8 @@ const CHART: RankedFilm[] = [
   { rank: 90, imdbId: "tt0087843", title: "Once Upon a Time in America", originalTitle: "C'era una volta in America", year: 1984, posterUrl: null, imdbRating: 8.3 },
   { rank: 164, imdbId: "tt0055630", title: "Yojimbo", originalTitle: "Yôjinbô", year: 1961, posterUrl: null, imdbRating: 8.2 },
   { rank: 221, imdbId: "tt0046438", title: "Tokyo Story", originalTitle: "Tôkyô monogatari", year: 1953, posterUrl: null, imdbRating: 8.2 },
+  { rank: 52, imdbId: "tt0078748", title: "Alien", originalTitle: "Alien", year: 1979, posterUrl: null, imdbRating: 8.5 },
+  { rank: 33, imdbId: "tt0090605", title: "Aliens", originalTitle: "Aliens", year: 1986, posterUrl: null, imdbRating: 8.4 },
 ];
 
 function entry(name: string, year: number | null = null) {
@@ -118,5 +120,16 @@ describe("matchWatched — doubt means keep", () => {
     const r = matchWatched([entry("Scarface", 1932)], CHART);
     expect(r.excludedIds.size).toBe(0);
     expect(r.ambiguous[0]?.candidates.map((c) => c.imdbId)).toContain("tt0086250");
+  });
+
+  it("near-identical franchise titles resolve by year (Alien ≠ Aliens, both in chart)", () => {
+    const r = matchWatched([entry("Alien", 1979), entry("Aliens", 1986)], CHART);
+    expect(r.excludedIds).toEqual(new Set(["tt0078748", "tt0090605"]));
+  });
+
+  it("a franchise entry with the wrong year excludes nothing (Aliens 1979)", () => {
+    const r = matchWatched([entry("Aliens", 1979)], CHART);
+    expect(r.excludedIds.size).toBe(0);
+    expect(r.ambiguous.length + r.ignoredCount).toBe(1);
   });
 });

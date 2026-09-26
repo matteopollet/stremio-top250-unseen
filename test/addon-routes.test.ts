@@ -37,6 +37,7 @@ describe("manifest", () => {
     const res = await handleRequest("GET", "/manifest.json", null, deps());
     const m = JSON.parse(res.body);
     expect(m.catalogs[0].id).toBe("top250_unseen");
+    expect(m.catalogs[0].idPrefixes).toEqual(["tt"]);
     expect(m.behaviorHints.configurable).toBe(true);
   });
 

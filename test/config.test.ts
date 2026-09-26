@@ -31,6 +31,15 @@ describe("config encoding", () => {
     expect(cfg).toEqual({ storageKey: "k1", overrides: { forceInclude: ["tt0111161"] } });
   });
 
+  it("rejects oversized string fields (KV keys are limited to 512 bytes)", () => {
+    expect(decodeConfig(b64({ catalogName: "x".repeat(101) }))).toBeNull();
+    expect(decodeConfig(b64({ letterboxdUsername: "u".repeat(101) }))).toBeNull();
+    expect(decodeConfig(b64({ storageKey: "k".repeat(600) }))).toBeNull();
+    expect(decodeConfig(b64({ tmdbApiKey: "t".repeat(400) }))).toBeNull();
+    // sane values still pass; a TMDB v4 read token (~200 chars) must fit
+    expect(decodeConfig(b64({ tmdbApiKey: "t".repeat(250), catalogName: "ok" }))).not.toBeNull();
+  });
+
   it("reads env config (storageKey is URL-only — never from env)", () => {
     expect(configFromEnv({ LETTERBOXD_USERNAME: "u", TMDB_API_KEY: "k" })).toEqual({
       letterboxdUsername: "u", tmdbApiKey: "k",

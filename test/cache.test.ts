@@ -1,4 +1,4 @@
-import { mkdtemp, rm } from "node:fs/promises";
+import { mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterAll, describe, expect, it } from "vitest";
@@ -57,5 +57,16 @@ describe("FileCache", () => {
     dirs.push(dir);
     const c = new FileCache(join(dir, "nope.json"));
     expect(await c.get("x")).toBeUndefined();
+  });
+
+  it("concurrent calls during the first load share one read — no false miss", async () => {
+    const dir = await mkdtemp(join(tmpdir(), "fc-"));
+    dirs.push(dir);
+    const path = join(dir, "c.json");
+    await writeFile(path, JSON.stringify({ a: { value: "old" } }));
+    const c = new FileCache(path);
+    // regression: a get() racing the initial load used to see an empty store
+    const [, v] = await Promise.all([c.set("b", "x"), c.get<string>("a")]);
+    expect(v).toBe("old");
   });
 });

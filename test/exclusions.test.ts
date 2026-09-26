@@ -23,6 +23,10 @@ function deps(store = new MapStore()): AddonDeps {
 const post = (deps: AddonDeps, body: unknown, path = "/exclusions") =>
   handleRequest("POST", path, JSON.stringify(body), deps);
 
+// storageKey must be an unguessable token — ≥16 chars (crypto.randomUUID in the page)
+const K1 = "test-storage-key-0001";
+const K2 = "test-storage-key-0002";
+
 describe("ExclusionsProvider", () => {
   it("unions csv-matched and manual exclusions", async () => {
     const store = new MapStore();
@@ -57,8 +61,8 @@ describe("exclusions routes", () => {
 
   it("POST then GET round-trips both sets", async () => {
     const d = deps();
-    await post(d, { storageKey: "k1", excludedImdbIds: ["tt0111161"], manualExclusions: ["tt0068646"], ambiguous: [] });
-    const cfg = encodeConfig({ storageKey: "k1" });
+    await post(d, { storageKey: K1, excludedImdbIds: ["tt0111161"], manualExclusions: ["tt0068646"], ambiguous: [] });
+    const cfg = encodeConfig({ storageKey: K1 });
     const res = await handleRequest("GET", `/${cfg}/exclusions`, null, d);
     const body = JSON.parse(res.body);
     expect(body.excludedImdbIds).toEqual(["tt0111161"]);
@@ -67,18 +71,18 @@ describe("exclusions routes", () => {
 
   it("a manual-only update preserves the csv-matched set", async () => {
     const d = deps();
-    await post(d, { storageKey: "k1", excludedImdbIds: ["tt0111161"], ambiguous: [] });
-    await post(d, { storageKey: "k1", manualExclusions: ["tt0068646"] });
-    const cfg = encodeConfig({ storageKey: "k1" });
+    await post(d, { storageKey: K1, excludedImdbIds: ["tt0111161"], ambiguous: [] });
+    await post(d, { storageKey: K1, manualExclusions: ["tt0068646"] });
+    const cfg = encodeConfig({ storageKey: K1 });
     const res = await handleRequest("GET", `/${cfg}/exclusions`, null, d);
     expect(JSON.parse(res.body).excludedImdbIds).toEqual(["tt0111161"]);
   });
 
   it("a csv re-import preserves manual picks", async () => {
     const d = deps();
-    await post(d, { storageKey: "k1", manualExclusions: ["tt0068646"] });
-    await post(d, { storageKey: "k1", excludedImdbIds: ["tt0111161"], ambiguous: [] });
-    const cfg = encodeConfig({ storageKey: "k1" });
+    await post(d, { storageKey: K1, manualExclusions: ["tt0068646"] });
+    await post(d, { storageKey: K1, excludedImdbIds: ["tt0111161"], ambiguous: [] });
+    const cfg = encodeConfig({ storageKey: K1 });
     const res = await handleRequest("GET", `/${cfg}/exclusions`, null, d);
     const body = JSON.parse(res.body);
     expect(body.excludedImdbIds).toEqual(["tt0111161"]);
@@ -86,7 +90,7 @@ describe("exclusions routes", () => {
   });
 
   it("rejects malformed imdb ids", async () => {
-    const res = await post(deps(), { storageKey: "k1", manualExclusions: ["not-an-id"] });
+    const res = await post(deps(), { storageKey: K1, manualExclusions: ["not-an-id"] });
     expect(res.status).toBe(400);
   });
 
@@ -100,15 +104,54 @@ describe("exclusions routes", () => {
     expect(res.status).toBe(400);
   });
 
+  it("rejects 'default' as storageKey — the shared env-mode scope is not writable from outside", async () => {
+    const res = await post(deps(), { storageKey: "default", excludedImdbIds: ["tt0111161"] });
+    expect(res.status).toBe(400);
+    // …including via a crafted URL config carrying storageKey=default
+    const cfg = encodeConfig({ storageKey: "default" });
+    const res2 = await post(deps(), { storageKey: "default", excludedImdbIds: ["tt0111161"] }, `/${cfg}/exclusions`);
+    expect(res2.status).toBe(400);
+  });
+
+  it("rejects too-short and oversized storageKeys (KV key limit is 512 bytes)", async () => {
+    expect((await post(deps(), { storageKey: "short", excludedImdbIds: ["tt0111161"] })).status).toBe(400);
+    const huge = "k".repeat(600);
+    const res = await post(deps(), { storageKey: huge, excludedImdbIds: ["tt0111161"] });
+    expect(res.status).toBe(400); // previously: KV put threw → Worker error 1101
+  });
+
+  it("surfaces store failures as a 500 JSON, not a thrown exception", async () => {
+    const d = deps();
+    d.store = {
+      get: async () => { throw new Error("kv exploded"); },
+      set: async () => {},
+    };
+    const res = await handleRequest("GET", "/exclusions", null, d);
+    expect(res.status).toBe(500);
+    expect(res.headers["Content-Type"]).toBe("application/json");
+    expect(JSON.parse(res.body).err).toBe("internal error");
+  });
+
+  it("answers OPTIONS preflight and serves HEAD as GET without a body", async () => {
+    const opt = await handleRequest("OPTIONS", "/manifest.json", null, deps());
+    expect(opt.status).toBe(204);
+    expect(opt.headers["Access-Control-Allow-Methods"]).toContain("GET");
+
+    const head = await handleRequest("HEAD", "/manifest.json", null, deps());
+    expect(head.status).toBe(200);
+    expect(head.body).toBe("");
+    expect(head.headers["Content-Type"]).toBe("application/json");
+  });
+
   it("rejects a storageKey that mismatches the URL config", async () => {
-    const cfg = encodeConfig({ storageKey: "k1" });
-    const res = await post(deps(), { storageKey: "k2", excludedImdbIds: ["tt0111161"] }, `/${cfg}/exclusions`);
+    const cfg = encodeConfig({ storageKey: K1 });
+    const res = await post(deps(), { storageKey: K2, excludedImdbIds: ["tt0111161"] }, `/${cfg}/exclusions`);
     expect(res.status).toBe(403);
   });
 
   it("rejects malformed ambiguous entries instead of persisting garbage", async () => {
     const res = await post(deps(), {
-      storageKey: "k1",
+      storageKey: K1,
       excludedImdbIds: ["tt0111161"],
       ambiguous: [{ name: 42, reason: "x", candidates: [] }],
     });
@@ -118,7 +161,7 @@ describe("exclusions routes", () => {
   it("normalizes ambiguous entries — drops malformed candidates and stray fields", async () => {
     const d = deps();
     const res = await post(d, {
-      storageKey: "k1",
+      storageKey: K1,
       excludedImdbIds: ["tt0111161"],
       ambiguous: [
         {
@@ -134,7 +177,7 @@ describe("exclusions routes", () => {
       ],
     });
     expect(res.status).toBe(200);
-    const stored = (await new ExclusionsProvider(d.store, "k1").getStored())!;
+    const stored = (await new ExclusionsProvider(d.store, K1).getStored())!;
     expect(stored.ambiguous).toEqual([
       {
         name: "Kill Bill: Vol. 2",

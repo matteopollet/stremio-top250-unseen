@@ -69,6 +69,19 @@ describe("SnapshotProvider", () => {
     })) as typeof fetch);
     expect((await p.getChart())[0]!.imdbId).toBe("tt0111161");
   });
+
+  it("falls back to the bundled snapshot when the configured URL fails", async () => {
+    const failing = (async () => { throw new Error("cdn down"); }) as typeof fetch;
+    const p = new SnapshotProvider(SNAPSHOT, "https://example.com/snap.json", failing);
+    expect((await p.getChart())[0]!.imdbId).toBe("tt0111161");
+    expect(p.name).toBe("snapshot:bundled"); // reports what actually served
+  });
+
+  it("still throws when the URL fails and nothing is bundled", async () => {
+    const failing = (async () => { throw new Error("cdn down"); }) as typeof fetch;
+    const p = new SnapshotProvider(null, "https://example.com/snap.json", failing);
+    await expect(p.getChart()).rejects.toThrow("cdn down");
+  });
 });
 
 describe("ChartService", () => {
