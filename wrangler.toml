@@ -1,0 +1,19 @@
+name = "stremio-top250-unseen"
+main = "src/runtime/worker.ts"
+compatibility_date = "2026-09-01"
+
+kv_namespaces = [
+  { binding = "CACHE", id = "REPLACE_ME", preview_id = "REPLACE_ME" }
+]
+
+# serves public/configure.js
+[assets]
+directory = "public"
+binding = "ASSETS"
+run_worker_first = false
+
+# Optional defaults for a single-user deployment (otherwise configured per-URL):
+# [vars]
+# LETTERBOXD_USERNAME = ""
+# TMDB_API_KEY = ""
+# TOP250_SNAPSHOT_URL = ""

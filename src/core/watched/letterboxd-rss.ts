@@ -65,7 +65,7 @@ export class LetterboxdRssProvider implements WatchedProvider {
     private cache: Cache,
     private store: KeyValueStore,
     private resolver: IdResolver,
-    private fetchImpl: (url: string) => Promise<{ ok: boolean; text(): Promise<string> }> = fetch as never,
+    private fetchImpl: (url: string) => Promise<{ ok: boolean; status: number; text(): Promise<string> }> = fetch as never,
   ) {}
 
   private get storeKey() {

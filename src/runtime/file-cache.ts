@@ -1,10 +1,10 @@
 import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
-import { dirname, join } from "node:path";
+import { dirname } from "node:path";
 import type { Cache } from "../core/cache.js";
 
 interface FileEntry {
   value: unknown;
-  expiresAt?: number;
+  expiresAt?: number | undefined;
 }
 
 /** JSON-file-backed cache for the Node runtime. One file per namespace. */
@@ -64,7 +64,7 @@ export class FileCache implements Cache {
   private async doFlush(): Promise<void> {
     if (!this.dirty) return;
     await mkdir(dirname(this.filePath), { recursive: true });
-    const tmp = join(dirname(this.filePath), `.tmp-${process.pid}.json`);
+    const tmp = `${this.filePath}.${process.pid}.${Math.random().toString(36).slice(2)}.tmp`;
     const obj = Object.fromEntries(this.store);
     await writeFile(tmp, JSON.stringify(obj));
     await rename(tmp, this.filePath);

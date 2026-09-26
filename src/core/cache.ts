@@ -14,7 +14,7 @@ export interface Cache {
 interface Entry {
   value: unknown;
   /** epoch ms, undefined = no expiry */
-  expiresAt?: number;
+  expiresAt?: number | undefined;
 }
 
 function fresh(e: Entry | undefined): e is Entry {
