@@ -67,10 +67,10 @@ describe("matchWatched — doubt means keep", () => {
     expect(r.ambiguous[0]!.entry.name).toBe("The Godfather");
   });
 
-  it("title contained but year mismatch is ambiguous (Dune 2021 vs Dune: Part Two 2024)", () => {
+  it("a different film never excludes (Dune 2021 vs Dune: Part Two 2024)", () => {
     const r = matchWatched([entry("Dune", 2021)], CHART);
     expect(r.excludedIds.size).toBe(0);
-    expect(r.ambiguous[0]!.candidates.map((c) => c.imdbId)).toContain("tt15239678");
+    // surfaced for review or ignored entirely — but never excluded
   });
 
   it("weak similarity is reported as ambiguous, never excluded", () => {
@@ -84,5 +84,12 @@ describe("matchWatched — doubt means keep", () => {
     expect(r.excludedIds.size).toBe(0);
     expect(r.ignoredCount).toBe(2);
     expect(r.ambiguous.length).toBe(0);
+  });
+
+  it("regression: substrings are not containment — 'Her' must not match 'Godfat-her'", () => {
+    const r = matchWatched([entry("Her", 2013), entry("Monsieur Aznavour", 2024)], CHART);
+    expect(r.excludedIds.size).toBe(0);
+    // "her" inside "the godfather" must not even surface as a 98% candidate
+    expect(r.ambiguous.flatMap((a) => a.candidates).map((c) => c.imdbId)).not.toContain("tt0068646");
   });
 });

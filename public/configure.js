@@ -33,7 +33,15 @@
     return 2 * overlap / (a.length - 1 + b.length - 1);
   }
   function contains(a, b) {
-    return a.length > 0 && b.length > 0 && (a.includes(b) || b.includes(a));
+    const [short, long] = a.length <= b.length ? [a, b] : [b, a];
+    const s = short.split(" ");
+    const l = long.split(" ");
+    if (s.length < 2 || s.length > l.length) return false;
+    outer: for (let i = 0; i + s.length <= l.length; i++) {
+      for (let j = 0; j < s.length; j++) if (l[i + j] !== s[j]) continue outer;
+      return true;
+    }
+    return false;
   }
   var EXACT_SCORE = 0.98;
   var STRONG_SCORE = 0.86;

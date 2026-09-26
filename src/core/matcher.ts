@@ -64,9 +64,22 @@ function dice(a: string, b: string): number {
   return (2 * overlap) / (a.length - 1 + b.length - 1);
 }
 
-/** true when one normalized title fully contains the other (franchise prefixes etc.) */
+/**
+ * True when one normalized title's token sequence is a contiguous subsequence
+ * of the other's ("empire strikes back" ⊂ "star wars episode v the empire
+ * strikes back"). Token-level, not substring — "her" must NOT match inside
+ * "godfather". Requires ≥2 tokens on the shorter side to avoid noise.
+ */
 function contains(a: string, b: string): boolean {
-  return a.length > 0 && b.length > 0 && (a.includes(b) || b.includes(a));
+  const [short, long] = a.length <= b.length ? [a, b] : [b, a];
+  const s = short.split(" ");
+  const l = long.split(" ");
+  if (s.length < 2 || s.length > l.length) return false;
+  outer: for (let i = 0; i + s.length <= l.length; i++) {
+    for (let j = 0; j < s.length; j++) if (l[i + j] !== s[j]) continue outer;
+    return true;
+  }
+  return false;
 }
 
 const EXACT_SCORE = 0.98; // normalized equality
