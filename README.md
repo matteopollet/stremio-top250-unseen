@@ -4,7 +4,7 @@ A Stremio addon that adds one catalog to your home screen:
 
 > **IMDb Top 250 — À voir** = the current IMDb Top 250, *minus the films you have already seen* (according to Letterboxd), in IMDb rank order.
 
-Open Stremio → the first film in the row is the highest-ranked film you haven't watched yet. Click it, watch it, log it on Letterboxd, and it disappears from the catalog on its own.
+Open Stremio → the first film in the row is the highest-ranked film you haven't watched yet. Click it, watch it, log it on Letterboxd (or tick it in `/configure`), and it disappears from the catalog.
 
 ```
 IMDb Top 250  ──┐
@@ -67,16 +67,21 @@ log in, drag the addon where you want it, click *Sync to Stremio*.
 
 ## How "watched" is determined
 
-Two complementary sources, unioned:
+Three complementary sources, unioned:
 
 | Source | Role | How |
 |---|---|---|
 | **Letterboxd CSV export** | canonical baseline | `watched.csv` + `ratings.csv` + `diary.csv`, matched **in your browser** (or locally via CLI) — only the resulting list of IMDb ids is stored on your instance |
 | **Letterboxd RSS** | opportunistic delta | `/​{user}/rss/` gives each logged film's TMDB id → resolved to IMDb ids (Wikidata batch, TMDB fallback) and **accumulated** server-side |
+| **Manual checklist** | instant override | `/configure` lists the Top 250 films still visible in your catalog — tick the ones you've seen and they disappear immediately. Stored separately (`manualExclusions`), so a CSV re-import never wipes them |
 
-The CSV export is the source of truth; the RSS feed just saves you from
-re-exporting after every film. If you bulk-mark old films as watched without
-logging them, drop the CSVs in `/configure` again — it takes ten seconds.
+Honest caveat about the RSS path: Letterboxd regenerates feeds on its own
+schedule (observed lag: up to ~1h) and films you merely mark with the eye icon
+— without a diary entry or review — may not appear in it at all. Logging or
+rating a film is picked up automatically once the feed refreshes; for anything
+else, use the checklist or re-drop the CSVs in `/configure` — it takes ten
+seconds. Reopening `/{cfg}/configure` (bookmark it after install) reloads your
+saved exclusions so you can just tick films without re-uploading anything.
 
 ### Privacy
 
@@ -107,8 +112,9 @@ rows are listed in `/{config}/status.json` and can be pinned via
 |---|---|
 | `/{cfg?}/manifest.json` | Stremio addon manifest |
 | `/{cfg?}/catalog/movie/top250_unseen.json` | the catalog (supports `skip=N` pagination) |
-| `/{cfg?}/configure` | configuration page (browser-side CSV matching) |
-| `POST /{cfg?}/exclusions` | stores `{excludedImdbIds, ambiguous}` under your storage key |
+| `/{cfg?}/configure` | configuration page (browser-side CSV matching + seen checklist) |
+| `GET /{cfg?}/exclusions` | the stored exclusion set (used to prefill `/configure`) |
+| `POST /{cfg?}/exclusions` | stores `{excludedImdbIds, manualExclusions, ambiguous}` under your storage key; omitted fields keep their stored value |
 | `/{cfg?}/chart.json` | the raw ranked chart + aliases (public data) |
 | `/{cfg?}/status.json` | freshness, exclusion counts, ambiguity report |
 

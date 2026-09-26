@@ -3,7 +3,7 @@
  * The Letterboxd CSV export is parsed and matched entirely client-side —
  * only the resulting list of excluded IMDb ids is POSTed to the server.
  */
-import { encodeConfig, type AddonConfig } from "../core/config.js";
+import { decodeConfig, encodeConfig, type AddonConfig } from "../core/config.js";
 import { matchWatched, type MatchReport } from "../core/matcher.js";
 import type { RankedFilm } from "../core/types.js";
 import { parseLetterboxdExports } from "../core/watched/letterboxd-csv.js";
@@ -15,7 +15,35 @@ interface ChartResponse {
   aliases?: Record<string, string>;
 }
 
-let pending: { report: MatchReport; cfg: AddonConfig } | null = null;
+interface StoredExclusionsResponse {
+  excludedImdbIds: string[];
+  manualExclusions: string[];
+}
+
+interface State {
+  cfg: AddonConfig;
+  films: RankedFilm[];
+  report: MatchReport | null;
+  /** ids hidden by the CSV match — or the previously stored set when no CSV was given */
+  csvExcluded: Set<string>;
+}
+
+let state: State | null = null;
+
+/** "/{cfg}/configure" → raw cfg segment, null on a fresh install page. */
+function urlCfgSegment(): string | null {
+  const seg = location.pathname.split("/").filter(Boolean)[0];
+  return seg && seg !== "configure" ? decodeURIComponent(seg) : null;
+}
+
+// Reconfigure flow: prefill the form from the URL config, flag update mode.
+const urlSegment = urlCfgSegment();
+const urlCfg = urlSegment ? decodeConfig(urlSegment) : null;
+if (urlCfg) {
+  if (urlCfg.letterboxdUsername) ($("username") as HTMLInputElement).value = urlCfg.letterboxdUsername;
+  if (urlCfg.tmdbApiKey) ($("tmdbKey") as HTMLInputElement).value = urlCfg.tmdbApiKey;
+  $("reconfig").style.display = "block";
+}
 
 async function readFiles(input: HTMLInputElement): Promise<string[]> {
   const out: string[] = [];
@@ -35,18 +63,31 @@ $("go").addEventListener("click", async () => {
     if (!chartRes.ok) throw new Error(`chart fetch failed (${chartRes.status})`);
     const chart = (await chartRes.json()) as ChartResponse;
 
-    const texts = await readFiles($("csvFiles") as HTMLInputElement);
-    const entries = parseLetterboxdExports(texts);
-    const report = matchWatched(entries, chart.films, { aliases: chart.aliases ?? {} });
+    // previously stored exclusions (reconfigure flow) — preserved if no CSV
+    let stored: StoredExclusionsResponse = { excludedImdbIds: [], manualExclusions: [] };
+    if (urlSegment) {
+      const res = await fetch(`/${encodeURIComponent(urlSegment)}/exclusions`);
+      if (res.ok) stored = (await res.json()) as StoredExclusionsResponse;
+    }
 
-    const cfg: AddonConfig = { storageKey: crypto.randomUUID() };
+    const texts = await readFiles($("csvFiles") as HTMLInputElement);
+    let report: MatchReport | null = null;
+    let csvExcluded = new Set(stored.excludedImdbIds);
+    if (texts.length) {
+      const entries = parseLetterboxdExports(texts);
+      report = matchWatched(entries, chart.films, { aliases: chart.aliases ?? {} });
+      csvExcluded = new Set(report.excludedIds);
+    }
+
+    const cfg: AddonConfig = { storageKey: urlCfg?.storageKey ?? crypto.randomUUID() };
     const username = ($("username") as HTMLInputElement).value.trim();
     const tmdbKey = ($("tmdbKey") as HTMLInputElement).value.trim();
     if (username) cfg.letterboxdUsername = username;
     if (tmdbKey) cfg.tmdbApiKey = tmdbKey;
 
-    pending = { report, cfg };
-    renderReport(report, entries.length);
+    state = { cfg, films: chart.films, report, csvExcluded };
+    renderReport(report, stored);
+    renderSeenList(new Set(stored.manualExclusions));
     ($("results") as HTMLElement).style.display = "block";
   } catch (e) {
     alert((e as Error).message);
@@ -55,10 +96,14 @@ $("go").addEventListener("click", async () => {
   }
 });
 
-function renderReport(report: MatchReport, totalEntries: number): void {
+function renderReport(report: MatchReport | null, stored: StoredExclusionsResponse): void {
+  if (!report) {
+    $("summary").innerHTML = `No CSV files selected — keeping the <strong>${stored.excludedImdbIds.length} previously excluded</strong> films.`;
+    $("ambiguous").innerHTML = "";
+    return;
+  }
   $("summary").innerHTML =
-    `${totalEntries} watched entries in your export — ` +
-    `<strong>${report.matched.length} matched a Top 250 film</strong> and will be hidden.`;
+    `<strong>${report.matched.length} entries matched a Top 250 film</strong> and will be hidden.`;
 
   const box = $("ambiguous");
   if (!report.ambiguous.length) {
@@ -68,7 +113,7 @@ function renderReport(report: MatchReport, totalEntries: number): void {
   const rows = report.ambiguous
     .map((a, i) => {
       const cands = a.candidates
-        .map((c, j) => `<label style="font-weight:400"><input type="checkbox" data-amb="${i}" data-imdb="${c.imdbId}"> ${esc(c.title)} <span class="muted">(${(c.score * 100).toFixed(0)}%)</span></label>`)
+        .map((c) => `<label style="font-weight:400"><input type="checkbox" data-amb data-imdb="${c.imdbId}"> ${esc(c.title)} <span class="muted">(${(c.score * 100).toFixed(0)}%)</span></label>`)
         .join(" ");
       return `<tr><td>${esc(a.entry.name)}${a.entry.year ? ` (${a.entry.year})` : ""}<br><span class="muted">${a.reason}</span></td><td>${cands}</td></tr>`;
     })
@@ -78,15 +123,37 @@ function renderReport(report: MatchReport, totalEntries: number): void {
     `<table>${rows}</table>`;
 }
 
+function renderSeenList(manual: Set<string>): void {
+  if (!state) return;
+  const visible = state.films.filter((f) => !state!.csvExcluded.has(f.imdbId));
+  $("seenList").innerHTML = visible
+    .map(
+      (f) =>
+        `<label class="seenRow"><input type="checkbox" data-manual="${f.imdbId}"${manual.has(f.imdbId) ? " checked" : ""}>` +
+        `<span class="r">#${f.rank}</span>${esc(f.title)}${f.year ? ` (${f.year})` : ""}</label>`,
+    )
+    .join("");
+}
+
+$("seenFilter").addEventListener("input", () => {
+  const q = ($("seenFilter") as HTMLInputElement).value.trim().toLowerCase();
+  for (const row of Array.from(document.querySelectorAll<HTMLElement>("#seenList .seenRow"))) {
+    row.style.display = !q || row.textContent!.toLowerCase().includes(q) ? "" : "none";
+  }
+});
+
 $("confirm").addEventListener("click", async () => {
-  if (!pending) return;
-  const { report, cfg } = pending;
+  if (!state) return;
+  const { cfg, report, csvExcluded } = state;
 
   // user-validated ambiguous candidates become exclusions too
   const extraIds = Array.from(document.querySelectorAll<HTMLInputElement>("input[data-amb]:checked")).map(
     (el) => el.dataset.imdb!,
   );
-  const excludedImdbIds = [...new Set([...report.excludedIds, ...extraIds])];
+  const manualExclusions = Array.from(document.querySelectorAll<HTMLInputElement>("input[data-manual]:checked")).map(
+    (el) => el.dataset.manual!,
+  );
+  const excludedImdbIds = [...new Set([...csvExcluded, ...extraIds])];
 
   const res = await fetch(`/exclusions`, {
     method: "POST",
@@ -94,7 +161,8 @@ $("confirm").addEventListener("click", async () => {
     body: JSON.stringify({
       storageKey: cfg.storageKey,
       excludedImdbIds,
-      ambiguous: report.ambiguous.map((a) => ({
+      manualExclusions,
+      ambiguous: (report?.ambiguous ?? []).map((a) => ({
         name: a.entry.name, year: a.entry.year, reason: a.reason, candidates: a.candidates,
       })),
     }),
@@ -104,8 +172,10 @@ $("confirm").addEventListener("click", async () => {
     return;
   }
 
-  const manifestUrl = `${location.origin}/${encodeConfig(cfg)}/manifest.json`;
+  const encoded = encodeConfig(cfg);
+  const manifestUrl = `${location.origin}/${encoded}/manifest.json`;
   ($("manifestUrl") as HTMLElement).textContent = manifestUrl;
-  ($("stremioLink") as HTMLAnchorElement).href = `stremio://${location.host}${location.pathname.replace(/\/configure.*$/, "")}/${encodeConfig(cfg)}/manifest.json`;
+  ($("stremioLink") as HTMLAnchorElement).href = `stremio://${location.host}${location.pathname.replace(/\/configure.*$/, "")}/${encoded}/manifest.json`;
+  ($("configureLink") as HTMLAnchorElement).href = `${location.origin}/${encoded}/configure`;
   ($("install") as HTMLElement).style.display = "block";
 });

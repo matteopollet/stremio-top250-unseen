@@ -7,8 +7,22 @@
     for (const b of bytes) bin += String.fromCharCode(b);
     return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
   }
+  function b64urlDecode(s) {
+    const bin = atob(s.replace(/-/g, "+").replace(/_/g, "/"));
+    const bytes = Uint8Array.from(bin, (c) => c.charCodeAt(0));
+    return new TextDecoder().decode(bytes);
+  }
   function encodeConfig(cfg) {
     return b64urlEncode(JSON.stringify(cfg));
+  }
+  function decodeConfig(raw) {
+    try {
+      const obj = JSON.parse(b64urlDecode(raw));
+      if (typeof obj !== "object" || obj === null || Array.isArray(obj)) return null;
+      return obj;
+    } catch {
+      return null;
+    }
   }
 
   // src/core/matcher.ts
@@ -203,7 +217,18 @@
 
   // src/configure-page/main.ts
   var $ = (id) => document.getElementById(id);
-  var pending = null;
+  var state = null;
+  function urlCfgSegment() {
+    const seg = location.pathname.split("/").filter(Boolean)[0];
+    return seg && seg !== "configure" ? decodeURIComponent(seg) : null;
+  }
+  var urlSegment = urlCfgSegment();
+  var urlCfg = urlSegment ? decodeConfig(urlSegment) : null;
+  if (urlCfg) {
+    if (urlCfg.letterboxdUsername) $("username").value = urlCfg.letterboxdUsername;
+    if (urlCfg.tmdbApiKey) $("tmdbKey").value = urlCfg.tmdbApiKey;
+    $("reconfig").style.display = "block";
+  }
   async function readFiles(input) {
     const out = [];
     for (const f of Array.from(input.files ?? [])) out.push(await f.text());
@@ -219,16 +244,27 @@
       const chartRes = await fetch("/chart.json");
       if (!chartRes.ok) throw new Error(`chart fetch failed (${chartRes.status})`);
       const chart = await chartRes.json();
+      let stored = { excludedImdbIds: [], manualExclusions: [] };
+      if (urlSegment) {
+        const res = await fetch(`/${encodeURIComponent(urlSegment)}/exclusions`);
+        if (res.ok) stored = await res.json();
+      }
       const texts = await readFiles($("csvFiles"));
-      const entries = parseLetterboxdExports(texts);
-      const report = matchWatched(entries, chart.films, { aliases: chart.aliases ?? {} });
-      const cfg = { storageKey: crypto.randomUUID() };
+      let report = null;
+      let csvExcluded = new Set(stored.excludedImdbIds);
+      if (texts.length) {
+        const entries = parseLetterboxdExports(texts);
+        report = matchWatched(entries, chart.films, { aliases: chart.aliases ?? {} });
+        csvExcluded = new Set(report.excludedIds);
+      }
+      const cfg = { storageKey: urlCfg?.storageKey ?? crypto.randomUUID() };
       const username = $("username").value.trim();
       const tmdbKey = $("tmdbKey").value.trim();
       if (username) cfg.letterboxdUsername = username;
       if (tmdbKey) cfg.tmdbApiKey = tmdbKey;
-      pending = { report, cfg };
-      renderReport(report, entries.length);
+      state = { cfg, films: chart.films, report, csvExcluded };
+      renderReport(report, stored);
+      renderSeenList(new Set(stored.manualExclusions));
       $("results").style.display = "block";
     } catch (e) {
       alert(e.message);
@@ -236,33 +272,55 @@
       btn.disabled = false;
     }
   });
-  function renderReport(report, totalEntries) {
-    $("summary").innerHTML = `${totalEntries} watched entries in your export \u2014 <strong>${report.matched.length} matched a Top 250 film</strong> and will be hidden.`;
+  function renderReport(report, stored) {
+    if (!report) {
+      $("summary").innerHTML = `No CSV files selected \u2014 keeping the <strong>${stored.excludedImdbIds.length} previously excluded</strong> films.`;
+      $("ambiguous").innerHTML = "";
+      return;
+    }
+    $("summary").innerHTML = `<strong>${report.matched.length} entries matched a Top 250 film</strong> and will be hidden.`;
     const box = $("ambiguous");
     if (!report.ambiguous.length) {
       box.innerHTML = `<p class="muted">No ambiguous entries.</p>`;
       return;
     }
     const rows = report.ambiguous.map((a, i) => {
-      const cands = a.candidates.map((c, j) => `<label style="font-weight:400"><input type="checkbox" data-amb="${i}" data-imdb="${c.imdbId}"> ${esc(c.title)} <span class="muted">(${(c.score * 100).toFixed(0)}%)</span></label>`).join(" ");
+      const cands = a.candidates.map((c) => `<label style="font-weight:400"><input type="checkbox" data-amb data-imdb="${c.imdbId}"> ${esc(c.title)} <span class="muted">(${(c.score * 100).toFixed(0)}%)</span></label>`).join(" ");
       return `<tr><td>${esc(a.entry.name)}${a.entry.year ? ` (${a.entry.year})` : ""}<br><span class="muted">${a.reason}</span></td><td>${cands}</td></tr>`;
     }).join("");
     box.innerHTML = `<p class="muted">These look like Top 250 films but didn't match confidently \u2014 tick any that should count as seen:</p><table>${rows}</table>`;
   }
+  function renderSeenList(manual) {
+    if (!state) return;
+    const visible = state.films.filter((f) => !state.csvExcluded.has(f.imdbId));
+    $("seenList").innerHTML = visible.map(
+      (f) => `<label class="seenRow"><input type="checkbox" data-manual="${f.imdbId}"${manual.has(f.imdbId) ? " checked" : ""}><span class="r">#${f.rank}</span>${esc(f.title)}${f.year ? ` (${f.year})` : ""}</label>`
+    ).join("");
+  }
+  $("seenFilter").addEventListener("input", () => {
+    const q = $("seenFilter").value.trim().toLowerCase();
+    for (const row of Array.from(document.querySelectorAll("#seenList .seenRow"))) {
+      row.style.display = !q || row.textContent.toLowerCase().includes(q) ? "" : "none";
+    }
+  });
   $("confirm").addEventListener("click", async () => {
-    if (!pending) return;
-    const { report, cfg } = pending;
+    if (!state) return;
+    const { cfg, report, csvExcluded } = state;
     const extraIds = Array.from(document.querySelectorAll("input[data-amb]:checked")).map(
       (el) => el.dataset.imdb
     );
-    const excludedImdbIds = [.../* @__PURE__ */ new Set([...report.excludedIds, ...extraIds])];
+    const manualExclusions = Array.from(document.querySelectorAll("input[data-manual]:checked")).map(
+      (el) => el.dataset.manual
+    );
+    const excludedImdbIds = [.../* @__PURE__ */ new Set([...csvExcluded, ...extraIds])];
     const res = await fetch(`/exclusions`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         storageKey: cfg.storageKey,
         excludedImdbIds,
-        ambiguous: report.ambiguous.map((a) => ({
+        manualExclusions,
+        ambiguous: (report?.ambiguous ?? []).map((a) => ({
           name: a.entry.name,
           year: a.entry.year,
           reason: a.reason,
@@ -274,9 +332,11 @@
       alert(`failed to save exclusions (${res.status})`);
       return;
     }
-    const manifestUrl = `${location.origin}/${encodeConfig(cfg)}/manifest.json`;
+    const encoded = encodeConfig(cfg);
+    const manifestUrl = `${location.origin}/${encoded}/manifest.json`;
     $("manifestUrl").textContent = manifestUrl;
-    $("stremioLink").href = `stremio://${location.host}${location.pathname.replace(/\/configure.*$/, "")}/${encodeConfig(cfg)}/manifest.json`;
+    $("stremioLink").href = `stremio://${location.host}${location.pathname.replace(/\/configure.*$/, "")}/${encoded}/manifest.json`;
+    $("configureLink").href = `${location.origin}/${encoded}/configure`;
     $("install").style.display = "block";
   });
 })();
