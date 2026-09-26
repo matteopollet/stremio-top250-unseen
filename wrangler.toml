@@ -3,7 +3,7 @@ main = "src/runtime/worker.ts"
 compatibility_date = "2026-09-01"
 
 kv_namespaces = [
-  { binding = "CACHE", id = "REPLACE_ME", preview_id = "REPLACE_ME" }
+  { binding = "CACHE", id = "15b84776e33b4618a95067c123f560a1", preview_id = "e8efea7c59ae4083abe51ef34b1bc933" }
 ]
 
 # serves public/configure.js
@@ -12,8 +12,11 @@ directory = "public"
 binding = "ASSETS"
 run_worker_first = false
 
+# The bundled snapshot is baked in at deploy time — pointing the provider at
+# the repo's snapshot keeps it fresh between deploys (CI refreshes it weekly).
+[vars]
+TOP250_SNAPSHOT_URL = "https://cdn.jsdelivr.net/gh/matteopollet/stremio-top250-unseen@main/data/top250.snapshot.json"
+
 # Optional defaults for a single-user deployment (otherwise configured per-URL):
-# [vars]
 # LETTERBOXD_USERNAME = ""
 # TMDB_API_KEY = ""
-# TOP250_SNAPSHOT_URL = ""

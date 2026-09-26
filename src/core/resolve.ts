@@ -24,7 +24,8 @@ export class IdResolver {
   ) {}
 
   private get f(): TextFetch {
-    return this.opts.fetchImpl ?? (fetch as unknown as TextFetch);
+    // never a bare `fetch` reference — detached fetch throws "Illegal invocation" on Workers
+    return this.opts.fetchImpl ?? ((url, init) => fetch(url, init as RequestInit));
   }
 
   /** Returns tmdbId → imdbId for everything resolvable within the per-call budget. */

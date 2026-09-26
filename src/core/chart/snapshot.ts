@@ -17,7 +17,8 @@ export class SnapshotProvider implements ChartProvider {
   constructor(
     private snapshot: SnapshotFile | null,
     private url: string | null = null,
-    private fetchImpl: typeof fetch = fetch,
+    // never a bare `fetch` reference — detached fetch throws "Illegal invocation" on Workers
+    private fetchImpl: typeof fetch = (...args) => fetch(...args),
   ) {
     this.name = url ? `snapshot:${url}` : "snapshot:bundled";
   }

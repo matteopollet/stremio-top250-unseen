@@ -45,7 +45,9 @@ export type FetchLike = (url: string, init?: unknown) => Promise<{ ok: boolean; 
 export class ImdbGraphqlProvider implements ChartProvider {
   readonly name = "imdb-graphql";
 
-  constructor(private fetchImpl: FetchLike = fetch as unknown as FetchLike) {}
+  // never pass a bare `fetch` reference: calling it detached throws
+  // "Illegal invocation" in the Workers runtime
+  constructor(private fetchImpl: FetchLike = (url, init) => fetch(url, init as RequestInit)) {}
 
   async getChart(): Promise<RankedFilm[]> {
     const res = await this.fetchImpl(ENDPOINT, {
