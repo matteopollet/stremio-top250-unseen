@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:letterboxd="https://letterboxd.com" xmlns:tmdb="https://themoviedb.org">
+  <channel>
+    <title>Letterboxd - testuser</title>
+    <link>https://letterboxd.com/testuser/</link>
+    <item>
+      <title>Test List</title>
+      <link>https://letterboxd.com/testuser/list/some-list/</link>
+      <guid isPermaLink="false">letterboxd-list-99999999</guid>
+      <pubDate>Mon, 1 Sep 2025 10:00:00 +1200</pubDate>
+      <description><![CDATA[ <p>A list.</p> ]]></description>
+      <dc:creator>testuser</dc:creator>
+    </item>
+    <item>
+      <title>The Shawshank Redemption, 1994 - ★★★★★</title>
+      <link>https://letterboxd.com/testuser/film/the-shawshank-redemption/</link>
+      <guid isPermaLink="false">letterboxd-watch-1388436500</guid>
+      <pubDate>Sun, 21 Sep 2025 14:43:16 +1200</pubDate>
+      <letterboxd:watchedDate>2025-09-20</letterboxd:watchedDate>
+      <letterboxd:rewatch>No</letterboxd:rewatch>
+      <letterboxd:filmTitle>The Shawshank Redemption</letterboxd:filmTitle>
+      <letterboxd:filmYear>1994</letterboxd:filmYear>
+      <letterboxd:memberRating>5.0</letterboxd:memberRating>
+      <tmdb:movieId>278</tmdb:movieId>
+      <description><![CDATA[ <p>Watched on Saturday September 20, 2025.</p> ]]></description>
+      <dc:creator>testuser</dc:creator>
+    </item>
+    <item>
+      <title>Spirited Away, 2001 - ★★★★½</title>
+      <link>https://letterboxd.com/testuser/film/spirited-away/</link>
+      <guid isPermaLink="false">letterboxd-review-1388436601</guid>
+      <pubDate>Sun, 21 Sep 2025 16:00:00 +1200</pubDate>
+      <letterboxd:watchedDate>2025-09-21</letterboxd:watchedDate>
+      <letterboxd:rewatch>Yes</letterboxd:rewatch>
+      <letterboxd:filmTitle>Spirited Away</letterboxd:filmTitle>
+      <letterboxd:filmYear>2001</letterboxd:filmYear>
+      <letterboxd:memberRating>4.5</letterboxd:memberRating>
+      <tmdb:movieId>129</tmdb:movieId>
+      <description><![CDATA[ <p>Loved it again.</p> ]]></description>
+      <dc:creator>testuser</dc:creator>
+    </item>
+  </channel>
+</rss>
