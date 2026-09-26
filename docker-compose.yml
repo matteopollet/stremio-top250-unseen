@@ -1,0 +1,17 @@
+services:
+  addon:
+    build: .
+    ports:
+      - "7000:7000"
+    environment:
+      # LETTERBOXD_USERNAME: your-username
+      # TMDB_API_KEY: ""
+      # TOP250_SNAPSHOT_URL: ""
+      # CATALOG_NAME: "IMDb Top 250 — À voir"
+      NODE_ENV: production
+    volumes:
+      - addon-data:/var/lib/top250-unseen
+    restart: unless-stopped
+
+volumes:
+  addon-data:

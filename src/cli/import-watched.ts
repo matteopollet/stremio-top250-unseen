@@ -19,9 +19,10 @@ if (!paths.length) {
   process.exit(1);
 }
 
-const DATA_DIR = process.env.DATA_DIR ?? "data";
-const snapshot = JSON.parse(await readFile(`${DATA_DIR}/top250.snapshot.json`, "utf8")) as SnapshotFile;
-const aliases = (JSON.parse(await readFile(`${DATA_DIR}/aliases.json`, "utf8")) as { aliases: Record<string, string> }).aliases;
+const DATA_DIR = process.env.DATA_DIR ?? "data/local";
+const BUNDLED_DATA = new URL("../../data/", import.meta.url);
+const snapshot = JSON.parse(await readFile(new URL("top250.snapshot.json", BUNDLED_DATA), "utf8")) as SnapshotFile;
+const aliases = (JSON.parse(await readFile(new URL("aliases.json", BUNDLED_DATA), "utf8")) as { aliases: Record<string, string> }).aliases;
 
 const cache = new FileCache(`${DATA_DIR}/cache.json`);
 const store = new FileCache(`${DATA_DIR}/store.json`);

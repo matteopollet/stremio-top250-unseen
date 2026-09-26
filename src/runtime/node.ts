@@ -6,14 +6,17 @@ import { configurePageHtml } from "../http/configure-html.js";
 import { FileCache } from "./file-cache.js";
 
 const PORT = Number(process.env.PORT ?? 7000);
-const DATA_DIR = process.env.DATA_DIR ?? "data";
+// DATA_DIR = writable state (cache + exclusions). Bundled reference data
+// (top250 snapshot, aliases) is always read from the repo, relative to this file.
+const DATA_DIR = process.env.DATA_DIR ?? "data/local";
+const BUNDLED_DATA = new URL("../../data/", import.meta.url);
 
 const cache = new FileCache(`${DATA_DIR}/cache.json`);
 const store = new FileCache(`${DATA_DIR}/store.json`);
 
 const [snapshot, aliases, configureJs] = await Promise.all([
-  readFile(`${DATA_DIR}/top250.snapshot.json`, "utf8").then(JSON.parse),
-  readFile(`${DATA_DIR}/aliases.json`, "utf8").then((t) => JSON.parse(t).aliases as Record<string, string>),
+  readFile(new URL("top250.snapshot.json", BUNDLED_DATA), "utf8").then(JSON.parse),
+  readFile(new URL("aliases.json", BUNDLED_DATA), "utf8").then((t) => JSON.parse(t).aliases as Record<string, string>),
   readFile(new URL("../../public/configure.js", import.meta.url), "utf8").catch(() => null),
 ]);
 
