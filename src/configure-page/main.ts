@@ -226,9 +226,21 @@ getChart()
   })
   .catch(() => undefined);
 
+/**
+ * Only these export files are a "seen" signal. watchlist.csv shares the exact
+ * same header shape (Date,Name,Year,Letterboxd URI) but lists films the user
+ * has NOT seen — dropping a whole export folder must never mark them watched.
+ * Suffixes tolerated: "watched (1).csv" style download renames.
+ */
+const WATCHED_FILE = /^(watched|ratings|diary|reviews)([\s_\-([].*)?\.csv$/i;
+
+function watchedCsvFiles(input: HTMLInputElement): File[] {
+  return Array.from(input.files ?? []).filter((f) => WATCHED_FILE.test(f.name));
+}
+
 async function readFiles(input: HTMLInputElement): Promise<string[]> {
   const out: string[] = [];
-  for (const f of Array.from(input.files ?? [])) out.push(await f.text());
+  for (const f of watchedCsvFiles(input)) out.push(await f.text());
   return out;
 }
 
@@ -260,16 +272,21 @@ async function renderFileStubs(): Promise<void> {
     $("importResidue").textContent = "";
     return;
   }
-  const texts = await readFiles(csvInput);
+  const texts = await Promise.all(files.map((f) => f.text()));
+  const usedTexts: string[] = [];
   const stubs = files.map((f, i) => {
+    if (!WATCHED_FILE.test(f.name)) {
+      return `<span class="fstub bad">${esc(f.name)}<span class="n">skipped — not a watched-data file</span></span>`;
+    }
+    usedTexts.push(texts[i]!);
     const n = parseLetterboxdCsv(texts[i] ?? "").length;
     return n > 0
       ? `<span class="fstub">${esc(f.name)}<span class="n">${n} entries</span></span>`
       : `<span class="fstub bad">${esc(f.name)}<span class="n">unrecognized</span></span>`;
   });
   box.innerHTML = stubs.join("");
-  const total = parseLetterboxdExports(texts).length;
-  $("importResidue").textContent = `${files.length} file${files.length > 1 ? "s" : ""} · ${total} entries`;
+  const total = parseLetterboxdExports(usedTexts).length;
+  $("importResidue").textContent = `${usedTexts.length} of ${files.length} file${files.length > 1 ? "s" : ""} · ${total} entries`;
 }
 
 /* ---------- match ---------- */
@@ -307,7 +324,8 @@ $("go").addEventListener("click", async () => {
       csvExcluded = new Set(report.excludedIds);
     }
 
-    const cfg: AddonConfig = { storageKey: urlCfg?.storageKey ?? crypto.randomUUID() };
+    // spread urlCfg so hand-set fields (catalogName, overrides) survive a reconfigure
+    const cfg: AddonConfig = { ...urlCfg, storageKey: urlCfg?.storageKey ?? crypto.randomUUID() };
     const username = ($("username") as HTMLInputElement).value.trim();
     const tmdbKey = ($("tmdbKey") as HTMLInputElement).value.trim();
     if (username) cfg.letterboxdUsername = username;
@@ -500,7 +518,7 @@ $("confirm").addEventListener("click", async () => {
   const encoded = encodeConfig(cfg);
   const manifestUrl = `${location.origin}/${encoded}/manifest.json`;
   ($("manifestUrl") as HTMLElement).textContent = manifestUrl;
-  ($("stremioLink") as HTMLAnchorElement).href = `stremio://${location.host}${location.pathname.replace(/\/configure.*$/, "")}/${encoded}/manifest.json`;
+  ($("stremioLink") as HTMLAnchorElement).href = `stremio://${location.host}/${encoded}/manifest.json`;
   ($("configureLink") as HTMLAnchorElement).href = `${location.origin}/${encoded}/configure`;
 
   // contested lines left unruled return to live; the next film outranks all

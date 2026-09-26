@@ -368,7 +368,7 @@ footer { max-width: 840px; margin: 0 auto; padding: 0 20px 44px; color: var(--bo
       <div class="drop" id="drop">
         <input type="file" id="csvFiles" multiple accept=".csv" aria-label="Letterboxd CSV export files">
         <span class="drop-label">Drop your CSV exports here</span>
-        <span class="drop-hint">or click to browse — watched.csv · ratings.csv · diary.csv</span>
+        <span class="drop-hint">or click to browse — watched.csv · ratings.csv · diary.csv (other export files are ignored)</span>
       </div>
       <div class="filestubs" id="fileStubs"></div>
     </div>

@@ -15,11 +15,33 @@
   function encodeConfig(cfg) {
     return b64urlEncode(JSON.stringify(cfg));
   }
+  var IMDB_ID = /^tt\d{4,10}$/;
+  var STRING_FIELDS = ["letterboxdUsername", "tmdbApiKey", "storageKey", "catalogName"];
   function decodeConfig(raw) {
     try {
       const obj = JSON.parse(b64urlDecode(raw));
       if (typeof obj !== "object" || obj === null || Array.isArray(obj)) return null;
-      return obj;
+      const o = obj;
+      const cfg = {};
+      for (const k of STRING_FIELDS) {
+        const v = o[k];
+        if (v === void 0) continue;
+        if (typeof v !== "string") return null;
+        cfg[k] = v;
+      }
+      if (o.overrides !== void 0) {
+        const ov = o.overrides;
+        if (typeof ov !== "object" || ov === null || Array.isArray(ov)) return null;
+        const overrides = {};
+        for (const k of ["forceInclude", "forceExclude"]) {
+          const v = ov[k];
+          if (v === void 0) continue;
+          if (!Array.isArray(v) || !v.every((id) => typeof id === "string" && IMDB_ID.test(id))) return null;
+          overrides[k] = v;
+        }
+        cfg.overrides = overrides;
+      }
+      return cfg;
     } catch {
       return null;
     }
@@ -373,9 +395,13 @@
       }).catch(() => void 0);
     }
   }).catch(() => void 0);
+  var WATCHED_FILE = /^(watched|ratings|diary|reviews)([\s_\-([].*)?\.csv$/i;
+  function watchedCsvFiles(input) {
+    return Array.from(input.files ?? []).filter((f) => WATCHED_FILE.test(f.name));
+  }
   async function readFiles(input) {
     const out = [];
-    for (const f of Array.from(input.files ?? [])) out.push(await f.text());
+    for (const f of watchedCsvFiles(input)) out.push(await f.text());
     return out;
   }
   var csvInput = $("csvFiles");
@@ -402,14 +428,19 @@
       $("importResidue").textContent = "";
       return;
     }
-    const texts = await readFiles(csvInput);
+    const texts = await Promise.all(files.map((f) => f.text()));
+    const usedTexts = [];
     const stubs = files.map((f, i) => {
+      if (!WATCHED_FILE.test(f.name)) {
+        return `<span class="fstub bad">${esc(f.name)}<span class="n">skipped \u2014 not a watched-data file</span></span>`;
+      }
+      usedTexts.push(texts[i]);
       const n = parseLetterboxdCsv(texts[i] ?? "").length;
       return n > 0 ? `<span class="fstub">${esc(f.name)}<span class="n">${n} entries</span></span>` : `<span class="fstub bad">${esc(f.name)}<span class="n">unrecognized</span></span>`;
     });
     box.innerHTML = stubs.join("");
-    const total = parseLetterboxdExports(texts).length;
-    $("importResidue").textContent = `${files.length} file${files.length > 1 ? "s" : ""} \xB7 ${total} entries`;
+    const total = parseLetterboxdExports(usedTexts).length;
+    $("importResidue").textContent = `${usedTexts.length} of ${files.length} file${files.length > 1 ? "s" : ""} \xB7 ${total} entries`;
   }
   var REASON_LABELS = {
     "title-similar-but-year-mismatch": "same title \u2014 different year",
@@ -439,7 +470,7 @@
         report = matchWatched(entries, chart.films, { aliases: chart.aliases ?? {} });
         csvExcluded = new Set(report.excludedIds);
       }
-      const cfg = { storageKey: urlCfg?.storageKey ?? crypto.randomUUID() };
+      const cfg = { ...urlCfg, storageKey: urlCfg?.storageKey ?? crypto.randomUUID() };
       const username = $("username").value.trim();
       const tmdbKey = $("tmdbKey").value.trim();
       if (username) cfg.letterboxdUsername = username;
@@ -585,7 +616,7 @@
     const encoded = encodeConfig(cfg);
     const manifestUrl = `${location.origin}/${encoded}/manifest.json`;
     $("manifestUrl").textContent = manifestUrl;
-    $("stremioLink").href = `stremio://${location.host}${location.pathname.replace(/\/configure.*$/, "")}/${encoded}/manifest.json`;
+    $("stremioLink").href = `stremio://${location.host}/${encoded}/manifest.json`;
     $("configureLink").href = `${location.origin}/${encoded}/configure`;
     const excluded = excludedNow();
     const next = state.films.find((f) => !excluded.has(f.imdbId)) ?? null;
