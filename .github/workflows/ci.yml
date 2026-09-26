@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx tsc -p tsconfig.json --noEmit
+      - run: npx tsc -p tsconfig.worker.json
+      - run: npm test
+      - run: npm run build:configure
+      - name: configure.js bundle is up to date
+        run: git diff --exit-code public/configure.js
+      - name: worker bundles cleanly
+        run: npx esbuild src/runtime/worker.ts --bundle --format=esm --outfile=/tmp/worker.js

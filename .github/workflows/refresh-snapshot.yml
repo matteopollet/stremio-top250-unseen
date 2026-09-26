@@ -1,0 +1,32 @@
+name: Refresh Top 250 snapshot
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # weekly, Mondays 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx tsx src/cli/refresh-snapshot.ts
+      - name: commit if changed
+        run: |
+          if git diff --quiet data/top250.snapshot.json; then
+            echo "no change"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/top250.snapshot.json
+            git commit -m "chore(data): refresh top250 snapshot"
+            git push
+          fi
