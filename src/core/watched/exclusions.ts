@@ -4,6 +4,11 @@ import type { KeyValueStore } from "./letterboxd-rss.js";
 export interface StoredExclusions {
   /** imdbIds matched confidently by the browser-side matcher */
   excludedImdbIds: string[];
+  /**
+   * imdbIds ticked by hand in /configure — for films seen but never logged
+   * on Letterboxd. Stored separately so a CSV re-import never wipes them.
+   */
+  manualExclusions?: string[];
   /** entries the matcher could not confidently identify — surfaced in /status */
   ambiguous: { name: string; year: number | null; reason: string; candidates: { imdbId: string; title: string; score: number }[] }[];
   updatedAt: string;
@@ -29,7 +34,7 @@ export class ExclusionsProvider implements WatchedProvider {
 
   async getWatchedIds(): Promise<Set<string>> {
     const stored = await this.store.get<StoredExclusions>(this.key);
-    return new Set(stored?.excludedImdbIds ?? []);
+    return new Set([...(stored?.excludedImdbIds ?? []), ...(stored?.manualExclusions ?? [])]);
   }
 
   async getStored(): Promise<StoredExclusions | undefined> {

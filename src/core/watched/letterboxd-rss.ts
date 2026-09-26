@@ -9,13 +9,15 @@ import type { WatchedProvider } from "../types.js";
  * of the feed stays excluded forever.
  *
  * Note: watch/diary/review items emit a `letterboxd-watch-*`/`-diary-*`/
- * `-review-*` guid. Rating a film marks it "watched" on Letterboxd, which
- * emits a watch item — but edge cases may not emit, so the CSV export stays
- * the canonical source.
+ * `-review-*` guid. Observed behavior on a live account: marking a film
+ * watched (eye icon) or rating it without a diary entry produced no feed
+ * item within ~10 min — Letterboxd appears to regenerate feeds periodically
+ * (or not emit bare marks at all). The CSV export therefore stays canonical
+ * and /configure's manual checklist covers immediate, guaranteed hiding.
  */
 
 const FILM_GUID = /^letterboxd-(watch|diary|review)-/;
-const FEED_TTL = 3600; // 1h
+const FEED_TTL = 900; // 15min — feed regeneration upstream is the real bottleneck
 
 export interface RssFilmItem {
   tmdbId: number;

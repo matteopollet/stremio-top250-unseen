@@ -50,8 +50,11 @@ if (report.ambiguous.length) {
   }
 }
 
-await new ExclusionsProvider(store, DEFAULT_STORAGE_KEY).put({
+const provider = new ExclusionsProvider(store, DEFAULT_STORAGE_KEY);
+const existing = await provider.getStored();
+await provider.put({
   excludedImdbIds: [...report.excludedIds],
+  manualExclusions: existing?.manualExclusions ?? [],
   ambiguous: report.ambiguous.map((a) => ({
     name: a.entry.name, year: a.entry.year, reason: a.reason, candidates: a.candidates,
   })),
