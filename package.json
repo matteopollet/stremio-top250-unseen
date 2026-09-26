@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "description": "Stremio addon: IMDb Top 250 minus the movies you have already seen (Letterboxd)",
   "license": "MIT",
+  "author": "Mattéo Pollet",
+  "keywords": ["stremio", "stremio-addon", "imdb", "top250", "letterboxd", "movies", "catalog"],
   "type": "module",
   "engines": {
     "node": ">=20"

@@ -3,7 +3,7 @@ import { configFromEnv, decodeConfig, encodeConfig } from "../src/core/config.js
 
 describe("config encoding", () => {
   it("round-trips through base64url", () => {
-    const cfg = { letterboxdUsername: "polletm", tmdbApiKey: "abc", storageKey: "k1" };
+    const cfg = { letterboxdUsername: "testuser", tmdbApiKey: "abc", storageKey: "k1" };
     const encoded = encodeConfig(cfg);
     expect(encoded).not.toContain("+");
     expect(decodeConfig(encoded)).toEqual(cfg);
