@@ -12,6 +12,10 @@ directory = "public"
 binding = "ASSETS"
 run_worker_first = false
 
+# Workers Logs — tail logs in the Cloudflare dashboard (free)
+[observability]
+enabled = true
+
 # The bundled snapshot is baked in at deploy time — pointing the provider at
 # the repo's snapshot keeps it fresh between deploys (CI refreshes it weekly).
 [vars]

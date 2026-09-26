@@ -20,5 +20,8 @@ try {
   await writeFile(OUT, JSON.stringify(snapshot, null, 1) + "\n");
   console.log(`snapshot refreshed: ${films.length} films, #1 = ${films[0]!.title}`);
 } catch (e) {
-  console.warn(`snapshot refresh skipped: ${(e as Error).message}`);
+  // the ::warning annotation makes a permanently broken endpoint visible in
+  // the weekly workflow's run summary — "no diff" must not be confused with
+  // "refresh failed" while the bundled snapshot silently goes stale
+  console.warn(`::warning file=data/top250.snapshot.json::snapshot refresh skipped: ${(e as Error).message}`);
 }
