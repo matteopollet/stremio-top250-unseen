@@ -5,7 +5,7 @@ import { handleRequest, type AddonDeps } from "../http/addon.js";
 import { configurePageHtml } from "../http/configure-html.js";
 import { FileCache } from "./file-cache.js";
 
-const PORT = Number(process.env.PORT ?? 7000);
+const PORT = Number(process.env.PORT ?? 7146);
 // DATA_DIR = writable state (cache + exclusions). Bundled reference data
 // (top250 snapshot, aliases) is always read from the repo, relative to this file.
 const DATA_DIR = process.env.DATA_DIR ?? "data/local";

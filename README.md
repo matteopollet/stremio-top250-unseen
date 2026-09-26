@@ -34,7 +34,7 @@ export files, and click **Confirm & install**.
 
 ```bash
 docker compose up -d
-# open http://localhost:7000/configure
+# open http://localhost:7146/configure
 ```
 
 Or persist a watched export without the browser flow:
@@ -49,10 +49,10 @@ docker compose exec addon sh -c 'node dist/cli/import-watched.js /export/watched
 ```bash
 npm install && npm run build:configure
 npm run import-watched -- ~/Downloads/letterboxd-*/watched.csv   # one-time baseline
-npm run dev                                                     # http://localhost:7000
+npm run dev                                                     # http://localhost:7146
 ```
 
-Then install `http://localhost:7000/manifest.json` in Stremio (desktop app only —
+Then install `http://localhost:7146/manifest.json` in Stremio (desktop app only —
 remote apps require HTTPS).
 
 > Note: http/LAN installs work in Stremio desktop and Android; `web.stremio.com`
