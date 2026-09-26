@@ -1,0 +1,2256 @@
+{
+ "source": "https://api.graphql.imdb.com chartTitles TOP_RATED_MOVIES",
+ "fetchedAt": "2026-09-26T09:19:01.916291Z",
+ "films": [
+  {
+   "rank": 1,
+   "imdbId": "tt0111161",
+   "title": "The Shawshank Redemption",
+   "originalTitle": "The Shawshank Redemption",
+   "year": 1994,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMDAyY2FhYjctNDc5OS00MDNlLThiMGUtY2UxYWVkNGY2ZjljXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 9.3
+  },
+  {
+   "rank": 2,
+   "imdbId": "tt0068646",
+   "title": "The Godfather",
+   "originalTitle": "The Godfather",
+   "year": 1972,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGEwYjgwOGQtYjg5ZS00Njc1LTk2ZGEtM2QwZWQ2NjdhZTE5XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 9.2
+  },
+  {
+   "rank": 3,
+   "imdbId": "tt0468569",
+   "title": "The Dark Knight",
+   "originalTitle": "The Dark Knight",
+   "year": 2008,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg",
+   "imdbRating": 9.1
+  },
+  {
+   "rank": 4,
+   "imdbId": "tt0071562",
+   "title": "The Godfather Part II",
+   "originalTitle": "The Godfather Part II",
+   "year": 1974,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMDIxMzBlZDktZjMxNy00ZGI4LTgxNDEtYWRlNzRjMjJmOGQ1XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 9
+  },
+  {
+   "rank": 5,
+   "imdbId": "tt0167260",
+   "title": "The Lord of the Rings: The Return of the King",
+   "originalTitle": "The Lord of the Rings: The Return of the King",
+   "year": 2003,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTZkMjBjNWMtZGI5OC00MGU0LTk4ZTItODg2NWM3NTVmNWQ4XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 9
+  },
+  {
+   "rank": 6,
+   "imdbId": "tt0050083",
+   "title": "12 Angry Men",
+   "originalTitle": "12 Angry Men",
+   "year": 1957,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYjE4NzdmOTYtYjc5Yi00YzBiLWEzNDEtNTgxZGQ2MWVkN2NiXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 9
+  },
+  {
+   "rank": 7,
+   "imdbId": "tt0108052",
+   "title": "Schindler's List",
+   "originalTitle": "Schindler's List",
+   "year": 1993,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNjM1ZDQxYWUtMzQyZS00MTE1LWJmZGYtNGUyNTdlYjM3ZmVmXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 9
+  },
+  {
+   "rank": 8,
+   "imdbId": "tt0120737",
+   "title": "The Lord of the Rings: The Fellowship of the Ring",
+   "originalTitle": "The Lord of the Rings: The Fellowship of the Ring",
+   "year": 2001,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNzIxMDQ2YTctNDY4MC00ZTRhLTk4ODQtMTVlOWY4NTdiYmMwXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.9
+  },
+  {
+   "rank": 9,
+   "imdbId": "tt0110912",
+   "title": "Pulp Fiction",
+   "originalTitle": "Pulp Fiction",
+   "year": 1994,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYTViYTE3ZGQtNDBlMC00ZTAyLTkyODMtZGRiZDg0MjA2YThkXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.8
+  },
+  {
+   "rank": 10,
+   "imdbId": "tt0167261",
+   "title": "The Lord of the Rings: The Two Towers",
+   "originalTitle": "The Lord of the Rings: The Two Towers",
+   "year": 2002,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMGQxMDdiOWUtYjc1Ni00YzM1LWE2NjMtZTg3Y2JkMjEzMTJjXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.8
+  },
+  {
+   "rank": 11,
+   "imdbId": "tt0060196",
+   "title": "The Good, the Bad and the Ugly",
+   "originalTitle": "Il buono, il brutto, il cattivo",
+   "year": 1966,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMWM5ZjQxM2YtNDlmYi00ZDNhLWI4MWUtN2VkYjBlMTY1ZTkwXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.8
+  },
+  {
+   "rank": 12,
+   "imdbId": "tt0109830",
+   "title": "Forrest Gump",
+   "originalTitle": "Forrest Gump",
+   "year": 1994,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNDYwNzVjMTItZmU5YS00YjQ5LTljYjgtMjY2NDVmYWMyNWFmXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.8
+  },
+  {
+   "rank": 13,
+   "imdbId": "tt0137523",
+   "title": "Fight Club",
+   "originalTitle": "Fight Club",
+   "year": 1999,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOTgyOGQ1NDItNGU3Ny00MjU3LTg2YWEtNmEyYjBiMjI1Y2M5XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.8
+  },
+  {
+   "rank": 14,
+   "imdbId": "tt1375666",
+   "title": "Inception",
+   "originalTitle": "Inception",
+   "year": 2010,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg",
+   "imdbRating": 8.8
+  },
+  {
+   "rank": 15,
+   "imdbId": "tt0080684",
+   "title": "Star Wars: Episode V - The Empire Strikes Back",
+   "originalTitle": "Star Wars: Episode V - The Empire Strikes Back",
+   "year": 1980,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTkxNGFlNDktZmJkNC00MDdhLTg0MTEtZjZiYWI3MGE5NWIwXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.7
+  },
+  {
+   "rank": 16,
+   "imdbId": "tt0133093",
+   "title": "The Matrix",
+   "originalTitle": "The Matrix",
+   "year": 1999,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2ZTY0ODQyNDRhXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.7
+  },
+  {
+   "rank": 17,
+   "imdbId": "tt0816692",
+   "title": "Interstellar",
+   "originalTitle": "Interstellar",
+   "year": 2014,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYzdjMDAxZGItMjI2My00ODA1LTlkNzItOWFjMDU5ZDJlYWY3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.7
+  },
+  {
+   "rank": 18,
+   "imdbId": "tt0099685",
+   "title": "GoodFellas",
+   "originalTitle": "GoodFellas",
+   "year": 1990,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BN2E5NzI2ZGMtY2VjNi00YTRjLWI1MDUtZGY5OWU1MWJjZjRjXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.7
+  },
+  {
+   "rank": 19,
+   "imdbId": "tt0073486",
+   "title": "One Flew Over the Cuckoo's Nest",
+   "originalTitle": "One Flew Over the Cuckoo's Nest",
+   "year": 1975,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYjBkMjgzMzYtNzRiMS00NDc3LWE4YTUtZjYxYjZhNjNhYzhhXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.6
+  },
+  {
+   "rank": 20,
+   "imdbId": "tt0114369",
+   "title": "Seven",
+   "originalTitle": "Se7en",
+   "year": 1995,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BY2IzNzMxZjctZjUxZi00YzAxLTk3ZjMtODFjODdhMDU5NDM1XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.6
+  },
+  {
+   "rank": 21,
+   "imdbId": "tt0038650",
+   "title": "It's a Wonderful Life",
+   "originalTitle": "It's a Wonderful Life",
+   "year": 1946,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMDM4OWFhYjEtNTE5Yy00NjcyLTg5N2UtZDQwNDZlYjlmNDU5XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.6
+  },
+  {
+   "rank": 22,
+   "imdbId": "tt0102926",
+   "title": "The Silence of the Lambs",
+   "originalTitle": "The Silence of the Lambs",
+   "year": 1991,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNDdhOGJhYzctYzYwZC00YmI2LWI0MjctYjg4ODdlMDExYjBlXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.6
+  },
+  {
+   "rank": 23,
+   "imdbId": "tt0120815",
+   "title": "Saving Private Ryan",
+   "originalTitle": "Saving Private Ryan",
+   "year": 1998,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZGZhZGQ1ZWUtZTZjYS00MDJhLWFkYjctN2ZlYjE5NWYwZDM2XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.6
+  },
+  {
+   "rank": 24,
+   "imdbId": "tt0047478",
+   "title": "Seven Samurai",
+   "originalTitle": "Shichinin no samurai",
+   "year": 1954,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZjliMWExOTMtZDQ3ZS00NWU3LWIyN2EtMjllNzk3ZTNlYzg4XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.6
+  },
+  {
+   "rank": 25,
+   "imdbId": "tt0120689",
+   "title": "The Green Mile",
+   "originalTitle": "The Green Mile",
+   "year": 1999,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_.jpg",
+   "imdbRating": 8.6
+  },
+  {
+   "rank": 26,
+   "imdbId": "tt0317248",
+   "title": "City of God",
+   "originalTitle": "Cidade de Deus",
+   "year": 2002,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYjY4NGI5OTUtY2ZlZS00Zjk4LTk5N2MtN2JmYWVjNGNmMGRlXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.6
+  },
+  {
+   "rank": 27,
+   "imdbId": "tt0118799",
+   "title": "Life Is Beautiful",
+   "originalTitle": "La vita è bella",
+   "year": 1997,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZTBhOGYzZjQtYzE0Mi00MGIwLWE0MWYtNzMxNTM2OTFkM2NjXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.6
+  },
+  {
+   "rank": 28,
+   "imdbId": "tt0103064",
+   "title": "Terminator 2: Judgment Day",
+   "originalTitle": "Terminator 2: Judgment Day",
+   "year": 1991,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGMyMGNkMDUtMjc2Ni00NWFlLTgyODEtZTY2MzBiZTg0OWZiXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.6
+  },
+  {
+   "rank": 29,
+   "imdbId": "tt0088763",
+   "title": "Back to the Future",
+   "originalTitle": "Back to the Future",
+   "year": 1985,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZmM3ZjE0NzctNjBiOC00MDZmLTgzMTUtNGVlOWFlOTNiZDJiXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 30,
+   "imdbId": "tt0076759",
+   "title": "Star Wars: Episode IV - A New Hope",
+   "originalTitle": "Star Wars",
+   "year": 1977,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOGUwMDk0Y2MtNjBlNi00NmRiLTk2MWYtMGMyMDlhYmI4ZDBjXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.6
+  },
+  {
+   "rank": 31,
+   "imdbId": "tt0245429",
+   "title": "Spirited Away",
+   "originalTitle": "Sen to Chihiro no kamikakushi",
+   "year": 2001,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNTEyNmEwOWUtYzkyOC00ZTQ4LTllZmUtMjk0Y2YwOGUzYjRiXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.6
+  },
+  {
+   "rank": 32,
+   "imdbId": "tt0172495",
+   "title": "Gladiator",
+   "originalTitle": "Gladiator",
+   "year": 2000,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYWQ4YmNjYjEtOWE1Zi00Y2U4LWI4NTAtMTU0MjkxNWQ1ZmJiXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 33,
+   "imdbId": "tt6019206",
+   "title": "Kill Bill: The Whole Bloody Affair",
+   "originalTitle": "Kill Bill: The Whole Bloody Affair",
+   "year": 2004,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZDc2YzhkODAtZmRmZS00YzcxLWJkYWEtM2ZhZjY3MmMyZmJiXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.7
+  },
+  {
+   "rank": 34,
+   "imdbId": "tt0253474",
+   "title": "The Pianist",
+   "originalTitle": "The Pianist",
+   "year": 2002,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjEwNmEwYjgtNTk3ZC00NjljLTg5ZDctZTY3ZGQwZjRkZmQxXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 35,
+   "imdbId": "tt6751668",
+   "title": "Parasite",
+   "originalTitle": "Gisaengchung",
+   "year": 2019,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYjk1Y2U4MjQtY2ZiNS00OWQyLWI3MmYtZWUwNmRjYWRiNWNhXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 36,
+   "imdbId": "tt0095327",
+   "title": "Grave of the Fireflies",
+   "originalTitle": "Hotaru no haka",
+   "year": 1988,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNTY5MmE2OGMtN2IxNC00MDY4LTkwMGEtZDUzOTYyNWE0ZTNjXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 37,
+   "imdbId": "tt0056058",
+   "title": "Harakiri",
+   "originalTitle": "Seppuku",
+   "year": 1962,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZThiZjU5ZDQtZDI4Mi00ZGYyLTkzOTktYmIzZTFlZTkxYzg5XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.6
+  },
+  {
+   "rank": 38,
+   "imdbId": "tt0110357",
+   "title": "The Lion King",
+   "originalTitle": "The Lion King",
+   "year": 1994,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZGRiZDZhZjItM2M3ZC00Y2IyLTk3Y2MtMWY5YjliNDFkZTJlXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 39,
+   "imdbId": "tt0054215",
+   "title": "Psycho",
+   "originalTitle": "Psycho",
+   "year": 1960,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYjZhMzFiZjItODA3ZC00MmRhLWIzMGYtMmVjOWUwYTA3MTRjXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 40,
+   "imdbId": "tt0407887",
+   "title": "The Departed",
+   "originalTitle": "The Departed",
+   "year": 2006,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTI1MTY2OTIxNV5BMl5BanBnXkFtZTYwNjQ4NjY3._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 41,
+   "imdbId": "tt2582802",
+   "title": "Whiplash",
+   "originalTitle": "Whiplash",
+   "year": 2014,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMDFjOWFkYzktYzhhMC00NmYyLTkwY2EtYjViMDhmNzg0OGFkXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 42,
+   "imdbId": "tt0482571",
+   "title": "The Prestige",
+   "originalTitle": "The Prestige",
+   "year": 2006,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BM2Y0YmM5MWYtZTYzNi00ZjU5LTlmOGYtZDQ4ODQyMjAzNjQ2XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 43,
+   "imdbId": "tt0120586",
+   "title": "American History X",
+   "originalTitle": "American History X",
+   "year": 1998,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMzhiOTQ0NDItOTg0Zi00OGVmLWE0OGEtMTI4NDM0NWMxZWU4XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 44,
+   "imdbId": "tt9362722",
+   "title": "Spider-Man: Across the Spider-Verse",
+   "originalTitle": "Spider-Man: Across the Spider-Verse",
+   "year": 2023,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNThiZjA3MjItZGY5Ni00ZmJhLWEwN2EtOTBlYTA4Y2E0M2ZmXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 45,
+   "imdbId": "tt0110413",
+   "title": "Léon: The Professional",
+   "originalTitle": "Léon",
+   "year": 1994,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGRkYTNhOWQtYmI0Ni00MjZhLWJmMzAtMTA2Mjg4NGNiNDU0XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 46,
+   "imdbId": "tt0095765",
+   "title": "Cinema Paradiso",
+   "originalTitle": "Nuovo Cinema Paradiso",
+   "year": 1988,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTljNzc4YWEtYTZlMS00ODMyLWIwMTAtNWQxY2VkMDEwYTk5XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 47,
+   "imdbId": "tt0034583",
+   "title": "Casablanca",
+   "originalTitle": "Casablanca",
+   "year": 1942,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNWEzN2U1YTYtYTQyMS00NTVkLWE2NGQtZWFlMmM0MDNjMmRiXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 48,
+   "imdbId": "tt1675434",
+   "title": "The Intouchables",
+   "originalTitle": "Intouchables",
+   "year": 2011,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTYxNDA3MDQwNl5BMl5BanBnXkFtZTcwNTU4Mzc1Nw@@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 49,
+   "imdbId": "tt0114814",
+   "title": "The Usual Suspects",
+   "originalTitle": "The Usual Suspects",
+   "year": 1995,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOTE5MDUxZDUtZWZmZC00NDVmLWFhOGQtNWI2YTc4NzY3MGQ0XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 50,
+   "imdbId": "tt1853728",
+   "title": "Django Unchained",
+   "originalTitle": "Django Unchained",
+   "year": 2012,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 51,
+   "imdbId": "tt0078748",
+   "title": "Alien",
+   "originalTitle": "Alien",
+   "year": 1979,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BN2NhMDk2MmEtZDQzOC00MmY5LThhYzAtMDdjZGFjOGZjMjdjXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 52,
+   "imdbId": "tt0047396",
+   "title": "Rear Window",
+   "originalTitle": "Rear Window",
+   "year": 1954,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BODZhOWI1ODgtMzdiOS00YjNkLTgwOGUtYmIyZDg5ZmQwMzQ1XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 53,
+   "imdbId": "tt0027977",
+   "title": "Modern Times",
+   "originalTitle": "Modern Times",
+   "year": 1936,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BODVkZGFhNGQtYjdiYi00Njc4LWFmYTItNTlmNzJjMTg1ZDc5XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 54,
+   "imdbId": "tt0064116",
+   "title": "Once Upon a Time in the West",
+   "originalTitle": "C'era una volta il West",
+   "year": 1968,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZjYyNGY1MDEtN2I1MC00MGVhLTljZTYtODQ1NzQ0ODc2NzZlXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 55,
+   "imdbId": "tt0910970",
+   "title": "WALL·E",
+   "originalTitle": "WALL·E",
+   "year": 2008,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjExMTg5OTU0NF5BMl5BanBnXkFtZTcwMjMxMzMzMw@@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 56,
+   "imdbId": "tt0021749",
+   "title": "City Lights",
+   "originalTitle": "City Lights",
+   "year": 1931,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BM2U4NjgzODUtODkyOC00YTE2LTlhNTItYzFlYmM1NTEzZDA2XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  },
+  {
+   "rank": 57,
+   "imdbId": "tt0078788",
+   "title": "Apocalypse Now",
+   "originalTitle": "Apocalypse Now",
+   "year": 1979,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZDhiMTljYjYtODc1Yy00MmEwLTg2OTYtYmE1YTRmNDE4MmEwXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 58,
+   "imdbId": "tt0209144",
+   "title": "Memento",
+   "originalTitle": "Memento",
+   "year": 2000,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMGQ3Y2Q4NjktN2E4Ny00Y2Q2LTliZDUtZTNiNjRhY2I0NGIyXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 59,
+   "imdbId": "tt4154756",
+   "title": "Avengers: Infinity War",
+   "originalTitle": "Avengers: Infinity War",
+   "year": 2018,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 60,
+   "imdbId": "tt15239678",
+   "title": "Dune: Part Two",
+   "originalTitle": "Dune: Part Two",
+   "year": 2024,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNTc0YmQxMjEtODI5MC00NjFiLTlkMWUtOGQ5NjFmYWUyZGJhXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 61,
+   "imdbId": "tt0082971",
+   "title": "Raiders of the Lost Ark",
+   "originalTitle": "Raiders of the Lost Ark",
+   "year": 1981,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOGNhMjg2ZjgtYzk4Ni00MTViLTg1MmUtYzM2MDZiYjZlMmU3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 62,
+   "imdbId": "tt33764258",
+   "title": "The Odyssey",
+   "originalTitle": "The Odyssey",
+   "year": 2026,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNTcyNmJlZmQtNDUwYy00NDBjLTg1NGQtYTY2Y2UxMWM3NmI1XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 63,
+   "imdbId": "tt4633694",
+   "title": "Spider-Man: Into the Spider-Verse",
+   "originalTitle": "Spider-Man: Into the Spider-Verse",
+   "year": 2018,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjMwNDkxMTgzOF5BMl5BanBnXkFtZTgwNTkwNTQ3NjM@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 64,
+   "imdbId": "tt0405094",
+   "title": "The Lives of Others",
+   "originalTitle": "Das Leben der Anderen",
+   "year": 2006,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYjM1N2Q0YWEtN2E5MC00NDM3LTk2NTEtMTc1NTk5OTA5ZGIzXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 65,
+   "imdbId": "tt0043014",
+   "title": "Sunset Boulevard",
+   "originalTitle": "Sunset Blvd.",
+   "year": 1950,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTU0NTkyNzYwMF5BMl5BanBnXkFtZTgwMDU0NDk5MTI@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 66,
+   "imdbId": "tt0051201",
+   "title": "Witness for the Prosecution",
+   "originalTitle": "Witness for the Prosecution",
+   "year": 1957,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNjRhNTQzMzQtMWViMi00ODQ1LTg0MTEtYWE4ZWZlYjM4YjJhXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 67,
+   "imdbId": "tt0050825",
+   "title": "Paths of Glory",
+   "originalTitle": "Paths of Glory",
+   "year": 1957,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNmQ2NmI2ODYtMDQzNS00NzQyLTkzZjgtZmZlYTQ5MTc1OWU3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 68,
+   "imdbId": "tt0361748",
+   "title": "Inglourious Basterds",
+   "originalTitle": "Inglourious Basterds",
+   "year": 2009,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BODZhMWJlNjYtNDExNC00MTIzLTllM2ItOGQ2NGVjNDQ3MzkzXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 69,
+   "imdbId": "tt0081505",
+   "title": "The Shining",
+   "originalTitle": "The Shining",
+   "year": 1980,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNmM5ZThhY2ItOGRjOS00NzZiLWEwYTItNDgyMjFkOTgxMmRiXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 70,
+   "imdbId": "tt0032553",
+   "title": "The Great Dictator",
+   "originalTitle": "The Great Dictator",
+   "year": 1940,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNDE3NmIzZjItMzNlMi00YWI0LWIzMTktMGRkMWE0ZDhiMmM5XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 71,
+   "imdbId": "tt0090605",
+   "title": "Aliens",
+   "originalTitle": "Aliens",
+   "year": 1986,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BN2ZiMmQ0YWItN2IwZS00Y2NhLWE0NzQtNGNiOGFjN2U4MWNmXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 72,
+   "imdbId": "tt23849204",
+   "title": "12th Fail",
+   "originalTitle": "12th Fail",
+   "year": 2023,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNTE3OTIxZDYtNjA0NC00N2YxLTg1NGQtOTYxNmZkMDkwOWNjXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.7
+  },
+  {
+   "rank": 73,
+   "imdbId": "tt0057565",
+   "title": "High and Low",
+   "originalTitle": "Tengoku to jigoku",
+   "year": 1963,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMGJiNzllYjktODAzNS00OGUzLTlmY2MtMjA2ZTZhYTY1OTc4XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 74,
+   "imdbId": "tt4154796",
+   "title": "Avengers: Endgame",
+   "originalTitle": "Avengers: Endgame",
+   "year": 2019,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMWEyNDM2ZmQtMmFkNi00MTQ1LTk1MjItMzdlZGJlYmIyYzZlXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 75,
+   "imdbId": "tt0119217",
+   "title": "Good Will Hunting",
+   "originalTitle": "Good Will Hunting",
+   "year": 1997,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNDdjZGQ5YzEtNTc2My00Mjc0LWFlMTctYzkwMzZlNzdiZWYzXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 76,
+   "imdbId": "tt2380307",
+   "title": "Coco",
+   "originalTitle": "Coco",
+   "year": 2017,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMDIyM2E2NTAtMzlhNy00ZGUxLWI1NjgtZDY5MzhiMDc5NGU3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 77,
+   "imdbId": "tt0114709",
+   "title": "Toy Story",
+   "originalTitle": "Toy Story",
+   "year": 1995,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZTA3OWVjOWItNjE1NS00NzZiLWE1MjgtZDZhMWI1ZTlkNzYwXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 78,
+   "imdbId": "tt1345836",
+   "title": "The Dark Knight Rises",
+   "originalTitle": "The Dark Knight Rises",
+   "year": 2012,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 79,
+   "imdbId": "tt0086879",
+   "title": "Amadeus",
+   "originalTitle": "Amadeus",
+   "year": 1984,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMzc2MjM0NTMtOGY4NC00NzY1LWE2ODUtZjMzY2RhNGNkZDAyXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 80,
+   "imdbId": "tt5311514",
+   "title": "Your Name.",
+   "originalTitle": "Kimi no na wa.",
+   "year": 2016,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjI1ODZkYTgtYTY3Yy00ZTJkLWFkOTgtZDUyYWM4MzQwNjk0XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 81,
+   "imdbId": "tt1187043",
+   "title": "3 Idiots",
+   "originalTitle": "3 Idiots",
+   "year": 2009,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNzc4ZWQ3NmYtODE0Ny00YTQ4LTlkZWItNTBkMGQ0MmUwMmJlXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 82,
+   "imdbId": "tt0082096",
+   "title": "Das Boot",
+   "originalTitle": "Das Boot",
+   "year": 1981,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGU0MWZlMTUtM2Y3Ny00NGNmLWE5NmEtN2YxOWQzMGM3ZWYzXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 83,
+   "imdbId": "tt0112573",
+   "title": "Braveheart",
+   "originalTitle": "Braveheart",
+   "year": 1995,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGMxZDBhNGQtYTZlNi00N2UzLWI4NDEtNmUzNWM2NTdmZDA0XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 84,
+   "imdbId": "tt0119698",
+   "title": "Princess Mononoke",
+   "originalTitle": "Mononoke-hime",
+   "year": 1997,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZTcyN2Y0MDYtMGI1NC00MWQ1LWFhZGMtN2U4NTcxZGYyNjljXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 85,
+   "imdbId": "tt0364569",
+   "title": "Oldboy",
+   "originalTitle": "Oldeuboi",
+   "year": 2003,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTAwNzNjYWItZmI0Ni00ZTcyLWIwNWMtZjlmNGMxZTEyYTJmXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 86,
+   "imdbId": "tt0057012",
+   "title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+   "originalTitle": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+   "year": 1964,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjFjYzBlOTktMTI2OS00ZWVhLTgxMDUtNzAwODY2NmI3YTAzXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 87,
+   "imdbId": "tt0169547",
+   "title": "American Beauty",
+   "originalTitle": "American Beauty",
+   "year": 1999,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMDI1MDE0OTMtMmI2MS00Yjc2LTg2MTItMWExYTg5NzA1OGUzXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 88,
+   "imdbId": "tt8267604",
+   "title": "Capernaum",
+   "originalTitle": "Capharnaüm",
+   "year": 2018,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYzEyMzQ1OTktZTljZi00OWQzLWE2ZmUtZjQyNzBjYjE1NTc0XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 89,
+   "imdbId": "tt0045152",
+   "title": "Singin' in the Rain",
+   "originalTitle": "Singin' in the Rain",
+   "year": 1952,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMGQzZDFjZWUtZDU4ZS00ZjM3LTgyYmItYjA3YmIwYzRkZWY3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 90,
+   "imdbId": "tt0087843",
+   "title": "Once Upon a Time in America",
+   "originalTitle": "C'era una volta in America",
+   "year": 1984,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMDQ0ZTg2OGUtZjMyOC00M2M5LThkMmItZmM2MmUzMmIxMWJhXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 91,
+   "imdbId": "tt7286456",
+   "title": "Joker",
+   "originalTitle": "Joker",
+   "year": 2019,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNzY3OWQ5NDktNWQ2OC00ZjdlLThkMmItMDhhNDk3NTFiZGU4XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 92,
+   "imdbId": "tt33175825",
+   "title": "Attack on Titan: The Last Attack",
+   "originalTitle": "Shingeki no Kyojin: The Last Attack",
+   "year": 2024,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNzVjOWEwYjEtNDJhOC00YjUyLThjMWItMDQwZGY1ODM4YzI3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.9
+  },
+  {
+   "rank": 93,
+   "imdbId": "tt0435761",
+   "title": "Toy Story 3",
+   "originalTitle": "Toy Story 3",
+   "year": 2010,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 94,
+   "imdbId": "tt0086190",
+   "title": "Star Wars: Episode VI - Return of the Jedi",
+   "originalTitle": "Star Wars: Episode VI - Return of the Jedi",
+   "year": 1983,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNWEwOTI0MmUtMGNmNy00ODViLTlkZDQtZTg1YmQ3MDgyNTUzXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 95,
+   "imdbId": "tt0091251",
+   "title": "Come and See",
+   "originalTitle": "Idi i smotri",
+   "year": 1985,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNDlkZmVkZDAtZGFmMS00OWIzLWJkY2YtNWE5NjNhNjhiZGE3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 96,
+   "imdbId": "tt0180093",
+   "title": "Requiem for a Dream",
+   "originalTitle": "Requiem for a Dream",
+   "year": 2000,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BN2ZlMjIzZjctYzA2My00ZWYyLWI4ZjctMGI2NWYyNzFiZjAwXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 97,
+   "imdbId": "tt1255953",
+   "title": "Incendies",
+   "originalTitle": "Incendies",
+   "year": 2010,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYWFmMjdmNjctNzhhOC00ZmMzLTkwOGItMmVmZDU4MjE2MTYwXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 98,
+   "imdbId": "tt0044741",
+   "title": "Ikiru",
+   "originalTitle": "Ikiru",
+   "year": 1952,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMmZiNzExNmUtODU5YS00MDE1LWI0YTItMzVmNjM1ZTQ5NGVhXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 99,
+   "imdbId": "tt2106476",
+   "title": "The Hunt",
+   "originalTitle": "Jagten",
+   "year": 2012,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTg2NDg3ODg4NF5BMl5BanBnXkFtZTcwNzk3NTc3Nw@@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 100,
+   "imdbId": "tt0338013",
+   "title": "Eternal Sunshine of the Spotless Mind",
+   "originalTitle": "Eternal Sunshine of the Spotless Mind",
+   "year": 2004,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTY4NzcwODg3Nl5BMl5BanBnXkFtZTcwNTEwOTMyMw@@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 101,
+   "imdbId": "tt0053604",
+   "title": "The Apartment",
+   "originalTitle": "The Apartment",
+   "year": 1960,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNDdhMzVhOWQtNDU2Mi00ZmZmLWJiZDMtY2QxMjhjY2Y1ZTI5XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 102,
+   "imdbId": "tt0056172",
+   "title": "Lawrence of Arabia",
+   "originalTitle": "Lawrence of Arabia",
+   "year": 1962,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYjY0YTQ1OTAtYjEyNy00NTQ4LThlMTQtM2QwYTVhYWFhNjU5XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 103,
+   "imdbId": "tt0113277",
+   "title": "Heat",
+   "originalTitle": "Heat",
+   "year": 1995,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTkxYjU1OTMtYWViZC00ZjAzLWI3MDktZGQ2N2VmMjVjNDRlXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 104,
+   "imdbId": "tt0086250",
+   "title": "Scarface",
+   "originalTitle": "Scarface",
+   "year": 1983,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNDUzYjY0NmUtMDM4OS00Y2Q5LWJiODYtNTk0ZTk0YjZhMTg1XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 105,
+   "imdbId": "tt0105236",
+   "title": "Reservoir Dogs",
+   "originalTitle": "Reservoir Dogs",
+   "year": 1992,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMmMzYjg4NDctYWY0Mi00OGViLWIzMTMtYWNlZGY5ZDJmYjk3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 106,
+   "imdbId": "tt1049413",
+   "title": "Up",
+   "originalTitle": "Up",
+   "year": 2009,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNmI1ZTc5MWMtMDYyOS00ZDc2LTkzOTAtNjQ4NWIxNjYyNDgzXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 107,
+   "imdbId": "tt0062622",
+   "title": "2001: A Space Odyssey",
+   "originalTitle": "2001: A Space Odyssey",
+   "year": 1968,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNjU0NDFkMTQtZWY5OS00MmZhLTg3Y2QtZmJhMzMzMWYyYjc2XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 108,
+   "imdbId": "tt0036775",
+   "title": "Double Indemnity",
+   "originalTitle": "Double Indemnity",
+   "year": 1944,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BM2YwNjZlZDktNTlmNS00ODQwLWJmNmUtYmE1NTBhYjc1YTY5XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 109,
+   "imdbId": "tt0986264",
+   "title": "Like Stars on Earth",
+   "originalTitle": "Taare Zameen Par",
+   "year": 2007,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZTI0ZGRiMDEtNGNjMS00MGU4LWI3OTktNzcxMDZmZTk3MTljXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 110,
+   "imdbId": "tt0053125",
+   "title": "North by Northwest",
+   "originalTitle": "North by Northwest",
+   "year": 1959,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZWIzODI2OGItMzM0Ny00OGRmLTlkNmItMDQxMTFmMTk3YmQwXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 111,
+   "imdbId": "tt0093058",
+   "title": "Full Metal Jacket",
+   "originalTitle": "Full Metal Jacket",
+   "year": 1987,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYWUzNzZkNzUtNDdiYy00Nzk5LTgxMmItNTk0MjRjNjdjNDA0XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 112,
+   "imdbId": "tt31514146",
+   "title": "I Swear",
+   "originalTitle": "I Swear",
+   "year": 2025,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNWQxYTMyZTktZDg5Yi00Y2YwLWI4YzQtMjkyYmYxNmFjYThmXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 113,
+   "imdbId": "tt1832382",
+   "title": "A Separation",
+   "originalTitle": "Jodaeiye Nader az Simin",
+   "year": 2011,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMDM0ZWRmMzctM2M5ZS00ZjU0LWIxN2MtNWNlNGY1ZDhjMDVhXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 114,
+   "imdbId": "tt0095016",
+   "title": "Die Hard",
+   "originalTitle": "Die Hard",
+   "year": 1988,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMGNlYmM1NmQtYWExMS00NmRjLTg5ZmEtMmYyYzJkMzljYWMxXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 115,
+   "imdbId": "tt0022100",
+   "title": "M",
+   "originalTitle": "M - Eine Stadt sucht einen Mörder",
+   "year": 1931,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BODA4ODk3OTEzMF5BMl5BanBnXkFtZTgwMTQ2ODMwMzE@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 116,
+   "imdbId": "tt0211915",
+   "title": "Amélie",
+   "originalTitle": "Le fabuleux destin d'Amélie Poulain",
+   "year": 2001,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOTNmYzY0MWQtZGZmNy00Y2Y4LWFmMDQtMTZjYTdiYzEwZGQ2XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 117,
+   "imdbId": "tt0052357",
+   "title": "Vertigo",
+   "originalTitle": "Vertigo",
+   "year": 1958,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNzEyZTUxMWItMGVhYy00Y2NlLTljYTMtYzBmMzI1YmUyMDBkXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 118,
+   "imdbId": "tt0056592",
+   "title": "To Kill a Mockingbird",
+   "originalTitle": "To Kill a Mockingbird",
+   "year": 1962,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZTlkYWU4MGEtZmQyYi00OWEzLTgzY2EtYzVjOTEzYzAyNTk1XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 119,
+   "imdbId": "tt0033467",
+   "title": "Citizen Kane",
+   "originalTitle": "Citizen Kane",
+   "year": 1941,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYjk1ZDJlMmUtOWQ0Zi00MDM5LTk1OGYtODczNjFmMGYwZGVkXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 120,
+   "imdbId": "tt0097576",
+   "title": "Indiana Jones and the Last Crusade",
+   "originalTitle": "Indiana Jones and the Last Crusade",
+   "year": 1989,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGIxNzQ0YzYtMjNmYi00YjBlLWFjNzEtNGE3ZGFmYTczM2MwXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 121,
+   "imdbId": "tt0070735",
+   "title": "The Sting",
+   "originalTitle": "The Sting",
+   "year": 1973,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BM2E4MGZjOGItNzAwYy00MjU5LTliZTEtNTQ3YTUzNmUzMjE0XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 122,
+   "imdbId": "tt0066921",
+   "title": "A Clockwork Orange",
+   "originalTitle": "A Clockwork Orange",
+   "year": 1971,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTY3MjM1Mzc4N15BMl5BanBnXkFtZTgwODM0NzAxMDE@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 123,
+   "imdbId": "tt0017136",
+   "title": "Metropolis",
+   "originalTitle": "Metropolis",
+   "year": 1927,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjhjMGYyMjAtMzJkYy00NzhlLWIwY2MtMWQ2ODIxZDUyOGYyXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 124,
+   "imdbId": "tt8579674",
+   "title": "1917",
+   "originalTitle": "1917",
+   "year": 2019,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYzkxZjg2NDQtMGVjMy00NWZkLTk0ZDEtZWE3NDYwYjAyMTg1XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 125,
+   "imdbId": "tt0993846",
+   "title": "The Wolf of Wall Street",
+   "originalTitle": "The Wolf of Wall Street",
+   "year": 2013,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 126,
+   "imdbId": "tt0120382",
+   "title": "The Truman Show",
+   "originalTitle": "The Truman Show",
+   "year": 1998,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNzA3ZjZlNzYtMTdjMy00NjMzLTk5ZGYtMTkyYzNiOGM1YmM3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 127,
+   "imdbId": "tt0208092",
+   "title": "Snatch",
+   "originalTitle": "Snatch",
+   "year": 2000,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYzk5NjJkMTQtN2IyNC00YWM5LTlhZmMtNGI3MWNhMTU1YTc4XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 128,
+   "imdbId": "tt1130884",
+   "title": "Shutter Island",
+   "originalTitle": "Shutter Island",
+   "year": 2010,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BN2FjNWExYzEtY2YzOC00YjNlLTllMTQtNmIwM2Q1YzBhOWM1XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 129,
+   "imdbId": "tt0363163",
+   "title": "Downfall",
+   "originalTitle": "Der Untergang",
+   "year": 2004,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTU0NTU5NTAyMl5BMl5BanBnXkFtZTYwNzYwMDg2._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 130,
+   "imdbId": "tt0119488",
+   "title": "L.A. Confidential",
+   "originalTitle": "L.A. Confidential",
+   "year": 1997,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BODdiMjY1OGYtNDk0NC00NGQ1LWI4MDItOTJhMTM0YjE1YTAzXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 131,
+   "imdbId": "tt6966692",
+   "title": "Green Book",
+   "originalTitle": "Green Book",
+   "year": 2018,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNDU5YTNmMmItN2QxNy00OGQ0LTg5MTctNzFmYjEzZjcwN2UwXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 132,
+   "imdbId": "tt5074352",
+   "title": "Dangal",
+   "originalTitle": "Dangal",
+   "year": 2016,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTQ4MzQzMzM2Nl5BMl5BanBnXkFtZTgwMTQ1NzU3MDI@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 133,
+   "imdbId": "tt0058625",
+   "title": "Woman in the Dunes",
+   "originalTitle": "Suna no onna",
+   "year": 1964,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BM2E1ZjY5MjItZTUxZS00NTI1LWEwMmEtODhlMDAyMzUyOTRmXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 134,
+   "imdbId": "tt0040522",
+   "title": "Bicycle Thieves",
+   "originalTitle": "Ladri di biciclette",
+   "year": 1948,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjIzMzAyMzg1Nl5BMl5BanBnXkFtZTgwMzMyNzk0MTE@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 135,
+   "imdbId": "tt0055031",
+   "title": "Judgment at Nuremberg",
+   "originalTitle": "Judgment at Nuremberg",
+   "year": 1961,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNDc2ODQ5NTE2MV5BMl5BanBnXkFtZTcwODExMjUyNA@@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 136,
+   "imdbId": "tt0107290",
+   "title": "Jurassic Park",
+   "originalTitle": "Jurassic Park",
+   "year": 1993,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 137,
+   "imdbId": "tt0372784",
+   "title": "Batman Begins",
+   "originalTitle": "Batman Begins",
+   "year": 2005,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMzA2NDQzZDEtNDU5Ni00YTlkLTg2OWEtYmQwM2Y1YTBjMjFjXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 138,
+   "imdbId": "tt15398776",
+   "title": "Oppenheimer",
+   "originalTitle": "Oppenheimer",
+   "year": 2023,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BN2JkMDc5MGQtZjg3YS00NmFiLWIyZmQtZTJmNTM5MjVmYTQ4XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 139,
+   "imdbId": "tt0059578",
+   "title": "For a Few Dollars More",
+   "originalTitle": "Per qualche dollaro in più",
+   "year": 1965,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNTRmOTcyYmYtMTIwNi00ZGYyLTk4YjYtZGJlZTgwZGY0NGQyXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 140,
+   "imdbId": "tt8503618",
+   "title": "Hamilton",
+   "originalTitle": "Hamilton",
+   "year": 2020,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYTc3MWIyMzAtMTZmNC00YmNjLWIyZTgtMmU4NjZkYzZkOThkXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 141,
+   "imdbId": "tt0469494",
+   "title": "There Will Be Blood",
+   "originalTitle": "There Will Be Blood",
+   "year": 2007,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjAxODQ4MDU5NV5BMl5BanBnXkFtZTcwMDU4MjU1MQ@@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 142,
+   "imdbId": "tt0053291",
+   "title": "Some Like It Hot",
+   "originalTitle": "Some Like It Hot",
+   "year": 1959,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZTllZDYyNjEtY2RmMS00NmJhLWI4ODAtMTQ0NWFiZTJhZjA0XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 143,
+   "imdbId": "tt0075314",
+   "title": "Taxi Driver",
+   "originalTitle": "Taxi Driver",
+   "year": 1976,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZDNhMGYwM2UtMTdlZS00MGQ1LWI2YzAtODY5YWI1MjYyNzRmXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 144,
+   "imdbId": "tt10272386",
+   "title": "The Father",
+   "originalTitle": "The Father",
+   "year": 2020,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYzUxMDAyMDAtNzIyZi00OGQ1LTllMjEtYzRjOThkZTUxNTliXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 145,
+   "imdbId": "tt0167404",
+   "title": "The Sixth Sense",
+   "originalTitle": "The Sixth Sense",
+   "year": 1999,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZWQ2OTY0M2UtMTQxNC00MmIzLTllNDQtNDQ0MTQyYzI2M2ZiXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 146,
+   "imdbId": "tt0012349",
+   "title": "The Kid",
+   "originalTitle": "The Kid",
+   "year": 1921,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNjkxMzY1NTQtN2YwOS00NmIwLTlkNTMtMjNkMzk1ZTk3ZDU2XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 147,
+   "imdbId": "tt0042192",
+   "title": "All About Eve",
+   "originalTitle": "All About Eve",
+   "year": 1950,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTY2MTAzODI5NV5BMl5BanBnXkFtZTgwMjM4NzQ0MjE@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 148,
+   "imdbId": "tt0089881",
+   "title": "Ran",
+   "originalTitle": "Ran",
+   "year": 1985,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZDk2NDY5YjktMjEyMC00OTJhLTkzM2EtY2Q4Y2RjYzc2Yjk4XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 149,
+   "imdbId": "tt0112641",
+   "title": "Casino",
+   "originalTitle": "Casino",
+   "year": 1995,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMDRlZWZjZjYtYzY2NS00ZWVjLTkwYzAtZTA2ZDAzMGRiYmYwXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 150,
+   "imdbId": "tt0084787",
+   "title": "The Thing",
+   "originalTitle": "The Thing",
+   "year": 1982,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYTA3NDU5MWEtNTk4Yy00ZDNkLThmZTQtMjU3ZGVhYzAyMzU4XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 151,
+   "imdbId": "tt0477348",
+   "title": "No Country for Old Men",
+   "originalTitle": "No Country for Old Men",
+   "year": 2007,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjA5Njk3MjM4OV5BMl5BanBnXkFtZTcwMTc5MTE1MQ@@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 152,
+   "imdbId": "tt1392214",
+   "title": "Prisoners",
+   "originalTitle": "Prisoners",
+   "year": 2013,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTg0NTIzMjQ1NV5BMl5BanBnXkFtZTcwNDc3MzM5OQ@@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 153,
+   "imdbId": "tt1745960",
+   "title": "Top Gun: Maverick",
+   "originalTitle": "Top Gun: Maverick",
+   "year": 2022,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMDBkZDNjMWEtOTdmMi00NmExLTg5MmMtNTFlYTJlNWY5YTdmXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 154,
+   "imdbId": "tt0266697",
+   "title": "Kill Bill: Vol. 1",
+   "originalTitle": "Kill Bill: Vol. 1",
+   "year": 2003,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZmMyYzJlZmYtY2I3NC00NjAyLTkyZWItZjdjZDI1YTYyYTEwXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 155,
+   "imdbId": "tt0105695",
+   "title": "Unforgiven",
+   "originalTitle": "Unforgiven",
+   "year": 1992,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNmZmMzM3YWMtZjg5Yi00M2MxLTg3ZGItNGU4YjQxNDAxM2Q4XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 156,
+   "imdbId": "tt0457430",
+   "title": "Pan's Labyrinth",
+   "originalTitle": "El laberinto del fauno",
+   "year": 2006,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOTc1NTAxMWItMWFlNy00MmU2LTkwMTMtNzMwOTg5OTQ5YTFiXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 157,
+   "imdbId": "tt0268978",
+   "title": "A Beautiful Mind",
+   "originalTitle": "A Beautiful Mind",
+   "year": 2001,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYjgzNjFkMmItOGJhNi00NWM3LWJlYTUtNDExMGQ3ZTI3NjJkXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 158,
+   "imdbId": "tt0347149",
+   "title": "Howl's Moving Castle",
+   "originalTitle": "Hauru no ugoku shiro",
+   "year": 2004,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTY1OTg0MjE3MV5BMl5BanBnXkFtZTcwNTUxMTkyMQ@@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 159,
+   "imdbId": "tt32820897",
+   "title": "Demon Slayer: Kimetsu No Yaiba Infinity Castle",
+   "originalTitle": "Gekijô-ban Kimetsu no Yaiba Mugen Jô-hen",
+   "year": 2025,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOGQ3YWUzYjEtMTJiYy00ZjQ0LWI0YjktYjhiNGVhNGExYTM3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 160,
+   "imdbId": "tt0040897",
+   "title": "The Treasure of the Sierra Madre",
+   "originalTitle": "The Treasure of the Sierra Madre",
+   "year": 1948,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOWM1YjFmODEtMWNhMC00YmI1LWI0Y2EtYzg0YTBhZWI4ODE3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 161,
+   "imdbId": "tt12042730",
+   "title": "Project Hail Mary",
+   "originalTitle": "Project Hail Mary",
+   "year": 2026,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNTkwNzJiYTctNzI3NC00NjE1LTlhYjktY2Q5MTdmMWFmNzcxXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 162,
+   "imdbId": "tt0266543",
+   "title": "Finding Nemo",
+   "originalTitle": "Finding Nemo",
+   "year": 2003,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTc5NjExNTA5OV5BMl5BanBnXkFtZTYwMTQ0ODY2._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 163,
+   "imdbId": "tt4729430",
+   "title": "Klaus",
+   "originalTitle": "Klaus",
+   "year": 2019,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZDA4ODhlMzctNGRmYi00NmViLTkxZGYtZjRkNGQ5YzYwYWVlXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 164,
+   "imdbId": "tt0055630",
+   "title": "Yojimbo",
+   "originalTitle": "Yôjinbô",
+   "year": 1961,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYzFkODA1N2QtY2UyMC00NTMwLWEyNzctMmE3YjIzNzE1MzY4XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 165,
+   "imdbId": "tt0080678",
+   "title": "The Elephant Man",
+   "originalTitle": "The Elephant Man",
+   "year": 1980,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMGE2MzViYzEtZDFmOC00YmViLWFkZTQtYmI2NmI3NDJjMDc0XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 166,
+   "imdbId": "tt0057115",
+   "title": "The Great Escape",
+   "originalTitle": "The Great Escape",
+   "year": 1963,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMDRhNmJjMzEtMWU5MC00YmEyLTg3ZmYtNzYxZTI1ZGU4ZjI1XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 167,
+   "imdbId": "tt0071853",
+   "title": "Monty Python and the Holy Grail",
+   "originalTitle": "Monty Python and the Holy Grail",
+   "year": 1975,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYWY4YmUzZmUtMzQ0ZS00N2Y2LWJlODQtN2IwMDc1MWQwMmU3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 168,
+   "imdbId": "tt0046912",
+   "title": "Dial M for Murder",
+   "originalTitle": "Dial M for Murder",
+   "year": 1954,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZmYzNDgzYjgtNmU3Ny00YzUxLWE3OWUtMjIxZmNkYTVhNDZmXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 169,
+   "imdbId": "tt1305806",
+   "title": "The Secret in Their Eyes",
+   "originalTitle": "El secreto de sus ojos",
+   "year": 2009,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTgwNTI3OTczOV5BMl5BanBnXkFtZTcwMTM3MTUyMw@@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 170,
+   "imdbId": "tt0031381",
+   "title": "Gone with the Wind",
+   "originalTitle": "Gone with the Wind",
+   "year": 1939,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYmYxZTE3YzMtYmE2Yy00NmFlLTkzYTAtYTAzN2IzNDFkN2E0XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 171,
+   "imdbId": "tt0120735",
+   "title": "Lock, Stock and Two Smoking Barrels",
+   "originalTitle": "Lock, Stock and Two Smoking Barrels",
+   "year": 1998,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMmY1M2M5ZmMtYzllZC00YzAxLTk4MjktZDJkNjA1MTUwMGQ4XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 172,
+   "imdbId": "tt0071315",
+   "title": "Chinatown",
+   "originalTitle": "Chinatown",
+   "year": 1974,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNmRmZTE0NmUtZjhiZi00MzQ3LTk3ZjctN2Q3ODYzY2U3MDk3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 173,
+   "imdbId": "tt0264464",
+   "title": "Catch Me If You Can",
+   "originalTitle": "Catch Me If You Can",
+   "year": 2002,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTY5MzYzNjc5NV5BMl5BanBnXkFtZTYwNTUyNTc2._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 174,
+   "imdbId": "tt0434409",
+   "title": "V for Vendetta",
+   "originalTitle": "V for Vendetta",
+   "year": 2005,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZDEwOTRjNjgtOGY0MC00NGYxLWFmYmQtNjc1ZjVhMTc0OWUxXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 175,
+   "imdbId": "tt0097165",
+   "title": "Dead Poets Society",
+   "originalTitle": "Dead Poets Society",
+   "year": 1989,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMDYwNGVlY2ItMWYxMS00YjZiLWE5MTAtYWM5NWQ2ZWJjY2Q3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 176,
+   "imdbId": "tt0346336",
+   "title": "The Best of Youth",
+   "originalTitle": "La meglio gioventù",
+   "year": 2003,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYzcxMTE2YjUtMzIyMy00NDNjLWE3ZWYtODQzYmNhNDVhNDZmXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 177,
+   "imdbId": "tt2096673",
+   "title": "Inside Out",
+   "originalTitle": "Inside Out",
+   "year": 2015,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOTgxMDQwMDk0OF5BMl5BanBnXkFtZTgwNjU5OTg2NDE@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 178,
+   "imdbId": "tt0117951",
+   "title": "Trainspotting",
+   "originalTitle": "Trainspotting",
+   "year": 1996,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYmVkNGJkMzQtYWQwOS00OTZmLThjODQtZjNjNzllYzRiNTE0XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 179,
+   "imdbId": "tt1201607",
+   "title": "Harry Potter and the Deathly Hallows: Part 2",
+   "originalTitle": "Harry Potter and the Deathly Hallows: Part 2",
+   "year": 2011,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOTA1Mzc2N2ItZWRiNS00MjQzLTlmZDQtMjU0NmY1YWRkMGQ4XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 180,
+   "imdbId": "tt5027774",
+   "title": "Three Billboards Outside Ebbing, Missouri",
+   "originalTitle": "Three Billboards Outside Ebbing, Missouri",
+   "year": 2017,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjI0ODcxNzM1N15BMl5BanBnXkFtZTgwMzIwMTEwNDI@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 181,
+   "imdbId": "tt0050212",
+   "title": "The Bridge on the River Kwai",
+   "originalTitle": "The Bridge on the River Kwai",
+   "year": 1957,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNzdkYmU2YmItNmZiYy00OWQyLTg0YWYtZmUxM2U3YTRiNTQ1XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 182,
+   "imdbId": "tt0042876",
+   "title": "Rashomon",
+   "originalTitle": "Rashômon",
+   "year": 1950,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTk1MDU5MjQ5NF5BMl5BanBnXkFtZTgwMDM2OTE4MzE@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 183,
+   "imdbId": "tt0072684",
+   "title": "Barry Lyndon",
+   "originalTitle": "Barry Lyndon",
+   "year": 1975,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNmM2MGQ5Y2UtYzA3ZC00ZDJlLTkwNDYtMjBmZGExZDJiN2RlXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 184,
+   "imdbId": "tt0052618",
+   "title": "Ben-Hur",
+   "originalTitle": "Ben-Hur",
+   "year": 1959,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNjg2M2E1YzYtOThmMC00NjAyLWI5MzgtMDEwOGFiODdlOGUzXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 185,
+   "imdbId": "tt29623480",
+   "title": "The Wild Robot",
+   "originalTitle": "The Wild Robot",
+   "year": 2024,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZWNiZjVlZTUtNGUwYi00MjJmLTg2MDctNWEzYTJiMzY1ODc4XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 186,
+   "imdbId": "tt1291584",
+   "title": "Warrior",
+   "originalTitle": "Warrior",
+   "year": 2011,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTk4ODk5MTMyNV5BMl5BanBnXkFtZTcwMDMyNTg0Ng@@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 187,
+   "imdbId": "tt2119532",
+   "title": "Hacksaw Ridge",
+   "originalTitle": "Hacksaw Ridge",
+   "year": 2016,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjQ1NjM3MTUxNV5BMl5BanBnXkFtZTgwMDc5MTY5OTE@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 188,
+   "imdbId": "tt0382932",
+   "title": "Ratatouille",
+   "originalTitle": "Ratatouille",
+   "year": 2007,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTMzODU0NTkxMF5BMl5BanBnXkFtZTcwMjQ4MzMzMw@@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 189,
+   "imdbId": "tt1392190",
+   "title": "Mad Max: Fury Road",
+   "originalTitle": "Mad Max: Fury Road",
+   "year": 2015,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZDRkODJhOTgtOTc1OC00NTgzLTk4NjItNDgxZDY4YjlmNDY2XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 190,
+   "imdbId": "tt0116282",
+   "title": "Fargo",
+   "originalTitle": "Fargo",
+   "year": 1996,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNjg4MWE0MjEtODFhNy00MjA5LTg5ODktMzgwNWFmZTAwNjBlXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 191,
+   "imdbId": "tt0405159",
+   "title": "Million Dollar Baby",
+   "originalTitle": "Million Dollar Baby",
+   "year": 2004,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTkxNzA1NDQxOV5BMl5BanBnXkFtZTcwNTkyMTIzMw@@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 192,
+   "imdbId": "tt0118849",
+   "title": "Children of Heaven",
+   "originalTitle": "Bacheha-ye aseman",
+   "year": 1997,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZWZlMjNhNzgtZGRhOS00Y2U5LThjOTctODNjZTI0ZTBiYzBhXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 193,
+   "imdbId": "tt0096283",
+   "title": "My Neighbor Totoro",
+   "originalTitle": "Tonari no Totoro",
+   "year": 1988,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYWM3MDE3YjEtMzIzZC00ODE5LTgxNTItNmUyMTBkM2M2NmNiXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 194,
+   "imdbId": "tt1205489",
+   "title": "Gran Torino",
+   "originalTitle": "Gran Torino",
+   "year": 2008,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTc5NTk2OTU1Nl5BMl5BanBnXkFtZTcwMDc3NjAwMg@@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 195,
+   "imdbId": "tt0081398",
+   "title": "Raging Bull",
+   "originalTitle": "Raging Bull",
+   "year": 1980,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjlkYmYyZWQtNTZkOS00ZjA0LWEwNWUtNzE2ZGNiYjg0MjA2XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 196,
+   "imdbId": "tt2024544",
+   "title": "12 Years a Slave",
+   "originalTitle": "12 Years a Slave",
+   "year": 2013,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjExMTEzODkyN15BMl5BanBnXkFtZTcwNTU4NTc4OQ@@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 197,
+   "imdbId": "tt0892769",
+   "title": "How to Train Your Dragon",
+   "originalTitle": "How to Train Your Dragon",
+   "year": 2010,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjA5NDQyMjc2NF5BMl5BanBnXkFtZTcwMjg5ODcyMw@@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 198,
+   "imdbId": "tt0353969",
+   "title": "Memories of Murder",
+   "originalTitle": "Salinui chueok",
+   "year": 2003,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYmRjOWE5NmMtYTdkYS00ODFlLWJiMTMtYzE2NDZlZjlkZDQ0XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 199,
+   "imdbId": "tt2278388",
+   "title": "The Grand Budapest Hotel",
+   "originalTitle": "The Grand Budapest Hotel",
+   "year": 2014,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMzM5NjUxOTEyMl5BMl5BanBnXkFtZTgwNjEyMDM0MDE@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 200,
+   "imdbId": "tt0112471",
+   "title": "Before Sunrise",
+   "originalTitle": "Before Sunrise",
+   "year": 1995,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZDZhZmI1ZTUtYWI3NC00NTMwLTk3NWMtNDc0OGNjM2I0ZjlmXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 201,
+   "imdbId": "tt0198781",
+   "title": "Monsters, Inc.",
+   "originalTitle": "Monsters, Inc.",
+   "year": 2001,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTY1NTI0ODUyOF5BMl5BanBnXkFtZTgwNTEyNjQ0MDE@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 202,
+   "imdbId": "tt0083658",
+   "title": "Blade Runner",
+   "originalTitle": "Blade Runner",
+   "year": 1982,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOWQ4YTBmNTQtMDYxMC00NGFjLTkwOGQtNzdhNmY1Nzc1MzUxXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 203,
+   "imdbId": "tt2267998",
+   "title": "Gone Girl",
+   "originalTitle": "Gone Girl",
+   "year": 2014,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTk0MDQ3MzAzOV5BMl5BanBnXkFtZTgwNzU1NzE3MjE@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 204,
+   "imdbId": "tt1950186",
+   "title": "Ford v Ferrari",
+   "originalTitle": "Ford v Ferrari",
+   "year": 2019,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOTBjNTEyNjYtYjdkNi00YzE5LTljYzUtZjVlYmYwZmJmZWYxXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 205,
+   "imdbId": "tt0073195",
+   "title": "Jaws",
+   "originalTitle": "Jaws",
+   "year": 1975,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYjViNDQzNmUtYzkxZi00NTk5LTljMmItYjJlZmZkODIxNjU1XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 206,
+   "imdbId": "tt0107207",
+   "title": "In the Name of the Father",
+   "originalTitle": "In the Name of the Father",
+   "year": 1993,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMGZiZDVjNzYtZWM4ZC00MzVkLThhNDEtMDJlOTBhYzVjMmNhXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 207,
+   "imdbId": "tt10872600",
+   "title": "Spider-Man: No Way Home",
+   "originalTitle": "Spider-Man: No Way Home",
+   "year": 2021,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMmFiZGZjMmEtMTA0Ni00MzA2LTljMTYtZGI2MGJmZWYzZTQ2XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 208,
+   "imdbId": "tt30472557",
+   "title": "Chainsaw Man - The Movie: Reze Arc",
+   "originalTitle": "Gekijô-ban Chensô Man Reze-hen",
+   "year": 2025,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZmMzNGVhODktYmU5MS00MDg1LThlNTEtNTMyYTg5MDA0Njk4XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 209,
+   "imdbId": "tt3011894",
+   "title": "Wild Tales",
+   "originalTitle": "Relatos salvajes",
+   "year": 2014,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNzAzMjA1ODAxOV5BMl5BanBnXkFtZTgwODg4NTQzNDE@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 210,
+   "imdbId": "tt0015864",
+   "title": "The Gold Rush",
+   "originalTitle": "The Gold Rush",
+   "year": 1925,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGU1NjYzYTAtZmY0YS00NWIzLTkzNzUtYzc2ZTIyOTIxZjVhXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 211,
+   "imdbId": "tt5323662",
+   "title": "A Silent Voice: The Movie",
+   "originalTitle": "Koe no katachi",
+   "year": 2016,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOTFiNzRiOWEtYTQwNy00NmRiLWE0ZWYtNTE0YjExZjFmZjkwXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 212,
+   "imdbId": "tt0015324",
+   "title": "Sherlock Jr.",
+   "originalTitle": "Sherlock Jr.",
+   "year": 1924,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjQzM2E2NjYtYmRjMC00ZmVlLTljZTgtNmQ5MGZlNDYyZTc5XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 213,
+   "imdbId": "tt0978762",
+   "title": "Mary and Max",
+   "originalTitle": "Mary and Max.",
+   "year": 2009,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNzY2Mjc4NjMtNGY4Mi00NzM5LTk3ZTQtN2VkNzVkMzRmM2Y2XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 214,
+   "imdbId": "tt0077416",
+   "title": "The Deer Hunter",
+   "originalTitle": "The Deer Hunter",
+   "year": 1978,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZGI4YmVhMzMtMWExMS00MGZiLTg2MmItM2I2MWZjODAyM2U5XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 215,
+   "imdbId": "tt0046268",
+   "title": "The Wages of Fear",
+   "originalTitle": "Le salaire de la peur",
+   "year": 1953,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjI3MjU2Mzg2MF5BMl5BanBnXkFtZTgwOTg2MTMzMjE@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 216,
+   "imdbId": "tt3315342",
+   "title": "Logan",
+   "originalTitle": "Logan",
+   "year": 2017,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BM2JjODdkMGMtNmY2YS00OGM2LThiY2YtZGYyNzE4Nzc2ODA0XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 217,
+   "imdbId": "tt0075148",
+   "title": "Rocky",
+   "originalTitle": "Rocky",
+   "year": 1976,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZDEyY2M2MGMtYjg5OC00ZWFjLWFkZDQtNmQzZTdiYmYzZTBkXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 218,
+   "imdbId": "tt0325980",
+   "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+   "originalTitle": "Pirates of the Caribbean: The Curse of the Black Pearl",
+   "year": 2003,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNDhlMzEyNzItMTA5Mi00YWRhLThlNTktYTQyMTA0MDIyNDEyXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 219,
+   "imdbId": "tt0017925",
+   "title": "The General",
+   "originalTitle": "The General",
+   "year": 1926,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTVhM2Y1MDUtMDkxYi00Y2UxLWI2MTMtZjMzYTY4ODM4MGIzXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 220,
+   "imdbId": "tt0031679",
+   "title": "Mr. Smith Goes to Washington",
+   "originalTitle": "Mr. Smith Goes to Washington",
+   "year": 1939,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMDU4ZjNmMjEtMjcxYi00NDAxLWFlMjQtNWIyNjg5NWUzNTdjXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 221,
+   "imdbId": "tt0046438",
+   "title": "Tokyo Story",
+   "originalTitle": "Tôkyô monogatari",
+   "year": 1953,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BODdkNzcxZjItMDU2Yy00Y2JlLWFkYTQtNzIwM2Q4MWU5MTU2XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 222,
+   "imdbId": "tt0113247",
+   "title": "La haine",
+   "originalTitle": "La haine",
+   "year": 1995,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMThlMDA3NDYtZGM2Zi00NmJhLThlYWItZjViZTkzZWU1ZWRiXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 223,
+   "imdbId": "tt1895587",
+   "title": "Spotlight",
+   "originalTitle": "Spotlight",
+   "year": 2015,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjIyOTM5OTIzNV5BMl5BanBnXkFtZTgwMDkzODE2NjE@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 224,
+   "imdbId": "tt26548265",
+   "title": "Maharaja",
+   "originalTitle": "Maharaja",
+   "year": 2024,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOTFlMTIxOGItZTk0Zi00MTk2LWJiM2UtMzlhZWYzNjQ4N2Y3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 225,
+   "imdbId": "tt0059742",
+   "title": "The Sound of Music",
+   "originalTitle": "The Sound of Music",
+   "year": 1965,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYWJhYmU4MjQtZDJhYi00ZGVjLTlkNTEtNzkzNGVjOWQ3MjcwXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 226,
+   "imdbId": "tt15097216",
+   "title": "Jai Bhim",
+   "originalTitle": "Jai Bhim",
+   "year": 2021,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZjEyNDIzNmEtMjdkYS00ZDAwLTljOWYtNDRhYTVhYTlmOTk1XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.6
+  },
+  {
+   "rank": 227,
+   "imdbId": "tt0088247",
+   "title": "The Terminator",
+   "originalTitle": "The Terminator",
+   "year": 1984,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZmE0YzIxM2QtMGNlMi00MjRmLWE3MWMtOWQzMGVjMmU0YTFmXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 228,
+   "imdbId": "tt0050986",
+   "title": "Wild Strawberries",
+   "originalTitle": "Smultronstället",
+   "year": 1957,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNWNiMjQ1M2YtZjQyMi00MmY5LTk3OGUtZDhiMjUxZmJjODE2XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 229,
+   "imdbId": "tt0047296",
+   "title": "On the Waterfront",
+   "originalTitle": "On the Waterfront",
+   "year": 1954,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZDJlYTM1ZGYtZTM4YS00MzFhLThiZjktYzQ0ZjAzMGYwZTU3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 230,
+   "imdbId": "tt0036868",
+   "title": "The Best Years of Our Lives",
+   "originalTitle": "The Best Years of Our Lives",
+   "year": 1946,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNTgxMzUyODQtMDJmZC00ZGMyLWI3MzAtZTYwYjBjZjFmMzIxXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 231,
+   "imdbId": "tt0041959",
+   "title": "The Third Man",
+   "originalTitle": "The Third Man",
+   "year": 1949,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGVjMTMxZTQtMmVlNy00YmI0LWJjMDUtYTgyZWU1Njg5ZGRiXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 232,
+   "imdbId": "tt0118715",
+   "title": "The Big Lebowski",
+   "originalTitle": "The Big Lebowski",
+   "year": 1998,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BY2E3OWQ5OWYtYTRkMC00NjVjLWIzZDQtNmRmM2ZiYTIyYmYxXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 233,
+   "imdbId": "tt0317705",
+   "title": "The Incredibles",
+   "originalTitle": "The Incredibles",
+   "year": 2004,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTY5OTU0OTc2NV5BMl5BanBnXkFtZTcwMzU4MDcyMQ@@._V1_.jpg",
+   "imdbRating": 8
+  },
+  {
+   "rank": 234,
+   "imdbId": "tt1028532",
+   "title": "Hachi: A Dog's Tale",
+   "originalTitle": "Hachi: A Dog's Tale",
+   "year": 2009,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNTU5NjYyYTgtZGQ3My00MzRhLThjNGYtZmVjN2JjYjhkMjhhXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 235,
+   "imdbId": "tt0381681",
+   "title": "Before Sunset",
+   "originalTitle": "Before Sunset",
+   "year": 2004,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTQ1MjAwNTM5Ml5BMl5BanBnXkFtZTYwNDM0MTc3._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 236,
+   "imdbId": "tt3170832",
+   "title": "Room",
+   "originalTitle": "Room",
+   "year": 2015,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjE4NzgzNzEwMl5BMl5BanBnXkFtZTgwMTMzMDE0NjE@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 237,
+   "imdbId": "tt0070047",
+   "title": "The Exorcist",
+   "originalTitle": "The Exorcist",
+   "year": 1973,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZjg3YjE4ZjAtYTdmYS00ZTBkLWE1ZjgtNzAzODUwNzRiYjlmXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 238,
+   "imdbId": "tt0129167",
+   "title": "The Iron Giant",
+   "originalTitle": "The Iron Giant",
+   "year": 1999,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BODM4ZjZjMGEtYmFiMy00MThjLWIzZjUtMDU0ODg1NTI2MzIwXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 239,
+   "imdbId": "tt0395169",
+   "title": "Hotel Rwanda",
+   "originalTitle": "Hotel Rwanda",
+   "year": 2004,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BY2FmMWRmZmQtN2IzMS00OGVmLWFmNjktMTM0YWQzODcwYTEwXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 240,
+   "imdbId": "tt0050976",
+   "title": "The Seventh Seal",
+   "originalTitle": "Det sjunde inseglet",
+   "year": 1957,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZDlmYTkzOWUtODQ0MS00MmM4LWE3ZjMtYTEwNGUwMmJkYzIxXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 241,
+   "imdbId": "tt0091763",
+   "title": "Platoon",
+   "originalTitle": "Platoon",
+   "year": 1986,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZjE4YjllODAtZGMxZS00Mjg2LThkOWUtZjNkMjQ5YThiNDU4XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8
+  },
+  {
+   "rank": 242,
+   "imdbId": "tt1979320",
+   "title": "Rush",
+   "originalTitle": "Rush",
+   "year": 2013,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTZhOGQxM2ItNGQyYy00YzE5LWI5MjMtNmMzNGQzNDE1OTUzXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 243,
+   "imdbId": "tt0252488",
+   "title": "The Chaos Class Failed the Class",
+   "originalTitle": "Hababam Sinifi: Sinifta Kaldi",
+   "year": 1975,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZmY3MjVhMmQtOTcwYy00ZjcyLWFiZDgtN2JiODVjNjQzYWQyXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 244,
+   "imdbId": "tt0092005",
+   "title": "Stand by Me",
+   "originalTitle": "Stand by Me",
+   "year": 1986,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGJkNTUwM2MtZWE2MS00YjNkLWE3MjktNWQwZDQxMDIyZWVmXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 245,
+   "imdbId": "tt0032138",
+   "title": "The Wizard of Oz",
+   "originalTitle": "The Wizard of Oz",
+   "year": 1939,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNjIwNzAzODc1MF5BMl5BanBnXkFtZTgwNzczMjM5MzE@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 246,
+   "imdbId": "tt0058946",
+   "title": "The Battle of Algiers",
+   "originalTitle": "La battaglia di Algeri",
+   "year": 1966,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTY2Mjk0OGEtYTM3Yy00ZWZiLWFhNjAtNGExMjEzNGVmMDMxXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 247,
+   "imdbId": "tt0476735",
+   "title": "My Father and My Son",
+   "originalTitle": "Babam ve Oglum",
+   "year": 2005,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZDE3MTBkNmQtNGFjMC00YTcwLWExY2ItN2MyMGZkNWJlMmFmXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 248,
+   "imdbId": "tt0019254",
+   "title": "The Passion of Joan of Arc",
+   "originalTitle": "La passion de Jeanne d'Arc",
+   "year": 1928,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNTE1MDliZjgtYTU2Yy00YjAxLTljYTItNDE2ZGYwYTY1MGQ1XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 249,
+   "imdbId": "tt0077711",
+   "title": "Autumn Sonata",
+   "originalTitle": "Höstsonaten",
+   "year": 1978,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNTg1MzJiNTYtZjcyNS00NDE5LWE0N2ItMGIxM2Y2ZDMyYjJjXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 250,
+   "imdbId": "tt20850406",
+   "title": "Sita Ramam",
+   "originalTitle": "Sita Ramam",
+   "year": 2022,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYWE0NDNiNzEtNThmMi00NjZlLTk3NDAtYzIzOWNmNWQyYTI3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.5
+  }
+ ]
+}

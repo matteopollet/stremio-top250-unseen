@@ -1,0 +1,4 @@
+{
+  "$doc": "Manual title overrides: normalized 'title|year' (or 'title|*') -> imdbId. Used when Letterboxd and IMDb title conventions diverge too far for fuzzy matching. Add entries via PR after checking they appear in data/top250.snapshot.json.",
+  "aliases": {}
+}
