@@ -7,11 +7,9 @@ import snapshotFile from "../../data/top250.snapshot.json";
 
 interface Env {
   CACHE: KVNamespace;
-  ASSETS: { fetch(request: Request): Promise<Response> };
   LETTERBOXD_USERNAME?: string;
   TMDB_API_KEY?: string;
   CATALOG_NAME?: string;
-  STORAGE_KEY?: string;
   TOP250_SNAPSHOT_URL?: string;
 }
 
@@ -19,10 +17,8 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
-    // static assets (configure.js) are served by the Workers assets binding
-    if (url.pathname === "/configure.js") {
-      return env.ASSETS.fetch(request);
-    }
+    // note: static assets (public/configure.js, favicon.svg) never reach this
+    // fetch — wrangler.toml sets run_worker_first = false
 
     const cache = new KvCache(env.CACHE);
     const deps: AddonDeps = {

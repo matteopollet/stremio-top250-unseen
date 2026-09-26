@@ -40,11 +40,39 @@ export function encodeConfig(cfg: AddonConfig): string {
   return b64urlEncode(JSON.stringify(cfg));
 }
 
+const IMDB_ID = /^tt\d{4,10}$/;
+const STRING_FIELDS = ["letterboxdUsername", "tmdbApiKey", "storageKey", "catalogName"] as const;
+
+/**
+ * Decodes and validates a URL config. Unknown keys are dropped; known keys
+ * with the wrong type reject the whole config (a malformed cfg must fall back
+ * to the env config, not silently produce a half-broken addon).
+ */
 export function decodeConfig(raw: string): AddonConfig | null {
   try {
     const obj = JSON.parse(b64urlDecode(raw)) as unknown;
     if (typeof obj !== "object" || obj === null || Array.isArray(obj)) return null;
-    return obj as AddonConfig;
+    const o = obj as Record<string, unknown>;
+    const cfg: AddonConfig = {};
+    for (const k of STRING_FIELDS) {
+      const v = o[k];
+      if (v === undefined) continue;
+      if (typeof v !== "string") return null;
+      cfg[k] = v;
+    }
+    if (o.overrides !== undefined) {
+      const ov = o.overrides;
+      if (typeof ov !== "object" || ov === null || Array.isArray(ov)) return null;
+      const overrides: NonNullable<AddonConfig["overrides"]> = {};
+      for (const k of ["forceInclude", "forceExclude"] as const) {
+        const v = (ov as Record<string, unknown>)[k];
+        if (v === undefined) continue;
+        if (!Array.isArray(v) || !v.every((id) => typeof id === "string" && IMDB_ID.test(id))) return null;
+        overrides[k] = v;
+      }
+      cfg.overrides = overrides;
+    }
+    return cfg;
   } catch {
     return null;
   }
@@ -54,7 +82,6 @@ export function configFromEnv(env: Record<string, string | undefined>): AddonCon
   const cfg: AddonConfig = {};
   if (env.LETTERBOXD_USERNAME) cfg.letterboxdUsername = env.LETTERBOXD_USERNAME;
   if (env.TMDB_API_KEY) cfg.tmdbApiKey = env.TMDB_API_KEY;
-  if (env.STORAGE_KEY) cfg.storageKey = env.STORAGE_KEY;
   if (env.CATALOG_NAME) cfg.catalogName = env.CATALOG_NAME;
   return cfg;
 }

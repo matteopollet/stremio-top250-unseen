@@ -5,7 +5,7 @@ import { ImdbGraphqlProvider } from "../core/chart/imdb-graphql.js";
 import { SnapshotProvider, type SnapshotFile } from "../core/chart/snapshot.js";
 import { DEFAULT_STORAGE_KEY, decodeConfig, type AddonConfig } from "../core/config.js";
 import { IdResolver } from "../core/resolve.js";
-import type { WatchedProvider } from "../core/types.js";
+import type { ChartProvider, WatchedProvider } from "../core/types.js";
 import { ExclusionsProvider, type StoredExclusions } from "../core/watched/exclusions.js";
 import { LetterboxdRssProvider, type KeyValueStore } from "../core/watched/letterboxd-rss.js";
 
@@ -25,6 +25,8 @@ export interface AddonDeps {
   aliases?: Record<string, string>;
   /** HTML for the /configure page (injected so this file stays runtime-free) */
   configureHtml?: string;
+  /** chart provider chain override — defaults to graphql → snapshot; tests inject fakes */
+  chartProviders?: ChartProvider[];
 }
 
 interface HttpResult {
@@ -39,14 +41,53 @@ function json(status: number, body: unknown): HttpResult {
   return { status, headers: JSON_HEADERS, body: JSON.stringify(body) };
 }
 
+const IMDB_ID = /^tt\d{4,10}$/;
+const MAX_BODY_BYTES = 256_000;
+const MAX_EXCLUSION_IDS = 2000;
+const MAX_AMBIGUOUS = 500;
+
+/**
+ * Normalizes the client-supplied ambiguity report: keeps only well-formed
+ * fields and filters out malformed candidates. Returns null on bad input —
+ * garbage must not be persisted into the store.
+ */
+function sanitizeAmbiguous(v: unknown): StoredExclusions["ambiguous"] | null {
+  if (!Array.isArray(v) || v.length > MAX_AMBIGUOUS) return null;
+  const out: StoredExclusions["ambiguous"] = [];
+  for (const item of v) {
+    if (typeof item !== "object" || item === null) return null;
+    const { name, year, reason, candidates } = item as Record<string, unknown>;
+    if (typeof name !== "string" || typeof reason !== "string") return null;
+    if (year !== null && year !== undefined && typeof year !== "number") return null;
+    if (!Array.isArray(candidates)) return null;
+    const cands = candidates
+      .filter(
+        (c): c is { imdbId: string; title: string; score: number } =>
+          typeof c === "object" &&
+          c !== null &&
+          typeof (c as Record<string, unknown>).imdbId === "string" &&
+          IMDB_ID.test((c as Record<string, unknown>).imdbId as string) &&
+          typeof (c as Record<string, unknown>).title === "string" &&
+          typeof (c as Record<string, unknown>).score === "number",
+      )
+      .map((c) => ({ imdbId: c.imdbId, title: c.title, score: c.score }));
+    out.push({ name, year: year ?? null, reason, candidates: cands });
+  }
+  return out;
+}
+
 const RESERVED = new Set(["manifest.json", "catalog", "configure", "chart.json", "status.json", "exclusions", "configure.js"]);
 
 /** Splits "/{cfg?}/rest/of/path" — cfg is present iff the first segment decodes as a config object. */
 function splitConfig(segments: string[], envConfig: AddonConfig): { cfg: AddonConfig; rest: string[] } {
   const first = segments[0];
   if (first && !RESERVED.has(first)) {
-    const cfg = decodeConfig(decodeURIComponent(first));
-    if (cfg) return { cfg, rest: segments.slice(1) };
+    try {
+      const cfg = decodeConfig(decodeURIComponent(first));
+      if (cfg) return { cfg, rest: segments.slice(1) };
+    } catch {
+      // malformed percent-encoding: not a config, fall through to envConfig
+    }
   }
   return { cfg: envConfig, rest: segments };
 }
@@ -88,6 +129,9 @@ async function watchedIds(providers: WatchedProvider[]): Promise<{ ids: Set<stri
   for (const p of providers) {
     try {
       for (const id of await p.getWatchedIds()) ids.add(id);
+      // providers that degrade gracefully (RSS serving its accumulated set on
+      // feed failure) still report the error here so /status.json shows it
+      if (p instanceof LetterboxdRssProvider && p.lastError) errors.push(`${p.name}: ${p.lastError}`);
     } catch (e) {
       // a failing watched source must never take the catalog down — it just
       // risks showing films that were already seen
@@ -99,7 +143,7 @@ async function watchedIds(providers: WatchedProvider[]): Promise<{ ids: Set<stri
 
 function chartService(deps: AddonDeps): ChartService {
   return new ChartService(
-    [new ImdbGraphqlProvider(), new SnapshotProvider(deps.snapshot, deps.snapshotUrl ?? null)],
+    deps.chartProviders ?? [new ImdbGraphqlProvider(), new SnapshotProvider(deps.snapshot, deps.snapshotUrl ?? null)],
     deps.cache,
   );
 }
@@ -133,7 +177,12 @@ export async function handleRequest(
     if (id !== CATALOG_ID) return json(404, { err: "unknown catalog" });
 
     let skip = 0;
-    const extra = rest[3]?.replace(/\.json$/, "");
+    let extra: string | undefined;
+    try {
+      extra = rest[3] ? decodeURIComponent(rest[3]).replace(/\.json$/, "") : undefined;
+    } catch {
+      extra = undefined; // malformed percent-encoding — treat as no extra
+    }
     if (extra) {
       const m = extra.match(/(?:^|&)skip=(\d+)/);
       if (m) skip = Number(m[1]);
@@ -178,14 +227,19 @@ export async function handleRequest(
   // leaves the user's machine. Omitted fields keep their stored value, so a
   // checklist-only update can't wipe the CSV-matched set.
   if (rest[0] === "exclusions" && method === "POST") {
-    let payload: Partial<StoredExclusions> & { storageKey?: string };
+    // bodies are small by design (~250 ids + a short ambiguity report)
+    if (body && body.length > MAX_BODY_BYTES) return json(413, { err: "payload too large" });
+    let payload: Partial<StoredExclusions> & { storageKey?: unknown };
     try {
       payload = JSON.parse(body ?? "null");
     } catch {
       return json(400, { err: "invalid json" });
     }
+    if (typeof payload !== "object" || payload === null || Array.isArray(payload)) {
+      return json(400, { err: "invalid json" });
+    }
     const validIds = (v: unknown): v is string[] =>
-      Array.isArray(v) && v.every((id) => typeof id === "string" && /^tt\d{4,10}$/.test(id));
+      Array.isArray(v) && v.length <= MAX_EXCLUSION_IDS && v.every((id) => typeof id === "string" && IMDB_ID.test(id));
     for (const field of ["excludedImdbIds", "manualExclusions"] as const) {
       if (payload[field] !== undefined && !validIds(payload[field])) {
         return json(400, { err: `invalid imdb id in ${field}` });
@@ -195,19 +249,30 @@ export async function handleRequest(
       return json(400, { err: "excludedImdbIds[] or manualExclusions[] required" });
     }
 
+    let ambiguous: StoredExclusions["ambiguous"] | undefined;
+    if (payload.ambiguous !== undefined) {
+      ambiguous = sanitizeAmbiguous(payload.ambiguous) ?? undefined;
+      if (!ambiguous) return json(400, { err: "invalid ambiguous[] entries" });
+    }
+
     // storageKey = unguessable uuid generated by the configure page; knowing
     // it grants write access to that exclusion set. If the URL config carries
-    // one, the payload must match it.
+    // one, the payload must match it. A storageKey is required so anonymous
+    // writes can't land in the shared "default" scope.
+    if (payload.storageKey !== undefined && typeof payload.storageKey !== "string") {
+      return json(400, { err: "invalid storageKey" });
+    }
     if (cfg.storageKey && payload.storageKey !== cfg.storageKey) {
       return json(403, { err: "storageKey mismatch" });
     }
-    const storageKey = cfg.storageKey ?? payload.storageKey ?? DEFAULT_STORAGE_KEY;
+    const storageKey = cfg.storageKey ?? payload.storageKey;
+    if (!storageKey) return json(400, { err: "storageKey required" });
     const provider = new ExclusionsProvider(deps.store, storageKey);
     const existing = await provider.getStored();
     const merged = {
       excludedImdbIds: [...new Set(payload.excludedImdbIds ?? existing?.excludedImdbIds ?? [])],
       manualExclusions: [...new Set(payload.manualExclusions ?? existing?.manualExclusions ?? [])],
-      ambiguous: Array.isArray(payload.ambiguous) ? payload.ambiguous : (existing?.ambiguous ?? []),
+      ambiguous: ambiguous ?? existing?.ambiguous ?? [],
       updatedAt: new Date().toISOString(),
     };
     await provider.put(merged);
