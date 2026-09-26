@@ -26,7 +26,7 @@ export class SnapshotProvider implements ChartProvider {
   async getChart(): Promise<RankedFilm[]> {
     let snap = this.snapshot;
     if (this.url) {
-      const res = await this.fetchImpl(this.url);
+      const res = await this.fetchImpl(this.url, { signal: AbortSignal.timeout(10_000) });
       if (!res.ok) throw new Error(`snapshot fetch: HTTP ${res.status}`);
       snap = (await res.json()) as SnapshotFile;
     }

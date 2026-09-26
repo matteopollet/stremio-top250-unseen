@@ -60,6 +60,7 @@ export class ImdbGraphqlProvider implements ChartProvider {
         "User-Agent": "Mozilla/5.0 (compatible; stremio-top250-unseen)",
       },
       body: JSON.stringify({ query: QUERY }),
+      signal: AbortSignal.timeout(10_000),
     });
     if (!res.ok) throw new Error(`imdb graphql: HTTP ${res.status}`);
     const body = (await res.json()) as GqlResponse;

@@ -61,6 +61,8 @@ export interface KeyValueStore {
 
 export class LetterboxdRssProvider implements WatchedProvider {
   readonly name = "letterboxd-rss";
+  /** last fetch/resolve failure — surfaced by /status.json for observability */
+  lastError: string | null = null;
 
   constructor(
     private username: string,
@@ -68,7 +70,8 @@ export class LetterboxdRssProvider implements WatchedProvider {
     private store: KeyValueStore,
     private resolver: IdResolver,
     // never a bare `fetch` reference — detached fetch throws "Illegal invocation" on Workers
-    private fetchImpl: (url: string) => Promise<{ ok: boolean; status: number; text(): Promise<string> }> = (url) => fetch(url),
+    private fetchImpl: (url: string) => Promise<{ ok: boolean; status: number; text(): Promise<string> }> = (url) =>
+      fetch(url, { signal: AbortSignal.timeout(10_000) }),
   ) {}
 
   private get storeKey() {
@@ -78,10 +81,18 @@ export class LetterboxdRssProvider implements WatchedProvider {
   async getWatchedIds(): Promise<Set<string>> {
     const accumulated = new Set<string>((await this.store.get<string[]>(this.storeKey)) ?? []);
 
-    const items = await this.fetchFeed();
-    const resolved = await this.resolver.resolveTmdbIds(items.map((i) => i.tmdbId));
-    for (const imdbId of resolved.values()) accumulated.add(imdbId);
-    await this.store.set(this.storeKey, [...accumulated]);
+    // A failing feed must NOT drop the accumulated set: resolved ids are
+    // permanent exclusions, and a transient outage would otherwise resurrect
+    // watched films in the catalog until Letterboxd recovers.
+    try {
+      const items = await this.fetchFeed();
+      const resolved = await this.resolver.resolveTmdbIds(items.map((i) => i.tmdbId));
+      for (const imdbId of resolved.values()) accumulated.add(imdbId);
+      await this.store.set(this.storeKey, [...accumulated]);
+      this.lastError = null;
+    } catch (e) {
+      this.lastError = (e as Error).message;
+    }
 
     return accumulated;
   }
