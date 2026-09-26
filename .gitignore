@@ -7,3 +7,7 @@ dist/
 data/local/
 *.tsbuildinfo
 .DS_Store
+
+# impeccable skill artifacts
+.agents/
+.impeccable/
