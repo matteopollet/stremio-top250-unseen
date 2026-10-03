@@ -23,7 +23,7 @@
     "deploy:worker": "npm run build:configure && wrangler deploy"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^5.20260925.1",
+    "@cloudflare/workers-types": "^5.20260930.2",
     "@types/node": "^22.0.0",
     "esbuild": "^0.28.2",
     "tsx": "^4.19.0",
