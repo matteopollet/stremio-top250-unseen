@@ -1,6 +1,6 @@
 {
  "source": "https://api.graphql.imdb.com chartTitles TOP_RATED_MOVIES",
- "fetchedAt": "2026-10-19T12:28:10.315Z",
+ "fetchedAt": "2026-10-26T12:27:03.914Z",
  "films": [
   {
    "rank": 1,
@@ -377,7 +377,7 @@
    "title": "The Prestige",
    "originalTitle": "The Prestige",
    "year": 2006,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BM2Y0YmM5MWYtZTYzNi00ZjU5LTlmOGYtZDQ4ODQyMjAzNjQ2XkEyXkFqcGc@._V1_.jpg",
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZWU0NWZhYzMtZmNlYy00MjA1LTgyZWEtYmNjNzdjYmRkOTkzXkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.5
   },
   {
@@ -517,20 +517,20 @@
   },
   {
    "rank": 58,
-   "imdbId": "tt0209144",
-   "title": "Memento",
-   "originalTitle": "Memento",
-   "year": 2000,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMGQ3Y2Q4NjktN2E4Ny00Y2Q2LTliZDUtZTNiNjRhY2I0NGIyXkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.4
-  },
-  {
-   "rank": 59,
    "imdbId": "tt4154756",
    "title": "Avengers: Infinity War",
    "originalTitle": "Avengers: Infinity War",
    "year": 2018,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 59,
+   "imdbId": "tt0209144",
+   "title": "Memento",
+   "originalTitle": "Memento",
+   "year": 2000,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMGQ3Y2Q4NjktN2E4Ny00Y2Q2LTliZDUtZTNiNjRhY2I0NGIyXkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.4
   },
   {
@@ -562,20 +562,20 @@
   },
   {
    "rank": 63,
-   "imdbId": "tt33764258",
-   "title": "The Odyssey",
-   "originalTitle": "The Odyssey",
-   "year": 2026,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNTcyNmJlZmQtNDUwYy00NDBjLTg1NGQtYTY2Y2UxMWM3NmI1XkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.4
-  },
-  {
-   "rank": 64,
    "imdbId": "tt0405094",
    "title": "The Lives of Others",
    "originalTitle": "Das Leben der Anderen",
    "year": 2006,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BYjM1N2Q0YWEtN2E5MC00NDM3LTk2NTEtMTc1NTk5OTA5ZGIzXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
+  },
+  {
+   "rank": 64,
+   "imdbId": "tt33764258",
+   "title": "The Odyssey",
+   "originalTitle": "The Odyssey",
+   "year": 2026,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNTcyNmJlZmQtNDUwYy00NDBjLTg1NGQtYTY2Y2UxMWM3NmI1XkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.4
   },
   {
@@ -733,20 +733,20 @@
   },
   {
    "rank": 82,
-   "imdbId": "tt0112573",
-   "title": "Braveheart",
-   "originalTitle": "Braveheart",
-   "year": 1995,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGMxZDBhNGQtYTZlNi00N2UzLWI4NDEtNmUzNWM2NTdmZDA0XkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.3
-  },
-  {
-   "rank": 83,
    "imdbId": "tt0082096",
    "title": "Das Boot",
    "originalTitle": "Das Boot",
    "year": 1981,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGU0MWZlMTUtM2Y3Ny00NGNmLWE5NmEtN2YxOWQzMGM3ZWYzXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 83,
+   "imdbId": "tt0112573",
+   "title": "Braveheart",
+   "originalTitle": "Braveheart",
+   "year": 1995,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGMxZDBhNGQtYTZlNi00N2UzLWI4NDEtNmUzNWM2NTdmZDA0XkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.3
   },
   {
@@ -881,7 +881,7 @@
    "title": "Ikiru",
    "originalTitle": "Ikiru",
    "year": 1952,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMmZiNzExNmUtODU5YS00MDE1LWI0YTItMzVmNjM1ZTQ5NGVhXkEyXkFqcGc@._V1_.jpg",
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOGU1YTBlN2ItMDAxNy00NjM5LWE4MTAtNTBhZmY4ZTgzYTlkXkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.3
   },
   {
@@ -940,21 +940,21 @@
   },
   {
    "rank": 105,
-   "imdbId": "tt0105236",
-   "title": "Reservoir Dogs",
-   "originalTitle": "Reservoir Dogs",
-   "year": 1992,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMmMzYjg4NDctYWY0Mi00OGViLWIzMTMtYWNlZGY5ZDJmYjk3XkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.2
-  },
-  {
-   "rank": 106,
    "imdbId": "tt1049413",
    "title": "Up",
    "originalTitle": "Up",
    "year": 2009,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BNmI1ZTc5MWMtMDYyOS00ZDc2LTkzOTAtNjQ4NWIxNjYyNDgzXkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.3
+  },
+  {
+   "rank": 106,
+   "imdbId": "tt0105236",
+   "title": "Reservoir Dogs",
+   "originalTitle": "Reservoir Dogs",
+   "year": 1992,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMmMzYjg4NDctYWY0Mi00OGViLWIzMTMtYWNlZGY5ZDJmYjk3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
   },
   {
    "rank": 107,
@@ -1039,11 +1039,11 @@
   },
   {
    "rank": 116,
-   "imdbId": "tt0211915",
-   "title": "Amélie",
-   "originalTitle": "Le fabuleux destin d'Amélie Poulain",
-   "year": 2001,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOTNmYzY0MWQtZGZmNy00Y2Y4LWFmMDQtMTZjYTdiYzEwZGQ2XkEyXkFqcGc@._V1_.jpg",
+   "imdbId": "tt0097576",
+   "title": "Indiana Jones and the Last Crusade",
+   "originalTitle": "Indiana Jones and the Last Crusade",
+   "year": 1989,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGIxNzQ0YzYtMjNmYi00YjBlLWFjNzEtNGE3ZGFmYTczM2MwXkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.2
   },
   {
@@ -1057,11 +1057,11 @@
   },
   {
    "rank": 118,
-   "imdbId": "tt0097576",
-   "title": "Indiana Jones and the Last Crusade",
-   "originalTitle": "Indiana Jones and the Last Crusade",
-   "year": 1989,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGIxNzQ0YzYtMjNmYi00YjBlLWFjNzEtNGE3ZGFmYTczM2MwXkEyXkFqcGc@._V1_.jpg",
+   "imdbId": "tt0211915",
+   "title": "Amélie",
+   "originalTitle": "Le fabuleux destin d'Amélie Poulain",
+   "year": 2001,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOTNmYzY0MWQtZGZmNy00Y2Y4LWFmMDQtMTZjYTdiYzEwZGQ2XkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.2
   },
   {
@@ -1102,15 +1102,6 @@
   },
   {
    "rank": 123,
-   "imdbId": "tt0017136",
-   "title": "Metropolis",
-   "originalTitle": "Metropolis",
-   "year": 1927,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjhjMGYyMjAtMzJkYy00NzhlLWIwY2MtMWQ2ODIxZDUyOGYyXkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.2
-  },
-  {
-   "rank": 124,
    "imdbId": "tt0120382",
    "title": "The Truman Show",
    "originalTitle": "The Truman Show",
@@ -1119,12 +1110,21 @@
    "imdbRating": 8.2
   },
   {
-   "rank": 125,
+   "rank": 124,
    "imdbId": "tt0993846",
    "title": "The Wolf of Wall Street",
    "originalTitle": "The Wolf of Wall Street",
    "year": 2013,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 125,
+   "imdbId": "tt0017136",
+   "title": "Metropolis",
+   "originalTitle": "Metropolis",
+   "year": 1927,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjhjMGYyMjAtMzJkYy00NzhlLWIwY2MtMWQ2ODIxZDUyOGYyXkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.2
   },
   {
@@ -1210,21 +1210,21 @@
   },
   {
    "rank": 135,
-   "imdbId": "tt0058625",
-   "title": "Woman in the Dunes",
-   "originalTitle": "Suna no onna",
-   "year": 1964,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BM2E1ZjY5MjItZTUxZS00NTI1LWEwMmEtODhlMDAyMzUyOTRmXkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.4
-  },
-  {
-   "rank": 136,
    "imdbId": "tt0107290",
    "title": "Jurassic Park",
    "originalTitle": "Jurassic Park",
    "year": 1993,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_.jpg",
    "imdbRating": 8.2
+  },
+  {
+   "rank": 136,
+   "imdbId": "tt0058625",
+   "title": "Woman in the Dunes",
+   "originalTitle": "Suna no onna",
+   "year": 1964,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BM2E1ZjY5MjItZTUxZS00NTI1LWEwMmEtODhlMDAyMzUyOTRmXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.4
   },
   {
    "rank": 137,
@@ -1669,20 +1669,20 @@
   },
   {
    "rank": 186,
-   "imdbId": "tt1291584",
-   "title": "Warrior",
-   "originalTitle": "Warrior",
-   "year": 2011,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTk4ODk5MTMyNV5BMl5BanBnXkFtZTcwMDMyNTg0Ng@@._V1_.jpg",
-   "imdbRating": 8.1
-  },
-  {
-   "rank": 187,
    "imdbId": "tt2119532",
    "title": "Hacksaw Ridge",
    "originalTitle": "Hacksaw Ridge",
    "year": 2016,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjQ1NjM3MTUxNV5BMl5BanBnXkFtZTgwMDc5MTY5OTE@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 187,
+   "imdbId": "tt1291584",
+   "title": "Warrior",
+   "originalTitle": "Warrior",
+   "year": 2011,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTk4ODk5MTMyNV5BMl5BanBnXkFtZTcwMDMyNTg0Ng@@._V1_.jpg",
    "imdbRating": 8.1
   },
   {
@@ -1759,20 +1759,20 @@
   },
   {
    "rank": 196,
-   "imdbId": "tt0081398",
-   "title": "Raging Bull",
-   "originalTitle": "Raging Bull",
-   "year": 1980,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjlkYmYyZWQtNTZkOS00ZjA0LWEwNWUtNzE2ZGNiYjg0MjA2XkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.1
-  },
-  {
-   "rank": 197,
    "imdbId": "tt0892769",
    "title": "How to Train Your Dragon",
    "originalTitle": "How to Train Your Dragon",
    "year": 2010,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjA5NDQyMjc2NF5BMl5BanBnXkFtZTcwMjg5ODcyMw@@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 197,
+   "imdbId": "tt0081398",
+   "title": "Raging Bull",
+   "originalTitle": "Raging Bull",
+   "year": 1980,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjlkYmYyZWQtNTZkOS00ZjA0LWEwNWUtNzE2ZGNiYjg0MjA2XkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.1
   },
   {
@@ -1862,7 +1862,7 @@
    "title": "Chainsaw Man - The Movie: Reze Arc",
    "originalTitle": "Gekijô-ban Chensô Man Reze-hen",
    "year": 2025,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZmMzNGVhODktYmU5MS00MDg1LThlNTEtNTMyYTg5MDA0Njk4XkEyXkFqcGc@._V1_.jpg",
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYmUzMTk5MGQtZDg5Yy00MWEzLWIzNjUtNWIyMjFjODhiYjcyXkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.3
   },
   {
@@ -1921,33 +1921,6 @@
   },
   {
    "rank": 214,
-   "imdbId": "tt0046268",
-   "title": "The Wages of Fear",
-   "originalTitle": "Le salaire de la peur",
-   "year": 1953,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjI3MjU2Mzg2MF5BMl5BanBnXkFtZTgwOTg2MTMzMjE@._V1_.jpg",
-   "imdbRating": 8.1
-  },
-  {
-   "rank": 215,
-   "imdbId": "tt0077416",
-   "title": "The Deer Hunter",
-   "originalTitle": "The Deer Hunter",
-   "year": 1978,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZGI4YmVhMzMtMWExMS00MGZiLTg2MmItM2I2MWZjODAyM2U5XkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.1
-  },
-  {
-   "rank": 216,
-   "imdbId": "tt3315342",
-   "title": "Logan",
-   "originalTitle": "Logan",
-   "year": 2017,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BM2JjODdkMGMtNmY2YS00OGM2LThiY2YtZGYyNzE4Nzc2ODA0XkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.1
-  },
-  {
-   "rank": 217,
    "imdbId": "tt0325980",
    "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
    "originalTitle": "Pirates of the Caribbean: The Curse of the Black Pearl",
@@ -1956,12 +1929,39 @@
    "imdbRating": 8.1
   },
   {
-   "rank": 218,
+   "rank": 215,
+   "imdbId": "tt3315342",
+   "title": "Logan",
+   "originalTitle": "Logan",
+   "year": 2017,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BM2JjODdkMGMtNmY2YS00OGM2LThiY2YtZGYyNzE4Nzc2ODA0XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 216,
    "imdbId": "tt0075148",
    "title": "Rocky",
    "originalTitle": "Rocky",
    "year": 1976,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BZDEyY2M2MGMtYjg5OC00ZWFjLWFkZDQtNmQzZTdiYmYzZTBkXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 217,
+   "imdbId": "tt0077416",
+   "title": "The Deer Hunter",
+   "originalTitle": "The Deer Hunter",
+   "year": 1978,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZGI4YmVhMzMtMWExMS00MGZiLTg2MmItM2I2MWZjODAyM2U5XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 218,
+   "imdbId": "tt0046268",
+   "title": "The Wages of Fear",
+   "originalTitle": "Le salaire de la peur",
+   "year": 1953,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjI3MjU2Mzg2MF5BMl5BanBnXkFtZTgwOTg2MTMzMjE@._V1_.jpg",
    "imdbRating": 8.1
   },
   {
@@ -1993,6 +1993,15 @@
   },
   {
    "rank": 222,
+   "imdbId": "tt26548265",
+   "title": "Maharaja",
+   "originalTitle": "Maharaja",
+   "year": 2024,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNWMwMzQwOWEtNTgyYy00MzM1LTg3ODktZDM5YWI5NjhiOTc3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 223,
    "imdbId": "tt0113247",
    "title": "La haine",
    "originalTitle": "La haine",
@@ -2001,16 +2010,16 @@
    "imdbRating": 8.1
   },
   {
-   "rank": 223,
-   "imdbId": "tt26548265",
-   "title": "Maharaja",
-   "originalTitle": "Maharaja",
-   "year": 2024,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOTFlMTIxOGItZTk0Zi00MTk2LWJiM2UtMzlhZWYzNjQ4N2Y3XkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.3
+   "rank": 224,
+   "imdbId": "tt15097216",
+   "title": "Jai Bhim",
+   "originalTitle": "Jai Bhim",
+   "year": 2021,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZjEyNDIzNmEtMjdkYS00ZDAwLTljOWYtNDRhYTVhYTlmOTk1XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.6
   },
   {
-   "rank": 224,
+   "rank": 225,
    "imdbId": "tt0059742",
    "title": "The Sound of Music",
    "originalTitle": "The Sound of Music",
@@ -2019,22 +2028,13 @@
    "imdbRating": 8.1
   },
   {
-   "rank": 225,
+   "rank": 226,
    "imdbId": "tt1895587",
    "title": "Spotlight",
    "originalTitle": "Spotlight",
    "year": 2015,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjIyOTM5OTIzNV5BMl5BanBnXkFtZTgwMDkzODE2NjE@._V1_.jpg",
    "imdbRating": 8.1
-  },
-  {
-   "rank": 226,
-   "imdbId": "tt15097216",
-   "title": "Jai Bhim",
-   "originalTitle": "Jai Bhim",
-   "year": 2021,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZjEyNDIzNmEtMjdkYS00ZDAwLTljOWYtNDRhYTVhYTlmOTk1XkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.6
   },
   {
    "rank": 227,
@@ -2182,20 +2182,20 @@
   },
   {
    "rank": 243,
-   "imdbId": "tt0092005",
-   "title": "Stand by Me",
-   "originalTitle": "Stand by Me",
-   "year": 1986,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGJkNTUwM2MtZWE2MS00YjNkLWE3MjktNWQwZDQxMDIyZWVmXkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.1
-  },
-  {
-   "rank": 244,
    "imdbId": "tt0058946",
    "title": "The Battle of Algiers",
    "originalTitle": "La battaglia di Algeri",
    "year": 1966,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTY2Mjk0OGEtYTM3Yy00ZWZiLWFhNjAtNGExMjEzNGVmMDMxXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 244,
+   "imdbId": "tt0092005",
+   "title": "Stand by Me",
+   "originalTitle": "Stand by Me",
+   "year": 1986,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGJkNTUwM2MtZWE2MS00YjNkLWE3MjktNWQwZDQxMDIyZWVmXkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.1
   },
   {
@@ -2245,11 +2245,11 @@
   },
   {
    "rank": 250,
-   "imdbId": "tt8108198",
-   "title": "Andhadhun",
-   "originalTitle": "Andhadhun",
-   "year": 2018,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZjc5OWIzOTgtMmM2ZS00ZjZhLTkyZWItMTFjYTc0NWQ4NzhkXkEyXkFqcGc@._V1_.jpg",
+   "imdbId": "tt10431500",
+   "title": "Miracle in Cell No. 7",
+   "originalTitle": "Yedinci Kogustaki Mucize",
+   "year": 2019,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTEyZTQ4YWItMzNkNi00MTUwLWEyODAtMWI3NDNhNDRiYmQwXkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.2
   }
  ]
