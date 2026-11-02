@@ -1,6 +1,6 @@
 {
  "source": "https://api.graphql.imdb.com chartTitles TOP_RATED_MOVIES",
- "fetchedAt": "2026-10-26T12:27:03.914Z",
+ "fetchedAt": "2026-11-02T14:59:56.909Z",
  "films": [
   {
    "rank": 1,
@@ -733,20 +733,20 @@
   },
   {
    "rank": 82,
-   "imdbId": "tt0082096",
-   "title": "Das Boot",
-   "originalTitle": "Das Boot",
-   "year": 1981,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGU0MWZlMTUtM2Y3Ny00NGNmLWE5NmEtN2YxOWQzMGM3ZWYzXkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.3
-  },
-  {
-   "rank": 83,
    "imdbId": "tt0112573",
    "title": "Braveheart",
    "originalTitle": "Braveheart",
    "year": 1995,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGMxZDBhNGQtYTZlNi00N2UzLWI4NDEtNmUzNWM2NTdmZDA0XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
+  },
+  {
+   "rank": 83,
+   "imdbId": "tt0082096",
+   "title": "Das Boot",
+   "originalTitle": "Das Boot",
+   "year": 1981,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGU0MWZlMTUtM2Y3Ny00NGNmLWE5NmEtN2YxOWQzMGM3ZWYzXkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.3
   },
   {
@@ -778,6 +778,15 @@
   },
   {
    "rank": 87,
+   "imdbId": "tt33175825",
+   "title": "Attack on Titan: The Last Attack",
+   "originalTitle": "Shingeki no Kyojin: The Last Attack",
+   "year": 2024,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNzVjOWEwYjEtNDJhOC00YjUyLThjMWItMDQwZGY1ODM4YzI3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.9
+  },
+  {
+   "rank": 88,
    "imdbId": "tt0169547",
    "title": "American Beauty",
    "originalTitle": "American Beauty",
@@ -786,22 +795,13 @@
    "imdbRating": 8.3
   },
   {
-   "rank": 88,
+   "rank": 89,
    "imdbId": "tt8267604",
    "title": "Capernaum",
    "originalTitle": "Capharnaüm",
    "year": 2018,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BYzEyMzQ1OTktZTljZi00OWQzLWE2ZmUtZjQyNzBjYjE1NTc0XkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.4
-  },
-  {
-   "rank": 89,
-   "imdbId": "tt33175825",
-   "title": "Attack on Titan: The Last Attack",
-   "originalTitle": "Shingeki no Kyojin: The Last Attack",
-   "year": 2024,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNzVjOWEwYjEtNDJhOC00YjUyLThjMWItMDQwZGY1ODM4YzI3XkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.9
   },
   {
    "rank": 90,
@@ -1057,20 +1057,20 @@
   },
   {
    "rank": 118,
-   "imdbId": "tt0211915",
-   "title": "Amélie",
-   "originalTitle": "Le fabuleux destin d'Amélie Poulain",
-   "year": 2001,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOTNmYzY0MWQtZGZmNy00Y2Y4LWFmMDQtMTZjYTdiYzEwZGQ2XkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.2
-  },
-  {
-   "rank": 119,
    "imdbId": "tt0052357",
    "title": "Vertigo",
    "originalTitle": "Vertigo",
    "year": 1958,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BNzEyZTUxMWItMGVhYy00Y2NlLTljYTMtYzBmMzI1YmUyMDBkXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 119,
+   "imdbId": "tt0211915",
+   "title": "Amélie",
+   "originalTitle": "Le fabuleux destin d'Amélie Poulain",
+   "year": 2001,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOTNmYzY0MWQtZGZmNy00Y2Y4LWFmMDQtMTZjYTdiYzEwZGQ2XkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.2
   },
   {
@@ -1309,20 +1309,20 @@
   },
   {
    "rank": 146,
-   "imdbId": "tt0012349",
-   "title": "The Kid",
-   "originalTitle": "The Kid",
-   "year": 1921,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNjkxMzY1NTQtN2YwOS00NmIwLTlkNTMtMjNkMzk1ZTk3ZDU2XkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.2
-  },
-  {
-   "rank": 147,
    "imdbId": "tt0042192",
    "title": "All About Eve",
    "originalTitle": "All About Eve",
    "year": 1950,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTY2MTAzODI5NV5BMl5BanBnXkFtZTgwMjM4NzQ0MjE@._V1_.jpg",
+   "imdbRating": 8.2
+  },
+  {
+   "rank": 147,
+   "imdbId": "tt0012349",
+   "title": "The Kid",
+   "originalTitle": "The Kid",
+   "year": 1921,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNjkxMzY1NTQtN2YwOS00NmIwLTlkNTMtMjNkMzk1ZTk3ZDU2XkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.2
   },
   {
@@ -1462,15 +1462,6 @@
   },
   {
    "rank": 163,
-   "imdbId": "tt32820897",
-   "title": "Demon Slayer: Kimetsu No Yaiba Infinity Castle",
-   "originalTitle": "Gekijô-ban Kimetsu no Yaiba Mugen Jô-hen",
-   "year": 2025,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOGQ3YWUzYjEtMTJiYy00ZjQ0LWI0YjktYjhiNGVhNGExYTM3XkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.3
-  },
-  {
-   "rank": 164,
    "imdbId": "tt0055630",
    "title": "Yojimbo",
    "originalTitle": "Yôjinbô",
@@ -1479,13 +1470,22 @@
    "imdbRating": 8.2
   },
   {
-   "rank": 165,
+   "rank": 164,
    "imdbId": "tt0080678",
    "title": "The Elephant Man",
    "originalTitle": "The Elephant Man",
    "year": 1980,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BMGE2MzViYzEtZDFmOC00YmViLWFkZTQtYmI2NmI3NDJjMDc0XkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.2
+  },
+  {
+   "rank": 165,
+   "imdbId": "tt32820897",
+   "title": "Demon Slayer: Kimetsu No Yaiba Infinity Castle",
+   "originalTitle": "Gekijô-ban Kimetsu no Yaiba Mugen Jô-hen",
+   "year": 2025,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BOGQ3YWUzYjEtMTJiYy00ZjQ0LWI0YjktYjhiNGVhNGExYTM3XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.3
   },
   {
    "rank": 166,
@@ -1997,11 +1997,20 @@
    "title": "Maharaja",
    "originalTitle": "Maharaja",
    "year": 2024,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNWMwMzQwOWEtNTgyYy00MzM1LTg3ODktZDM5YWI5NjhiOTc3XkEyXkFqcGc@._V1_.jpg",
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZWQ2YzJmNjMtNGEzMC00YzkwLTk0Y2QtODdkMjFkM2UwNDU1XkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.3
   },
   {
    "rank": 223,
+   "imdbId": "tt0059742",
+   "title": "The Sound of Music",
+   "originalTitle": "The Sound of Music",
+   "year": 1965,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYWJhYmU4MjQtZDJhYi00ZGVjLTlkNTEtNzkzNGVjOWQ3MjcwXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 224,
    "imdbId": "tt0113247",
    "title": "La haine",
    "originalTitle": "La haine",
@@ -2010,22 +2019,13 @@
    "imdbRating": 8.1
   },
   {
-   "rank": 224,
+   "rank": 225,
    "imdbId": "tt15097216",
    "title": "Jai Bhim",
    "originalTitle": "Jai Bhim",
    "year": 2021,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BZjEyNDIzNmEtMjdkYS00ZDAwLTljOWYtNDRhYTVhYTlmOTk1XkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.6
-  },
-  {
-   "rank": 225,
-   "imdbId": "tt0059742",
-   "title": "The Sound of Music",
-   "originalTitle": "The Sound of Music",
-   "year": 1965,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BYWJhYmU4MjQtZDJhYi00ZGVjLTlkNTEtNzkzNGVjOWQ3MjcwXkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.1
   },
   {
    "rank": 226,
@@ -2056,20 +2056,20 @@
   },
   {
    "rank": 229,
-   "imdbId": "tt0047296",
-   "title": "On the Waterfront",
-   "originalTitle": "On the Waterfront",
-   "year": 1954,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZDJlYTM1ZGYtZTM4YS00MzFhLThiZjktYzQ0ZjAzMGYwZTU3XkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.1
-  },
-  {
-   "rank": 230,
    "imdbId": "tt0036868",
    "title": "The Best Years of Our Lives",
    "originalTitle": "The Best Years of Our Lives",
    "year": 1946,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BNTgxMzUyODQtMDJmZC00ZGMyLWI3MzAtZTYwYjBjZjFmMzIxXkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
+  },
+  {
+   "rank": 230,
+   "imdbId": "tt0047296",
+   "title": "On the Waterfront",
+   "originalTitle": "On the Waterfront",
+   "year": 1954,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BZDJlYTM1ZGYtZTM4YS00MzFhLThiZjktYzQ0ZjAzMGYwZTU3XkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.1
   },
   {
@@ -2218,21 +2218,21 @@
   },
   {
    "rank": 247,
-   "imdbId": "tt0019254",
-   "title": "The Passion of Joan of Arc",
-   "originalTitle": "La passion de Jeanne d'Arc",
-   "year": 1928,
-   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNTE1MDliZjgtYTU2Yy00YjAxLTljYTItNDE2ZGYwYTY1MGQ1XkEyXkFqcGc@._V1_.jpg",
-   "imdbRating": 8.1
-  },
-  {
-   "rank": 248,
    "imdbId": "tt4430212",
    "title": "Drishyam",
    "originalTitle": "Drishyam",
    "year": 2015,
    "posterUrl": "https://m.media-amazon.com/images/M/MV5BYjMzZTU0NzUtZGQ0MC00Y2M4LWI5ZDUtZjY1YmNjMjNmNmI3XkEyXkFqcGc@._V1_.jpg",
    "imdbRating": 8.2
+  },
+  {
+   "rank": 248,
+   "imdbId": "tt0019254",
+   "title": "The Passion of Joan of Arc",
+   "originalTitle": "La passion de Jeanne d'Arc",
+   "year": 1928,
+   "posterUrl": "https://m.media-amazon.com/images/M/MV5BNTE1MDliZjgtYTU2Yy00YjAxLTljYTItNDE2ZGYwYTY1MGQ1XkEyXkFqcGc@._V1_.jpg",
+   "imdbRating": 8.1
   },
   {
    "rank": 249,
